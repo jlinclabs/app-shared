@@ -43,6 +43,7 @@
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "brittle": "^3.1.0",
+    "commander": "^9.4.1",
     "concurrently": "^7.4.0",
     "cookies": "^0.8.0",
     "dids": "^3.3.0",
