@@ -25,9 +25,9 @@
     "app-shared": "bin/app-shared.js"
   },
   "files": [
-    "./*.js",
-    "./client/*",
-    "./server/*"
+    "*.js",
+    "client/*",
+    "server/*"
   ],
   "peerDependencies": {
     "@emotion/react": "^11.10.4",
