@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -e
+# set -x
+
+APP_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && cd .. && pwd)
+APP_PATH=$1
+
+# if no app path exists
+if [[ -d "$APP_PATH" ]];
+then
+  true
+else
+  echo "app does not exist $APP_PATH" 1>&2
+  exit 1
+fi
+
+if [ -z "$API_SERVER" ]; then
+  echo "ERROR: \$API_SERVER is not set" 1>&2
+  exit 1
+else
+  echo API_SERVER=${API_SERVER}
+fi
+
+PORT=$(dotenv -e ${APP_PATH}/.env -p PORT)
+echo PORT=${PORT}
+
+cat > "${APP_ROOT}/.proxyrc" <<-EOF
+{
+  "/api": {
+    "target": "${API_SERVER}"
+  }
+}
+EOF
+
+dotenv -e "${APP_PATH}/.env" -- npx parcel serve \
+  --port ${PORT} \
+  --cache-dir "${APP_PATH}/tmp/cache" \
+  --dist-dir "${APP_PATH}/client-build" \
+  "${APP_PATH}/client/index.html"
