@@ -7,8 +7,8 @@
     "node": ">= 16"
   },
   "scripts": {
-    "watch": "parcel watch client/**/*.js",
-    "build": "parcel build client/**/*.js",
+    "watch": "parcel watch client/**/*",
+    "build": "parcel build client/**/*",
     "postinstall": "echo npm run build"
   },
   "repository": {
