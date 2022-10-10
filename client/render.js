@@ -1,6 +1,6 @@
 import {jsx as $h2dLv$jsx, jsxs as $h2dLv$jsxs} from "react/jsx-runtime";
 import {StrictMode as $h2dLv$StrictMode, useEffect as $h2dLv$useEffect, useState as $h2dLv$useState, useCallback as $h2dLv$useCallback, forwardRef as $h2dLv$forwardRef} from "react";
-import "react-dom/client";
+import $h2dLv$reactdomclient from "react-dom/client";
 import {BrowserRouter as $h2dLv$BrowserRouter, Route as $h2dLv$Route, useLocation as $h2dLv$useLocation, Routes as $h2dLv$Routes, useNavigate as $h2dLv$useNavigate, Link as $h2dLv$Link} from "react-router-dom";
 import {ThemeProvider as $h2dLv$ThemeProvider, CssBaseline as $h2dLv$CssBaseline} from "@mui/material";
 import {createTheme as $h2dLv$createTheme} from "@mui/material/styles";
@@ -812,9 +812,10 @@ function $8ea33c689192dd62$export$2e2bcd8739ae039() {
 
 
 
+const $3d27138bea64f431$var$root = (0, $h2dLv$reactdomclient).createRoot(document.querySelector("body > main"));
 function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
     const { Routes: Routes , theme: theme = (0, $c8b71836488e4bbe$export$2e2bcd8739ae039) ,  } = opts;
-    root.render(/*#__PURE__*/ (0, $h2dLv$jsx)($h2dLv$StrictMode, {
+    $3d27138bea64f431$var$root.render(/*#__PURE__*/ (0, $h2dLv$jsx)($h2dLv$StrictMode, {
         children: /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$BrowserRouter), {
             children: /*#__PURE__*/ (0, $h2dLv$jsxs)((0, $h2dLv$ThemeProvider), {
                 theme: theme,
@@ -838,10 +839,7 @@ function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
             })
         })
     }));
-} // // If you want to start measuring performance in your app, pass a function
- // // to log results (for example: reportWebVitals(console.log))
- // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
- // reportWebVitals(console.log)
+}
 
 
 export {$3d27138bea64f431$export$b3890eb0ae9dca99 as render};
