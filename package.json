@@ -9,7 +9,7 @@
   "scripts": {
     "watch": "parcel watch client/**/*.js",
     "build": "parcel build client/**/*.js",
-    "postinstall": "npm run build"
+    "postinstall": "echo npm run build"
   },
   "repository": {
     "type": "git",
