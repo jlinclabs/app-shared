@@ -1,12 +1,12 @@
-import {jsx as $8AaBF$jsx} from "react/jsx-runtime";
-import {useCallback as $8AaBF$useCallback} from "react";
-import $8AaBF$muimaterialBox from "@mui/material/Box";
+import {jsx as $gegTa$jsx} from "react/jsx-runtime";
+import {useCallback as $gegTa$useCallback} from "react";
+import $gegTa$muimaterialBox from "@mui/material/Box";
 
 
 
 
-function $6252030698aa3768$export$2e2bcd8739ae039({ disabled: disabled , children: children , onSubmit: onSubmit , ...props }) {
-    const _onSubmit = $8AaBF$useCallback((event)=>{
+function $1abdbf2868e540b2$export$2e2bcd8739ae039({ disabled: disabled , children: children , onSubmit: onSubmit , ...props }) {
+    const _onSubmit = $gegTa$useCallback((event)=>{
         event.preventDefault();
         if (disabled || !onSubmit) return;
         const formData = new FormData(event.currentTarget);
@@ -15,7 +15,7 @@ function $6252030698aa3768$export$2e2bcd8739ae039({ disabled: disabled , childre
         disabled,
         onSubmit
     ]);
-    return /*#__PURE__*/ (0, $8AaBF$jsx)((0, $8AaBF$muimaterialBox), {
+    return /*#__PURE__*/ (0, $gegTa$jsx)((0, $gegTa$muimaterialBox), {
         component: "form",
         disabled: disabled,
         ...props,
@@ -25,4 +25,5 @@ function $6252030698aa3768$export$2e2bcd8739ae039({ disabled: disabled , childre
 }
 
 
-export {$6252030698aa3768$export$2e2bcd8739ae039 as default};
+export {$1abdbf2868e540b2$export$2e2bcd8739ae039 as default};
+//# sourceMappingURL=Form.js.map

@@ -1,19 +1,20 @@
-import {jsx as $lW3OE$jsx} from "react/jsx-runtime";
+import {jsx as $PB43f$jsx} from "react/jsx-runtime";
 import "react";
-import $lW3OE$muimaterialAlert from "@mui/material/Alert";
+import $PB43f$muimaterialAlert from "@mui/material/Alert";
 
 
 
 
-const $79fa5d701d61042d$var$ErrorMessage = ({ error: error , ...props })=>{
+const $e57fa53a045bcfbf$var$ErrorMessage = ({ error: error , ...props })=>{
     if (!error) return null;
-    return /*#__PURE__*/ (0, $lW3OE$jsx)((0, $lW3OE$muimaterialAlert), {
+    return /*#__PURE__*/ (0, $PB43f$jsx)((0, $PB43f$muimaterialAlert), {
         severity: "error",
         ...props,
         children: error.message
     });
 };
-var $79fa5d701d61042d$export$2e2bcd8739ae039 = $79fa5d701d61042d$var$ErrorMessage;
+var $e57fa53a045bcfbf$export$2e2bcd8739ae039 = $e57fa53a045bcfbf$var$ErrorMessage;
 
 
-export {$79fa5d701d61042d$export$2e2bcd8739ae039 as default};
+export {$e57fa53a045bcfbf$export$2e2bcd8739ae039 as default};
+//# sourceMappingURL=ErrorMessage.js.map

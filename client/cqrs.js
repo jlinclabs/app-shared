@@ -1,5 +1,5 @@
-import {useCallback as $gM7ic$useCallback, useEffect as $gM7ic$useEffect, useState as $gM7ic$useState} from "react";
-import $gM7ic$swr from "swr";
+import {useCallback as $cCL01$useCallback, useEffect as $cCL01$useEffect, useState as $cCL01$useState} from "react";
+import $cCL01$swr from "swr";
 
 function $parcel$defineInteropFlag(a) {
   Object.defineProperty(a, '__esModule', {value: true, configurable: true});
@@ -9,50 +9,50 @@ function $parcel$export(e, n, v, s) {
 }
 
 
-var $2e683807ce90e650$exports = {};
+var $27954de794c56674$exports = {};
 
-$parcel$defineInteropFlag($2e683807ce90e650$exports);
+$parcel$defineInteropFlag($27954de794c56674$exports);
 
-$parcel$export($2e683807ce90e650$exports, "default", () => $2e683807ce90e650$export$2e2bcd8739ae039);
+$parcel$export($27954de794c56674$exports, "default", () => $27954de794c56674$export$2e2bcd8739ae039);
 
 
-var $8e5aa45bd2bf2df3$exports = {};
+var $b6a953b0721d86c6$exports = {};
 
-$parcel$defineInteropFlag($8e5aa45bd2bf2df3$exports);
+$parcel$defineInteropFlag($b6a953b0721d86c6$exports);
 
-$parcel$export($8e5aa45bd2bf2df3$exports, "default", () => $8e5aa45bd2bf2df3$export$2e2bcd8739ae039);
+$parcel$export($b6a953b0721d86c6$exports, "default", () => $b6a953b0721d86c6$export$2e2bcd8739ae039);
 
-const $8e5aa45bd2bf2df3$var$noop = ()=>{};
-function $8e5aa45bd2bf2df3$export$2e2bcd8739ae039() {
-    let setState = (0, $gM7ic$useState)()[1];
-    (0, $gM7ic$useEffect)(()=>()=>{
-            setState = $8e5aa45bd2bf2df3$var$noop;
+const $b6a953b0721d86c6$var$noop = ()=>{};
+function $b6a953b0721d86c6$export$2e2bcd8739ae039() {
+    let setState = (0, $cCL01$useState)()[1];
+    (0, $cCL01$useEffect)(()=>()=>{
+            setState = $b6a953b0721d86c6$var$noop;
         }, []);
-    return (0, $gM7ic$useCallback)(()=>{
+    return (0, $cCL01$useCallback)(()=>{
         setState({});
     }, []);
 }
 
 
-const $2e683807ce90e650$var$STATES = [
+const $27954de794c56674$var$STATES = [
     "idle",
     "pending",
     "resolved",
     "rejected"
 ];
-function $2e683807ce90e650$export$2e2bcd8739ae039(asyncFunction, config = {}) {
+function $27954de794c56674$export$2e2bcd8739ae039(asyncFunction, config = {}) {
     const { callOnMount: callOnMount , onSuccess: onSuccess , onFailure: onFailure , onComplete: onComplete  } = config;
-    const forceUpdate = (0, $8e5aa45bd2bf2df3$export$2e2bcd8739ae039)();
-    const [ctx] = (0, $gM7ic$useState)({});
+    const forceUpdate = (0, $b6a953b0721d86c6$export$2e2bcd8739ae039)();
+    const [ctx] = (0, $cCL01$useState)({});
     const setState = (state)=>{
-        ctx.state = $2e683807ce90e650$var$STATES[state];
-        $2e683807ce90e650$var$STATES.forEach((name, index)=>{
+        ctx.state = $27954de794c56674$var$STATES[state];
+        $27954de794c56674$var$STATES.forEach((name, index)=>{
             ctx[name] = index === state;
         });
         forceUpdate();
     };
     if (ctx.state === undefined) setState(0);
-    ctx.call = (0, $gM7ic$useCallback)((...args)=>{
+    ctx.call = (0, $cCL01$useCallback)((...args)=>{
         if (ctx.promise) throw new Error(`already executing`);
         ctx.promise = new Promise((resolve, reject)=>{
             asyncFunction(...args).then(resolve, reject);
@@ -76,8 +76,8 @@ function $2e683807ce90e650$export$2e2bcd8739ae039(asyncFunction, config = {}) {
     }, [
         asyncFunction
     ]);
-    (0, $gM7ic$useEffect)(()=>{
-        if (callOnMount && ctx.state === $2e683807ce90e650$var$STATES["0"]) ctx.call();
+    (0, $cCL01$useEffect)(()=>{
+        if (callOnMount && ctx.state === $27954de794c56674$var$STATES["0"]) ctx.call();
     }, [
         ctx.call,
         callOnMount,
@@ -87,18 +87,18 @@ function $2e683807ce90e650$export$2e2bcd8739ae039(asyncFunction, config = {}) {
 }
 
 
-async function $7f5c6f790c4cfcc9$export$a1c549e76b7f385e(name, options = {}) {
+async function $ba2cbc8f2cb18116$export$a1c549e76b7f385e(name, options = {}) {
     const params = new URLSearchParams(options);
-    return await $7f5c6f790c4cfcc9$var$apiFetch("GET", `/api/${name}?${params}`);
+    return await $ba2cbc8f2cb18116$var$apiFetch("GET", `/api/${name}?${params}`);
 }
-async function $7f5c6f790c4cfcc9$export$df781a4386db1cc8(name, options) {
-    return await $7f5c6f790c4cfcc9$var$apiFetch("POST", `/api/${name}`, options);
+async function $ba2cbc8f2cb18116$export$df781a4386db1cc8(name, options) {
+    return await $ba2cbc8f2cb18116$var$apiFetch("POST", `/api/${name}`, options);
 }
 // window.cqrs = {
 //   query: fetchQuery,
 //   command: fetchCommand,
 // }
-async function $7f5c6f790c4cfcc9$var$apiFetch(method, path, body, tries = 0) {
+async function $ba2cbc8f2cb18116$var$apiFetch(method, path, body, tries = 0) {
     const res = await fetch(path, {
         method: method,
         headers: {
@@ -109,29 +109,29 @@ async function $7f5c6f790c4cfcc9$var$apiFetch(method, path, body, tries = 0) {
     });
     if (res.status === 502) throw new Error(`API server looks down or you're offline`);
     if (res.status === 504 && tries < 5) {
-        await $7f5c6f790c4cfcc9$var$wait(500);
-        return $7f5c6f790c4cfcc9$var$apiFetch(method, path, body, tries + 1);
+        await $ba2cbc8f2cb18116$var$wait(500);
+        return $ba2cbc8f2cb18116$var$apiFetch(method, path, body, tries + 1);
     }
     const { result: result , error: error  } = await res.json();
     if (error) throw new Error(error.message);
     return result || null;
 }
-const $7f5c6f790c4cfcc9$var$wait = (ms)=>new Promise((resolve)=>{
+const $ba2cbc8f2cb18116$var$wait = (ms)=>new Promise((resolve)=>{
         setTimeout(()=>{
             resolve();
         }, ms);
     });
-function $7f5c6f790c4cfcc9$export$dd0a697e1782aedd(name, options = {}, config) {
+function $ba2cbc8f2cb18116$export$dd0a697e1782aedd(name, options = {}, config) {
     const swrKey = name ? [
         name,
         options
     ] : null;
-    const { data: result , error: error , mutate: mutate  } = (0, $gM7ic$swr)(swrKey, {
+    const { data: result , error: error , mutate: mutate  } = (0, $cCL01$swr)(swrKey, {
         ...config,
-        fetcher: $7f5c6f790c4cfcc9$export$a1c549e76b7f385e
+        fetcher: $ba2cbc8f2cb18116$export$a1c549e76b7f385e
     });
     const loading = typeof result === "undefined" && !error;
-    const reload = (0, $gM7ic$useCallback)(()=>{
+    const reload = (0, $cCL01$useCallback)(()=>{
         mutate();
     }, [
         mutate
@@ -144,12 +144,12 @@ function $7f5c6f790c4cfcc9$export$dd0a697e1782aedd(name, options = {}, config) {
         reload: reload
     };
 }
-function $7f5c6f790c4cfcc9$export$194d0c7cb6792e23(name, config) {
-    return (0, $2e683807ce90e650$export$2e2bcd8739ae039)((options)=>$7f5c6f790c4cfcc9$export$df781a4386db1cc8(name, options), config);
+function $ba2cbc8f2cb18116$export$194d0c7cb6792e23(name, config) {
+    return (0, $27954de794c56674$export$2e2bcd8739ae039)((options)=>$ba2cbc8f2cb18116$export$df781a4386db1cc8(name, options), config);
 }
-function $7f5c6f790c4cfcc9$export$b87ac4c6452497e4(name, options, config) {
-    const command = $7f5c6f790c4cfcc9$export$194d0c7cb6792e23(name, config);
-    (0, $gM7ic$useEffect)(()=>{
+function $ba2cbc8f2cb18116$export$b87ac4c6452497e4(name, options, config) {
+    const command = $ba2cbc8f2cb18116$export$194d0c7cb6792e23(name, config);
+    (0, $cCL01$useEffect)(()=>{
         if (command.idle) command.call(options);
     }, [
         name,
@@ -159,4 +159,5 @@ function $7f5c6f790c4cfcc9$export$b87ac4c6452497e4(name, options, config) {
 }
 
 
-export {$7f5c6f790c4cfcc9$export$a1c549e76b7f385e as fetchQuery, $7f5c6f790c4cfcc9$export$df781a4386db1cc8 as fetchCommand, $7f5c6f790c4cfcc9$export$dd0a697e1782aedd as useQuery, $7f5c6f790c4cfcc9$export$194d0c7cb6792e23 as useCommand, $7f5c6f790c4cfcc9$export$b87ac4c6452497e4 as useCommandOnMount};
+export {$ba2cbc8f2cb18116$export$a1c549e76b7f385e as fetchQuery, $ba2cbc8f2cb18116$export$df781a4386db1cc8 as fetchCommand, $ba2cbc8f2cb18116$export$dd0a697e1782aedd as useQuery, $ba2cbc8f2cb18116$export$194d0c7cb6792e23 as useCommand, $ba2cbc8f2cb18116$export$b87ac4c6452497e4 as useCommandOnMount};
+//# sourceMappingURL=cqrs.js.map

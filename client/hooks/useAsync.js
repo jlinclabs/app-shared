@@ -1,4 +1,4 @@
-import {useState as $aY9Ed$useState, useCallback as $aY9Ed$useCallback, useEffect as $aY9Ed$useEffect} from "react";
+import {useState as $kKpXz$useState, useCallback as $kKpXz$useCallback, useEffect as $kKpXz$useEffect} from "react";
 
 function $parcel$defineInteropFlag(a) {
   Object.defineProperty(a, '__esModule', {value: true, configurable: true});
@@ -8,43 +8,43 @@ function $parcel$export(e, n, v, s) {
 }
 
 
-var $8e5aa45bd2bf2df3$exports = {};
+var $b6a953b0721d86c6$exports = {};
 
-$parcel$defineInteropFlag($8e5aa45bd2bf2df3$exports);
+$parcel$defineInteropFlag($b6a953b0721d86c6$exports);
 
-$parcel$export($8e5aa45bd2bf2df3$exports, "default", () => $8e5aa45bd2bf2df3$export$2e2bcd8739ae039);
+$parcel$export($b6a953b0721d86c6$exports, "default", () => $b6a953b0721d86c6$export$2e2bcd8739ae039);
 
-const $8e5aa45bd2bf2df3$var$noop = ()=>{};
-function $8e5aa45bd2bf2df3$export$2e2bcd8739ae039() {
-    let setState = (0, $aY9Ed$useState)()[1];
-    (0, $aY9Ed$useEffect)(()=>()=>{
-            setState = $8e5aa45bd2bf2df3$var$noop;
+const $b6a953b0721d86c6$var$noop = ()=>{};
+function $b6a953b0721d86c6$export$2e2bcd8739ae039() {
+    let setState = (0, $kKpXz$useState)()[1];
+    (0, $kKpXz$useEffect)(()=>()=>{
+            setState = $b6a953b0721d86c6$var$noop;
         }, []);
-    return (0, $aY9Ed$useCallback)(()=>{
+    return (0, $kKpXz$useCallback)(()=>{
         setState({});
     }, []);
 }
 
 
-const $2e683807ce90e650$var$STATES = [
+const $27954de794c56674$var$STATES = [
     "idle",
     "pending",
     "resolved",
     "rejected"
 ];
-function $2e683807ce90e650$export$2e2bcd8739ae039(asyncFunction, config = {}) {
+function $27954de794c56674$export$2e2bcd8739ae039(asyncFunction, config = {}) {
     const { callOnMount: callOnMount , onSuccess: onSuccess , onFailure: onFailure , onComplete: onComplete  } = config;
-    const forceUpdate = (0, $8e5aa45bd2bf2df3$export$2e2bcd8739ae039)();
-    const [ctx] = (0, $aY9Ed$useState)({});
+    const forceUpdate = (0, $b6a953b0721d86c6$export$2e2bcd8739ae039)();
+    const [ctx] = (0, $kKpXz$useState)({});
     const setState = (state)=>{
-        ctx.state = $2e683807ce90e650$var$STATES[state];
-        $2e683807ce90e650$var$STATES.forEach((name, index)=>{
+        ctx.state = $27954de794c56674$var$STATES[state];
+        $27954de794c56674$var$STATES.forEach((name, index)=>{
             ctx[name] = index === state;
         });
         forceUpdate();
     };
     if (ctx.state === undefined) setState(0);
-    ctx.call = (0, $aY9Ed$useCallback)((...args)=>{
+    ctx.call = (0, $kKpXz$useCallback)((...args)=>{
         if (ctx.promise) throw new Error(`already executing`);
         ctx.promise = new Promise((resolve, reject)=>{
             asyncFunction(...args).then(resolve, reject);
@@ -68,8 +68,8 @@ function $2e683807ce90e650$export$2e2bcd8739ae039(asyncFunction, config = {}) {
     }, [
         asyncFunction
     ]);
-    (0, $aY9Ed$useEffect)(()=>{
-        if (callOnMount && ctx.state === $2e683807ce90e650$var$STATES["0"]) ctx.call();
+    (0, $kKpXz$useEffect)(()=>{
+        if (callOnMount && ctx.state === $27954de794c56674$var$STATES["0"]) ctx.call();
     }, [
         ctx.call,
         callOnMount,
@@ -79,4 +79,5 @@ function $2e683807ce90e650$export$2e2bcd8739ae039(asyncFunction, config = {}) {
 }
 
 
-export {$2e683807ce90e650$export$2e2bcd8739ae039 as default};
+export {$27954de794c56674$export$2e2bcd8739ae039 as default};
+//# sourceMappingURL=useAsync.js.map

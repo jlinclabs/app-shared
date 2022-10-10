@@ -1,12 +1,13 @@
-import {createTheme as $dqEAv$createTheme} from "@mui/material/styles";
+import {createTheme as $bix3n$createTheme} from "@mui/material/styles";
 
 
-const $da546089315e6731$var$darkTheme = (0, $dqEAv$createTheme)({
+const $c8b71836488e4bbe$var$darkTheme = (0, $bix3n$createTheme)({
     palette: {
         mode: "dark"
     }
 });
-var $da546089315e6731$export$2e2bcd8739ae039 = $da546089315e6731$var$darkTheme;
+var $c8b71836488e4bbe$export$2e2bcd8739ae039 = $c8b71836488e4bbe$var$darkTheme;
 
 
-export {$da546089315e6731$export$2e2bcd8739ae039 as default};
+export {$c8b71836488e4bbe$export$2e2bcd8739ae039 as default};
+//# sourceMappingURL=theme.js.map

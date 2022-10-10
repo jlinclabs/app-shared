@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
 
-parcel build $(./scripts/ls-client-build-files) \
-  --dist-dir ./client \
-  --no-source-maps \
-  --no-cache \
-  --no-optimize \
-  --profile \
-  --detailed-report
-
+parcel build $(./scripts/ls-client-build-files) --dist-dir ./client
 

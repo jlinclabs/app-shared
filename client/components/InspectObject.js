@@ -1,20 +1,20 @@
-import {jsx as $kyCUf$jsx} from "react/jsx-runtime";
+import {jsx as $5BDeY$jsx} from "react/jsx-runtime";
 import "react";
-import $kyCUf$muimaterialBox from "@mui/material/Box";
+import $5BDeY$muimaterialBox from "@mui/material/Box";
 
 
 
 
-function $41fd2a28aa9166e0$export$2e2bcd8739ae039({ object: object , sx: sx , ...props }) {
+function $b5643637aedb000b$export$2e2bcd8739ae039({ object: object , sx: sx , ...props }) {
     let string;
     if (typeof object === "function") string = object.toString();
     else if (typeof object === "undefined") string = "undefined";
     else try {
-        string = $41fd2a28aa9166e0$var$inspect(object);
+        string = $b5643637aedb000b$var$inspect(object);
     } catch (error) {
         string = `ERROR: ${error}`;
     }
-    return /*#__PURE__*/ (0, $kyCUf$jsx)((0, $kyCUf$muimaterialBox), {
+    return /*#__PURE__*/ (0, $5BDeY$jsx)((0, $5BDeY$muimaterialBox), {
         className: "InspectObject",
         sx: {
             m: 1,
@@ -28,10 +28,10 @@ function $41fd2a28aa9166e0$export$2e2bcd8739ae039({ object: object , sx: sx , ..
         children: string
     });
 }
-function $41fd2a28aa9166e0$var$inspect(object, indentation = 2) {
-    return JSON.stringify(object, $41fd2a28aa9166e0$var$replaceUndefinedWithUndefinedString, indentation).replace(/"UNDEFINEDPLACEHOLDER"/g, "undefined");
+function $b5643637aedb000b$var$inspect(object, indentation = 2) {
+    return JSON.stringify(object, $b5643637aedb000b$var$replaceUndefinedWithUndefinedString, indentation).replace(/"UNDEFINEDPLACEHOLDER"/g, "undefined");
 }
-const $41fd2a28aa9166e0$var$replaceUndefinedWithUndefinedString = (k, v)=>{
+const $b5643637aedb000b$var$replaceUndefinedWithUndefinedString = (k, v)=>{
     if (v === undefined) return "UNDEFINEDPLACEHOLDER";
     if (v instanceof Error) return {
         message: v.message,
@@ -41,4 +41,5 @@ const $41fd2a28aa9166e0$var$replaceUndefinedWithUndefinedString = (k, v)=>{
 };
 
 
-export {$41fd2a28aa9166e0$export$2e2bcd8739ae039 as default};
+export {$b5643637aedb000b$export$2e2bcd8739ae039 as default};
+//# sourceMappingURL=InspectObject.js.map

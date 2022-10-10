@@ -1,11 +1,11 @@
-import {jsx as $bqtAQ$jsx, jsxs as $bqtAQ$jsxs} from "react/jsx-runtime";
+import {jsx as $2GvjJ$jsx, jsxs as $2GvjJ$jsxs} from "react/jsx-runtime";
 import "react";
-import $bqtAQ$muimaterialContainer from "@mui/material/Container";
-import $bqtAQ$muimaterialPaper from "@mui/material/Paper";
-import $bqtAQ$muimaterialTypography from "@mui/material/Typography";
-import $bqtAQ$muimaterialBox from "@mui/material/Box";
-import $bqtAQ$muimaterialAlert from "@mui/material/Alert";
-import $bqtAQ$muimaterialButton from "@mui/material/Button";
+import $2GvjJ$muimaterialContainer from "@mui/material/Container";
+import $2GvjJ$muimaterialPaper from "@mui/material/Paper";
+import $2GvjJ$muimaterialTypography from "@mui/material/Typography";
+import $2GvjJ$muimaterialBox from "@mui/material/Box";
+import $2GvjJ$muimaterialAlert from "@mui/material/Alert";
+import $2GvjJ$muimaterialButton from "@mui/material/Button";
 
 
 
@@ -15,10 +15,10 @@ import $bqtAQ$muimaterialButton from "@mui/material/Button";
 
 
 
-function $623cbf1c5ba937db$export$2e2bcd8739ae039({ error: error , resetErrorBoundary: resetErrorBoundary  }) {
-    return /*#__PURE__*/ (0, $bqtAQ$jsx)((0, $bqtAQ$muimaterialContainer), {
+function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBoundary: resetErrorBoundary  }) {
+    return /*#__PURE__*/ (0, $2GvjJ$jsx)((0, $2GvjJ$muimaterialContainer), {
         maxWidth: "lg",
-        children: /*#__PURE__*/ (0, $bqtAQ$jsxs)((0, $bqtAQ$muimaterialPaper), {
+        children: /*#__PURE__*/ (0, $2GvjJ$jsxs)((0, $2GvjJ$muimaterialPaper), {
             elevation: 3,
             role: "alert",
             sx: {
@@ -26,25 +26,25 @@ function $623cbf1c5ba937db$export$2e2bcd8739ae039({ error: error , resetErrorBou
                 p: 3
             },
             children: [
-                /*#__PURE__*/ (0, $bqtAQ$jsx)((0, $bqtAQ$muimaterialAlert), {
+                /*#__PURE__*/ (0, $2GvjJ$jsx)((0, $2GvjJ$muimaterialAlert), {
                     severity: "error",
                     children: "App Error"
                 }),
-                /*#__PURE__*/ (0, $bqtAQ$jsxs)((0, $bqtAQ$muimaterialBox), {
+                /*#__PURE__*/ (0, $2GvjJ$jsxs)((0, $2GvjJ$muimaterialBox), {
                     component: "pre",
                     sx: {
                         overflow: "scroll"
                     },
                     children: [
-                        /*#__PURE__*/ (0, $bqtAQ$jsx)((0, $bqtAQ$muimaterialTypography), {
+                        /*#__PURE__*/ (0, $2GvjJ$jsx)((0, $2GvjJ$muimaterialTypography), {
                             variant: "h4",
                             children: error.message
                         }),
-                        /*#__PURE__*/ (0, $bqtAQ$jsx)("br", {}),
+                        /*#__PURE__*/ (0, $2GvjJ$jsx)("br", {}),
                         error.stack
                     ]
                 }),
-                /*#__PURE__*/ (0, $bqtAQ$jsx)((0, $bqtAQ$muimaterialButton), {
+                /*#__PURE__*/ (0, $2GvjJ$jsx)((0, $2GvjJ$muimaterialButton), {
                     variant: "contained",
                     onClick: resetErrorBoundary,
                     children: "Try again"
@@ -55,4 +55,5 @@ function $623cbf1c5ba937db$export$2e2bcd8739ae039({ error: error , resetErrorBou
 }
 
 
-export {$623cbf1c5ba937db$export$2e2bcd8739ae039 as default};
+export {$398477c469915369$export$2e2bcd8739ae039 as default};
+//# sourceMappingURL=AppError.js.map

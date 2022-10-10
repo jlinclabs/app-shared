@@ -1,16 +1,17 @@
-import {useState as $de2wX$useState, useEffect as $de2wX$useEffect, useCallback as $de2wX$useCallback} from "react";
+import {useState as $4rMZH$useState, useEffect as $4rMZH$useEffect, useCallback as $4rMZH$useCallback} from "react";
 
 
-const $8e5aa45bd2bf2df3$var$noop = ()=>{};
-function $8e5aa45bd2bf2df3$export$2e2bcd8739ae039() {
-    let setState = (0, $de2wX$useState)()[1];
-    (0, $de2wX$useEffect)(()=>()=>{
-            setState = $8e5aa45bd2bf2df3$var$noop;
+const $b6a953b0721d86c6$var$noop = ()=>{};
+function $b6a953b0721d86c6$export$2e2bcd8739ae039() {
+    let setState = (0, $4rMZH$useState)()[1];
+    (0, $4rMZH$useEffect)(()=>()=>{
+            setState = $b6a953b0721d86c6$var$noop;
         }, []);
-    return (0, $de2wX$useCallback)(()=>{
+    return (0, $4rMZH$useCallback)(()=>{
         setState({});
     }, []);
 }
 
 
-export {$8e5aa45bd2bf2df3$export$2e2bcd8739ae039 as default};
+export {$b6a953b0721d86c6$export$2e2bcd8739ae039 as default};
+//# sourceMappingURL=useForceUpdate.js.map
