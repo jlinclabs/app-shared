@@ -8,8 +8,7 @@
   },
   "scripts": {
     "watch": "parcel watch client/**/*",
-    "build": "parcel build client/**/*",
-    "postinstall": "npm run build"
+    "build": "parcel build client/**/* --dist-dir ./client-build"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,11 @@
   "bin": {
     "app-shared": "bin/app-shared.js"
   },
+  "files": [
+    "./*.js",
+    "./client-build/*",
+    "./server/*"
+  ],
   "peerDependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",

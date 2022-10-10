@@ -1,2 +1,0 @@
-var e=require("react/jsx-runtime"),r=require("react"),t=(require("@mui/material/Box"),require("react-router-dom")),o=require("@mui/material/Link");function a(e){return e&&e.__esModule?e.default:e}const n=r.forwardRef((({...r},n)=>(r.component="a",r.to&&(r.component=t.Link),r.to&&r.to.startsWith("http")&&(r.href=r.to,delete r.to,r.rel=r.rel||"noopener noreferrer",r.target=r.target||"_blank",r.component="a"),(0,e.jsx)(a(o),{...r,ref:n}))));n.displayName="Link";
-//# sourceMappingURL=LinkToCerscan.js.map

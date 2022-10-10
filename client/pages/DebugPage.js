@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { useEffect, useState, useCallback, useMemo } from 'react'
 import { Routes, Route, useParams, useNavigate, useLocation } from 'react-router-dom'
 import { ErrorBoundary } from 'react-error-boundary'
