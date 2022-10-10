@@ -69,6 +69,6 @@ artifacts
 
 # jlinx demo apps
 /.proxyrc
-uploads
-client-build
-.parcel-cache
+/uploads
+/client-build
+/.parcel-cache
