@@ -6,8 +6,15 @@ import { promisify } from 'node:util'
 import childProcess from 'node:child_process'
 import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
+import * as dotenv from 'dotenv'
 
 const spawn = promisify(childProcess.spawn)
+
+const APP_PATH = await packageDirectory()
+
+dotenv.config({
+  path: Path.join(APP_PATH, '.env')
+})
 
 const program = new Command()
 
@@ -114,29 +121,23 @@ async function devStart(){
 
 async function devStartClient(){
   console.log('devStartClient')
-// #!/usr/bin/env bash
 
-// set -e
-// # set -x
+  if (!process.env.API_SERVER) throw new Error('ERROR: $API_SERVER is not set')
 
-// APP_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && cd .. && pwd)
-// APP_PATH=$1
+  const APP_PATH = await packageDirectory()
 
-// # if no app path exists
-// if [[ -d "$APP_PATH" ]];
-// then
-//   true
-// else
-//   echo "app does not exist $APP_PATH" 1>&2
-//   exit 1
-// fi
-
-// if [ -z "$API_SERVER" ]; then
-//   echo "ERROR: \$API_SERVER is not set" 1>&2
-//   exit 1
-// else
-//   echo API_SERVER=${API_SERVER}
-// fi
+  await spawn(
+    'npx',
+    [
+      'parcel',
+      'serve',
+      '--port', `${process.env.PORT}`,
+      '--cache-dir', `${APP_PATH}/tmp/cache`,
+      '--dist-dir', `${APP_PATH}/client-build`,
+      `${APP_PATH}/client/index.html`
+    ],
+    { stdio: 'inherit' }
+  )
 
 // PORT=$(dotenv -e ${APP_PATH}/.env -p PORT)
 // echo PORT=${PORT}
