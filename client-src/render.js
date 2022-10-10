@@ -10,9 +10,9 @@ import './cqrs'
 // import App from './App'
 // import reportWebVitals from './reportWebVitals'
 
-const root = ReactDOM.createRoot(document.querySelector('body > main'))
+// const root = ReactDOM.createRoot(document.querySelector('body > main'))
 
-export default function render(opts = {}){
+export function render(opts = {}){
   const {
     Routes,
     theme = defaultTheme,

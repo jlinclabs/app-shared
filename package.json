@@ -21,6 +21,16 @@
     "url": "https://github.com/jlinclabs/app-shared/issues"
   },
   "homepage": "https://github.com/jlinclabs/app-shared#readme",
+  "targets": {
+    "main": false,
+    "module": false,
+    "browser": false,
+    "default": {
+      "isLibrary": true,
+      "outputFormat": "esmodule",
+      "distDir": "./client"
+    }
+  },
   "bin": {
     "app-shared": "bin/app-shared.js"
   },
@@ -65,7 +75,7 @@
   },
   "devDependencies": {
     "brittle": "^3.1.0",
-    "tmp-promise": "^3.0.3",
-    "standard": "^17.0.0"
+    "standard": "^17.0.0",
+    "tmp-promise": "^3.0.3"
   }
 }

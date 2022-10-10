@@ -54,6 +54,11 @@ program
   // .command('update', 'update installed packages', { executableFile: 'myUpdateSubCommand' })
   // .command('list', 'list packages installed', { isDefault: true })
 
+program
+  .command('build')
+  .description('build client for production')
+  .action(build)
+
 program.parse(process.argv)
 
 
@@ -124,8 +129,6 @@ async function devStartClient(){
 
   if (!process.env.API_SERVER) throw new Error('ERROR: $API_SERVER is not set')
 
-  const APP_PATH = await packageDirectory()
-
   await spawn(
     'npx',
     [
@@ -160,10 +163,23 @@ async function devStartClient(){
 
 async function devStartServer(){
   process.env.NODE_ENV = 'development'
-  process.env.APP_PATH = await packageDirectory()
+  process.env.APP_PATH = APP_PATH
   console.log('process.env.APP_PATH', process.env.APP_PATH)
   const { createServer } = await import('../server/index.js')
   const server = await createServer()
   await server.start()
+}
+
+async function build(){
+  await spawn(
+    'npx',
+    [
+      'parcel',
+      'build',
+      '--dist-dir', `${APP_PATH}/client-build`,
+      `${APP_PATH}/client/index.html`
+    ],
+    { stdio: 'inherit' }
+  )
 }
 

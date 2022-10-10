@@ -11,10 +11,10 @@ export async function fetchCommand(name, options){
   return await apiFetch('POST', `/api/${name}`, options)
 }
 
-window.cqrs = {
-  query: fetchQuery,
-  command: fetchCommand,
-}
+// window.cqrs = {
+//   query: fetchQuery,
+//   command: fetchCommand,
+// }
 
 async function apiFetch(method, path, body, tries = 0){
   const res = await fetch(path, {
