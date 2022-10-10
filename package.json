@@ -7,8 +7,8 @@
     "node": ">= 16"
   },
   "scripts": {
-    "watch": "parcel watch client-src/**/*",
-    "build": "parcel build client-src/**/* --dist-dir ./client"
+    "watch": "./scripts/watch.js",
+    "build": "./scripts/build.js"
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,8 @@
   },
   "files": [
     "*.js",
-    "client/*",
-    "server/*"
+    "client/**/*",
+    "server/**/*"
   ],
   "peerDependencies": {
     "@emotion/react": "^11.10.4",

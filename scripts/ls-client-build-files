@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+find client-src -type f | grep -v .DS_Store

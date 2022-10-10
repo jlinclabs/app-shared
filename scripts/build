@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+parcel build $(./scripts/ls-client-build-files) --dist-dir ./client

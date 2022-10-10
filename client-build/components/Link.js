@@ -1,2 +1,0 @@
-var e=require("react/jsx-runtime"),r=require("react"),t=require("react-router-dom"),o=require("@mui/material/Link");const a=r.forwardRef((({...r},a)=>{return r.component="a",r.to&&(r.component=t.Link),r.to&&r.to.startsWith("http")&&(r.href=r.to,delete r.to,r.rel=r.rel||"noopener noreferrer",r.target=r.target||"_blank",r.component="a"),(0,e.jsx)((n=o)&&n.__esModule?n.default:n,{...r,ref:a});var n}));a.displayName="Link";
-//# sourceMappingURL=Link.js.map
