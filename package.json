@@ -7,8 +7,8 @@
     "node": ">= 16"
   },
   "scripts": {
-    "watch": "./scripts/watch.js",
-    "build": "./scripts/build.js"
+    "watch": "./scripts/watch",
+    "build": "./scripts/build"
   },
   "repository": {
     "type": "git",
