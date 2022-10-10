@@ -71,3 +71,4 @@ artifacts
 /.proxyrc
 uploads
 client-build
+.parcel-cache
