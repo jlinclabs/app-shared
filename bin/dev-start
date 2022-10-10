@@ -6,7 +6,7 @@ set -x
 export NODE_ENV=development
 export NODE_TLS_REJECT_UNAUTHORIZED="0"
 
-SERVER_PORT=$(node find-open-port)
+SERVER_PORT=$(find-open-port)
 API_SERVER="http://localhost:${SERVER_PORT}"
 
 exec dotenv -e .env -- concurrently \
