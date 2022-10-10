@@ -1,5 +1,2 @@
-import * as React from 'react'
-
-export default function NotFoundPage(){
-  return <div>Page Not Found</div>
-}
+require("react/jsx-runtime");require("react");
+//# sourceMappingURL=NotFoundPage.js.map

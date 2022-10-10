@@ -1,11 +1,2 @@
-import * as React from 'react'
-import Stack from '@mui/material/Stack'
-
-export default function ButtonRow({ children, ...props }){
-  return <Stack
-    spacing={2}
-    direction="row-reverse"
-    alignItems="center"
-    {...props}
-  >{children}</Stack>
-}
+require("react/jsx-runtime");require("react");require("@mui/material/Stack");
+//# sourceMappingURL=ButtonRow.js.map

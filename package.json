@@ -7,8 +7,8 @@
     "node": ">= 16"
   },
   "scripts": {
-    "watch": "parcel watch client/**/*",
-    "build": "parcel build client/**/* --dist-dir ./client-build"
+    "watch": "parcel watch client-src/**/*",
+    "build": "parcel build client-src/**/* --dist-dir ./client"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
   },
   "files": [
     "./*.js",
-    "./client-build/*",
+    "./client/*",
     "./server/*"
   ],
   "peerDependencies": {

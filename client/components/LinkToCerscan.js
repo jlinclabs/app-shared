@@ -1,20 +1,2 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-
-import Link from '../components/Link'
-
-export default function LinkToCerscan({ id, children, ...props }){
-  const to = `https://cerscan.com/testnet-clay/stream/${id}`
-  return <Link {...props} to={to} target="_blank">
-    {children ?? <CerscanIcon/>}
-
-  </Link>
-}
-
-function CerscanIcon(){
-  return <Box component="span" sx={{
-    verticalAlign: 'bottom',
-  }}>
-    <img src="https://cerscan.com/img/favicon.png"/>
-  </Box>
-}
+var e=require("react/jsx-runtime"),r=require("react"),t=(require("@mui/material/Box"),require("react-router-dom")),o=require("@mui/material/Link");function a(e){return e&&e.__esModule?e.default:e}const n=r.forwardRef((({...r},n)=>(r.component="a",r.to&&(r.component=t.Link),r.to&&r.to.startsWith("http")&&(r.href=r.to,delete r.to,r.rel=r.rel||"noopener noreferrer",r.target=r.target||"_blank",r.component="a"),(0,e.jsx)(a(o),{...r,ref:n}))));n.displayName="Link";
+//# sourceMappingURL=LinkToCerscan.js.map

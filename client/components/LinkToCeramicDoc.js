@@ -1,11 +1,2 @@
-import * as React from 'react'
-import FindInPageIcon from '@mui/icons-material/FindInPage'
-
-import Link from '../components/Link'
-
-export default function LinkToCeramicApi({ id, children, ...props }){
-  return <Link {...props} to={`/api/ceramic/${id}`} target="_blank">
-    {children ?? <FindInPageIcon/>}
-  </Link>
-}
-
+var e=require("react/jsx-runtime"),r=require("react"),t=(require("@mui/icons-material/FindInPage"),require("react-router-dom")),n=require("@mui/material/Link");function o(e){return e&&e.__esModule?e.default:e}const a=r.forwardRef((({...r},a)=>(r.component="a",r.to&&(r.component=t.Link),r.to&&r.to.startsWith("http")&&(r.href=r.to,delete r.to,r.rel=r.rel||"noopener noreferrer",r.target=r.target||"_blank",r.component="a"),(0,e.jsx)(o(n),{...r,ref:a}))));a.displayName="Link";
+//# sourceMappingURL=LinkToCeramicDoc.js.map
