@@ -10,7 +10,7 @@ import './cqrs'
 // import App from './App'
 // import reportWebVitals from './reportWebVitals'
 
-// const root = ReactDOM.createRoot(document.querySelector('body > main'))
+const root = ReactDOM.createRoot(document.querySelector('body > main'))
 
 export function render(opts = {}){
   const {
