@@ -1,25 +1,45 @@
 #!/usr/bin/env node
 
+// ONE BIN TO RULES THEM ALL
+import Path from 'path'
+import { promisify } from 'node:util'
+import childProcess from 'node:child_process'
 import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
-// ONE BIN TO RULES THEM ALL
+
+const spawn = promisify(childProcess.spawn)
+
 const program = new Command()
 
 program
   .name('app-shared')
   .version('0.0.1')
+
 program
   .command('find-open-port')
   .description('find an open port')
   .action(findOpenPort)
+
+program
+  .command('prisma')
+  .description('prisma')
+  .action(prisma)
+
+program
+  .command('dev-db-migrate')
+  .description('migrate db in development')
+  .action(devDbMigrate)
+
 program
   .command('dev-start')
   .description('start development servers')
   .action(devStart)
+
 program
   .command('dev-start-client')
   .description('start development client server')
   .action(devStartClient)
+
 program
   .command('dev-start-server')
   .description('start development api server')
@@ -35,12 +55,106 @@ async function findOpenPort(){
   console.log(await findPort())
 }
 
+async function prisma(...args){
+  console.log('prisma', args)
+  // console.log(await packageDirectory())
+  // console.log(`npx prisma migrate dev --schema=./server/schema.prisma`)
+  // await spawn('npx', ['prisma', 'migrate', 'dev', `--schema=./server/schema.prisma`])
+}
+
+async function devDbMigrate(){
+  const APP_PATH = await packageDirectory()
+  const SCHEMA_PATH = Path.join(APP_PATH, 'server', 'schema.prisma')
+  await spawn(
+    'npx',
+    ['prisma', 'migrate', 'dev', `--schema=${SCHEMA_PATH}`],
+    { stdio: 'inherit' }
+  )
+}
+
 async function devStart(){
-  console.log('devStart')
+  const {default: findPort} = await import('find-open-port')
+  const {default: concurrently} = await import('concurrently')
+
+  const serverPort = await findPort()
+  const apiServerUrl = `http://localhost:${serverPort}`
+
+  // process.env.NODE_ENV = "development"
+  // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+  process.env.APP_PATH = await packageDirectory()
+
+  await concurrently(
+    [
+      {
+        name: 'server',
+        command: `nodemon -w ./node_modules/app-shared -w ./server -- npx app-shared dev-start-server`,
+        env: {
+          PORT: serverPort
+        },
+      },
+      {
+        name: 'client',
+        command: `npx app-shared dev-start-client`,
+        env: {
+          API_SERVER: apiServerUrl,
+        },
+      },
+    ],
+    {
+      killOthers: ['failure', 'success'],
+      cwd: process.env.APP_PATH,
+    }
+  )
+  // exec dotenv -e .env -- concurrently \
+  //   --kill-others \
+  //   --names "${APP_NAME} SERVER,${APP_NAME} CLIENT" \
+  //   "PORT=${SERVER_PORT} nodemon -w ./shared -w \"${APP_PATH}\" -- dev-start-server \"${APP_PATH}\"" \
+  //   "API_SERVER=${API_SERVER} dev-start-client \"${APP_PATH}\""
 }
 
 async function devStartClient(){
   console.log('devStartClient')
+// #!/usr/bin/env bash
+
+// set -e
+// # set -x
+
+// APP_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && cd .. && pwd)
+// APP_PATH=$1
+
+// # if no app path exists
+// if [[ -d "$APP_PATH" ]];
+// then
+//   true
+// else
+//   echo "app does not exist $APP_PATH" 1>&2
+//   exit 1
+// fi
+
+// if [ -z "$API_SERVER" ]; then
+//   echo "ERROR: \$API_SERVER is not set" 1>&2
+//   exit 1
+// else
+//   echo API_SERVER=${API_SERVER}
+// fi
+
+// PORT=$(dotenv -e ${APP_PATH}/.env -p PORT)
+// echo PORT=${PORT}
+
+// cat > "${APP_ROOT}/.proxyrc" <<-EOF
+// {
+//   "/api": {
+//     "target": "${API_SERVER}"
+//   }
+// }
+// EOF
+
+// dotenv -e "${APP_PATH}/.env" -- npx parcel serve \
+//   --port ${PORT} \
+//   --cache-dir "${APP_PATH}/tmp/cache" \
+//   --dist-dir "${APP_PATH}/client-build" \
+//   "${APP_PATH}/client/index.html"
+
 }
 
 async function devStartServer(){

@@ -19,12 +19,7 @@
   },
   "homepage": "https://github.com/jlinclabs/app-shared#readme",
   "bin": {
-    "start": "bin/start.js",
-    "find-open-port": "bin/find-open-port.js",
-    "dev-start-server": "bin/dev-start-server.js",
-    "dev-start-client": "bin/dev-start-client",
-    "dev-start": "bin/dev-start",
-    "dev-db-migrate": "bin/dev-db-migrate"
+    "app-shared": "bin/app-shared.js"
   },
   "dependencies": {
     "@3id/connect": "^0.4.1",
