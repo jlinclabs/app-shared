@@ -1,49 +1,158 @@
-import * as React from 'react'
-import { useEffect, useState, useCallback, useMemo } from 'react'
-import { Routes, Route, useParams, useNavigate, useLocation } from 'react-router-dom'
-import { ErrorBoundary } from 'react-error-boundary'
+import { useState, useRef, useEffect } from 'react'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 
 import Container from '@mui/material/Container'
-import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
-import Select from '@mui/material/Select'
-import MenuItem from '@mui/material/MenuItem'
-import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import Divider from '@mui/material/Divider'
+import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
-import Skeleton from '@mui/material/Skeleton'
-import IconButton from '@mui/material/IconButton'
-import EditIcon from '@mui/icons-material/Edit'
-import CloseIcon from '@mui/icons-material/Close'
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
-import KeyboardCommandKeyTwoToneIcon from '@mui/icons-material/KeyboardCommandKeyTwoTone'
-import CottageIcon from '@mui/icons-material/Cottage'
 
-import AppError from '../components/AppError'
-import Link from '../components/Link'
-import Form from '../components/Form'
-import ButtonRow from '../components/ButtonRow'
+import RedirectPage from './RedirectPage'
+import { useSignup } from '../hooks/auth'
 import ErrorMessage from '../components/ErrorMessage'
-import { useQuery, useCommandOnMount } from '../cqrs.js'
-import InspectObject from '../components/InspectObject'
-// import { useCurrentAgent } from '../resources/auth'
-// import LinkToDid from '../components/LinkToDid'
-// import CopyButton from '../components/CopyButton'
+import Link from '../components/Link'
+import LoginForm from '../components/LoginForm'
+import SignupForm from '../components/SignupForm'
+// import LoginWithEthereum from '../components/LoginWithEthereum'
 
-export default function AuthPage({ APP_NAME }) {
-  const location = useLocation()
-  const name = location.pathname.split('/').reverse()[0]
-
-  return <Container maxWidth={false} disableGutters>
-    <Paper>
-  ATUH PAGE
-    </Paper>
+export default function AuthPage({ loading, error }) {
+  const [destination] = useState(location.toString().split(location.origin)[1])
+  return <Container
+    sx={{
+      minHeight: '100vh',
+      width: '100vw',
+      display: 'flex',
+    }}
+  >
+    <Container
+      maxWidth="sm"
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      {
+        error ? <ErrorMessage {...{error}}/> :
+        loading ? <CircularProgress/> :
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/login/eth" element={<LoginEth />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup/password" element={<SignupWithPassword />} />
+          <Route path="/signup/wallet" element={<SignupWithWallet />} />
+          <Route path="/logout" element={<RedirectPage to="/" />} />
+          <Route path="*" element={<Main {...{destination}}/>} />
+        </Routes>
+      }
+    </Container>
   </Container>
 }
+
+function Main({ destination }){
+  const query = new URLSearchParams({ d: destination })
+  return <Stack
+    divider={<Divider sx={{my: 3}}>OR</Divider>}
+  >
+    {/* {window.ethereum &&
+      <Button
+        variant="contained"
+        to="/login/eth"
+        query={{ d: destination }}
+        component={Link}
+      >Login with Ethereum</Button>
+    } */}
+    <Button
+      variant="contained"
+      component={Link}
+      to={`/login?${query}`}
+    >Login</Button>
+
+    <Button
+      variant="contained"
+      to={`/signup?${query}`}
+      component={Link}
+    >Signup</Button>
+  </Stack>
+}
+
+function Login(){
+  return <Paper>
+    <LoginForm sx={{p:2}}/>
+  </Paper>
+}
+
+function LoginEth(){
+  const navigate = useNavigate()
+
+  return <Paper sx={{p:2}}>
+    <Typography variant="h5">Logging in with Ethereum…</Typography>
+    {/* <LoginWithEthereum _onConnect={() => { navigate('/') }} /> */}
+  </Paper>
+}
+
+function Signup(){
+  const navigate = useNavigate()
+  const signup = useSignup({
+    onSuccess(){
+      navigate('/')
+    },
+  })
+  const justTryIt = () => {
+    signup.call({})
+  }
+  return <Box>
+    <Typography variant="h4" mb={3}>Signup</Typography>
+    <Stack spacing={2}>
+      <Button
+        variant="contained"
+        onClick={justTryIt}
+        disabled={signup.pending}
+      >Just Try It!</Button>
+      <ErrorMessage error={signup.error}/>
+      <Button
+        variant="contained"
+        to="/signup/password"
+        component={Link}
+      >Email & Password</Button>
+      <Button
+        variant="contained"
+        to="/signup/wallet"
+        component={Link}
+      >Crypto Wallet</Button>
+      <Button
+        variant="text"
+        to="/"
+        component={Link}
+        size="small"
+      >back</Button>
+    </Stack>
+  </Box>
+}
+
+function SignupWithPassword(){
+  const navigate = useNavigate()
+  return <SignupForm
+    sx={{p:2}}
+    onSuccess={() => {
+      navigate('/')
+    }}
+  />
+}
+
+function SignupWithWallet(){
+  return <Box>
+    <Typography variant="h4" mb={3}>Signup with crypto wallet</Typography>
+    <Typography variant="body1" mb={3}>coming soon…</Typography>
+    <Link variant="text" to="/signup">back</Link>
+  </Box>
+}
+
+function ForgotPassword(){
+  return <div>forgot password form TBD</div>
+}
+

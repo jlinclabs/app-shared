@@ -6,8 +6,6 @@ import { ThemeProvider, CssBaseline } from '@mui/material'
 import defaultTheme from './theme'
 import ErrorBoundry from './components/ErrorBoundry'
 import AppError from './components/AppError'
-import DebugPage from './pages/DebugPage'
-import NotFoundPage from './pages/NotFoundPage'
 import './cqrs'
 
 const root = ReactDOM.createRoot(document.querySelector('body > main'))
@@ -27,10 +25,7 @@ export function render(opts = {}){
         <ThemeProvider {...{theme}}>
           <CssBaseline enableColorScheme />
           <ErrorBoundry onError={error => <AppError {...{error}}/>}>
-            <Routes>
-              <Route path="/debug/*" element={<DebugPage {...props}/>}/>
-              <Route path="*" element={<NotFoundPage {...props}/>}/>
-            </Routes>
+            <Routes/>
           </ErrorBoundry>
         </ThemeProvider>
       </BrowserRouter>

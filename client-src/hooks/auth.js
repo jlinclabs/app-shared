@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react'
-import { useQuery } from './cqrpc'
+import { useQuery, useCommand } from './cqrpc'
 
 export function useCurrentUser(){
   const { result: currentUser, loading, error, mutate } = useQuery('auth.getCurrentUser')
@@ -16,16 +16,16 @@ export function useRedirectIfLoggedIn(){
   // useEffect(
   //   () => {
   //     if (loading) return
-  //     if (redirectToIfFound && currentAgent){
+  //     if (redirectToIfFound && currentUser){
   //       navigate(redirectToIfFound)
-  //     }else if (redirectToIfNotFound && !currentAgent){
+  //     }else if (redirectToIfNotFound && !currentUser){
   //       navigate(redirectToIfNotFound)
   //     }
   //   },
   //   [
   //     navigate,
   //     loading,
-  //     currentAgent,
+  //     currentUser,
   //     redirectToIfFound,
   //     redirectToIfNotFound
   //   ]
@@ -35,3 +35,24 @@ export function useRedirectIfLoggedIn(){
 export function useRedirectIfNotLoggedIn(){
 
 }
+
+function useCommandAndReloadCurrentUser(action, callbacks = {}){
+  const { mutate } = useCurrentUser()
+  return useCommand(action, {
+    ...callbacks,
+    onSuccess(currentUser){
+      mutate(currentUser)
+      if (callbacks.onSuccess) callbacks.onSuccess(currentUser)
+    },
+  })
+}
+
+export const useLogin = callbacks =>
+  useCommandAndReloadCurrentUser('auth.login', callbacks)
+
+export const useLogout = callbacks =>
+  useCommandAndReloadCurrentUser('auth.logout', callbacks)
+
+export const useSignup = callbacks =>
+  useCommandAndReloadCurrentUser('auth.signup', callbacks)
+

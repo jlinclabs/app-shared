@@ -39,7 +39,7 @@ export default function useAsync(asyncFunction, config = {}){
           return error
         },
       ).then(result => {
-        onComplete(result)
+        if (onComplete) onComplete(result)
       })
       setState(1)
       return ctx.promise
