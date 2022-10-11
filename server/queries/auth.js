@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 // import { isEmail, isPassword } from '../../lib/validators.js'
 // import { InvalidArgumentError } from '../../errors.js'
 
-export async function currentUser({}, context){
+export async function getCurrentUser({}, context){
   return context.userId ? await context.getCurrentUser() : null
 }
 

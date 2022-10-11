@@ -4,6 +4,8 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 
 import defaultTheme from './theme'
+import ErrorBoundry from './components/ErrorBoundry'
+import AppError from './components/AppError'
 import DebugPage from './pages/DebugPage'
 import NotFoundPage from './pages/NotFoundPage'
 import './cqrs'
@@ -24,10 +26,12 @@ export function render(opts = {}){
       <BrowserRouter>
         <ThemeProvider {...{theme}}>
           <CssBaseline enableColorScheme />
-          <Routes>
-            <Route path="/debug/*" element={<DebugPage {...props}/>}/>
-            <Route path="*" element={<NotFoundPage {...props}/>}/>
-          </Routes>
+          <ErrorBoundry onError={error => <AppError {...{error}}/>}>
+            <Routes>
+              <Route path="/debug/*" element={<DebugPage {...props}/>}/>
+              <Route path="*" element={<NotFoundPage {...props}/>}/>
+            </Routes>
+          </ErrorBoundry>
         </ThemeProvider>
       </BrowserRouter>
     </React.StrictMode>

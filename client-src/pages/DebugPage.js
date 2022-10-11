@@ -206,7 +206,6 @@ function ExecForm({ spec, type, name, optionsJson = '{}' }){
   )
 
   const procedures = spec && Object.values(isCommand ? spec.commands : spec.queries) || []
-  console.log({ procedures })
   const disabled = !!(execution && !executionDone)
   const Exec = isCommand ? ExecuteCommand : ExecuteQuery
 
@@ -215,11 +214,7 @@ function ExecForm({ spec, type, name, optionsJson = '{}' }){
       <Stack spacing={2}>
         <Stack direction="row" spacing={2}>
           <Typography variant="h4">{type}</Typography>
-          <Select
-            value={name}
-            // onChange={e => setName(e.target.value)}
-            autoWidth
-          >
+          <Select value={name} autoWidth>
             {procedures.map(({name}) =>
               <MenuItem
                 key={name}

@@ -15,7 +15,6 @@ export async function createServer(){
 
   const app = express()
 
-  console.log('LOADING QUERIES AND COMMANDS')
   Context.queries = await discovery.importQueries()
   Context.commands = await discovery.importCommands()
   console.log({
@@ -52,14 +51,7 @@ export async function createServer(){
     limit: 102400 * 10,
   }))
 
-  console.log('SERVER INDEX v7')
-
   // TODO
-  // do most of the looking into $APP_PATH/server for stuff to load
-  // - look for APP_DIR/server/routes.js and load them
-  // - look for APP_DIR/server/queries/* and load them
-  // - look for APP_DIR/server/commands/* and load them
-  // LATER
   // - look for APP_DIR/server/index.js and expect default func to pass app
   // - rename Controller to Context
   // - look for APP_DIR/server/context.js and use it instead of Context base class
