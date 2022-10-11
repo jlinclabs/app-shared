@@ -1,10 +1,12 @@
 import Path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
+import Router from 'express-promise-router'
 
 import { ExpectedError } from './errors.js'
 import { loadSession } from './session.js'
-import { createController } from './controller.js'
+import discovery from './discovery.js'
+import { Context } from './Context.js'
 
 // import { loadSession } from './controller.js'
 // import { loadQueries, loadCommands } from './cqrs.js'
@@ -12,6 +14,11 @@ import { createController } from './controller.js'
 export async function createServer(){
 
   const app = express()
+
+  console.log('LOADING QUERIES AND COMMANDS')
+  Context.queries = await discovery.importQueries()
+  Context.commands = await discovery.importCommands()
+  console.log(Context)
 
   app.start = function(){
     app.server = app.listen(process.env.PORT, () => {
@@ -24,7 +31,7 @@ export async function createServer(){
   app.use(async (req, res, next) => {
     // console.log(`${req.method} ${req.url}`)
     await loadSession(req, res)
-    req.controller = createController({
+    req.context = new Context({
       session: req.session,
       userId: req.session.userId,
       readOnly: req.session.readOnly,
@@ -42,10 +49,24 @@ export async function createServer(){
     limit: 102400 * 10,
   }))
 
-  // TODO look for APP_DIR/server/routes.js and load them
-  // app.Router = Router
-  // app.routes = new Router()
-  // app.use(app.routes)
+  console.log('SERVER INDEX v7')
+
+  // TODO
+  // do most of the looking into $APP_PATH/server for stuff to load
+  // - look for APP_DIR/server/routes.js and load them
+  // - look for APP_DIR/server/queries/* and load them
+  // - look for APP_DIR/server/commands/* and load them
+  // LATER
+  // - look for APP_DIR/server/index.js and expect default func to pass app
+  // - rename Controller to Context
+  // - look for APP_DIR/server/context.js and use it instead of Context base class
+
+  if (await discovery.serverRoutesExists()){
+    const handler = await discovery.importServerRoutesHandler()
+    let router = new Router()
+    router = await handler(router) || router
+    app.use('/api', router)
+  }
 
   app.use('/api/:name', async function(req, res, next) {
     const { name } = req.params
@@ -61,7 +82,7 @@ export async function createServer(){
     }
     console.log(action, { name, options })
     try{
-      const result = await req.controller[action](name, options)
+      const result = await req.context[action](name, options)
       console.error(`${action} SUCCESS`, { name, options, result })
       res.status(200).json({ result })
     }catch(error){

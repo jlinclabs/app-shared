@@ -1,4 +1,4 @@
-import {jsx as $d8gED$jsx, jsxs as $d8gED$jsxs} from "react/jsx-runtime";
+import {jsxDEV as $d8gED$jsxDEV} from "react/jsx-dev-runtime";
 import {useEffect as $d8gED$useEffect, useState as $d8gED$useState, useCallback as $d8gED$useCallback, forwardRef as $d8gED$forwardRef} from "react";
 import {useLocation as $d8gED$useLocation, Routes as $d8gED$Routes, Route as $d8gED$Route, useNavigate as $d8gED$useNavigate, Link as $d8gED$Link} from "react-router-dom";
 import {ErrorBoundary as $d8gED$ErrorBoundary} from "react-error-boundary";
@@ -75,9 +75,9 @@ $parcel$export($398477c469915369$exports, "default", () => $398477c469915369$exp
 
 
 function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBoundary: resetErrorBoundary  }) {
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialContainer), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialContainer), {
         maxWidth: "lg",
-        children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialPaper), {
+        children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialPaper), {
             elevation: 3,
             role: "alert",
             sx: {
@@ -85,32 +85,60 @@ function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBou
                 p: 3
             },
             children: [
-                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialAlert), {
+                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialAlert), {
                     severity: "error",
                     children: "App Error"
-                }),
-                /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
+                }, void 0, false, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 17,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
                     component: "pre",
                     sx: {
                         overflow: "scroll"
                     },
                     children: [
-                        /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialTypography), {
+                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTypography), {
                             variant: "h4",
                             children: error.message
-                        }),
-                        /*#__PURE__*/ (0, $d8gED$jsx)("br", {}),
+                        }, void 0, false, {
+                            fileName: "client-src/components/AppError.js",
+                            lineNumber: 19,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, $d8gED$jsxDEV)("br", {}, void 0, false, {
+                            fileName: "client-src/components/AppError.js",
+                            lineNumber: 20,
+                            columnNumber: 11
+                        }, this),
                         error.stack
                     ]
-                }),
-                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialButton), {
+                }, void 0, true, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 18,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialButton), {
                     variant: "contained",
                     onClick: resetErrorBoundary,
                     children: "Try again"
-                })
+                }, void 0, false, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 23,
+                    columnNumber: 9
+                }, this)
             ]
-        })
-    });
+        }, void 0, true, {
+            fileName: "client-src/components/AppError.js",
+            lineNumber: 12,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "client-src/components/AppError.js",
+        lineNumber: 11,
+        columnNumber: 5
+    }, this);
 }
 
 
@@ -118,7 +146,7 @@ var $08b8c86ef070e3a0$exports = {};
 
 $parcel$defineInteropFlag($08b8c86ef070e3a0$exports);
 
-$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039);
+$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039, (v) => $08b8c86ef070e3a0$export$2e2bcd8739ae039 = v);
 
 
 
@@ -133,10 +161,14 @@ const $08b8c86ef070e3a0$var$Link = /*#__PURE__*/ $d8gED$forwardRef(({ ...props }
         props.target = props.target || "_blank";
         props.component = "a";
     }
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialLink), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialLink), {
         ...props,
         ref: ref
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/Link.js",
+        lineNumber: 17,
+        columnNumber: 10
+    }, undefined);
 });
 $08b8c86ef070e3a0$var$Link.displayName = "Link";
 var $08b8c86ef070e3a0$export$2e2bcd8739ae039 = $08b8c86ef070e3a0$var$Link;
@@ -160,13 +192,17 @@ function $1abdbf2868e540b2$export$2e2bcd8739ae039({ disabled: disabled , childre
         disabled,
         onSubmit
     ]);
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialBox), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
         component: "form",
         disabled: disabled,
         ...props,
         onSubmit: _onSubmit,
         children: children
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/Form.js",
+        lineNumber: 16,
+        columnNumber: 10
+    }, this);
 }
 
 
@@ -179,13 +215,17 @@ $parcel$export($33fea69a0e10afc7$exports, "default", () => $33fea69a0e10afc7$exp
 
 
 function $33fea69a0e10afc7$export$2e2bcd8739ae039({ children: children , ...props }) {
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialStack), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialStack), {
         spacing: 2,
         direction: "row-reverse",
         alignItems: "center",
         ...props,
         children: children
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/ButtonRow.js",
+        lineNumber: 5,
+        columnNumber: 10
+    }, this);
 }
 
 
@@ -193,17 +233,21 @@ var $e57fa53a045bcfbf$exports = {};
 
 $parcel$defineInteropFlag($e57fa53a045bcfbf$exports);
 
-$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039);
+$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039, (v) => $e57fa53a045bcfbf$export$2e2bcd8739ae039 = v);
 
 
 
 const $e57fa53a045bcfbf$var$ErrorMessage = ({ error: error , ...props })=>{
     if (!error) return null;
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialAlert), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialAlert), {
         severity: "error",
         ...props,
         children: error.message
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/ErrorMessage.js",
+        lineNumber: 6,
+        columnNumber: 10
+    }, undefined);
 };
 var $e57fa53a045bcfbf$export$2e2bcd8739ae039 = $e57fa53a045bcfbf$var$ErrorMessage;
 
@@ -384,7 +428,7 @@ function $b5643637aedb000b$export$2e2bcd8739ae039({ object: object , sx: sx , ..
     } catch (error) {
         string = `ERROR: ${error}`;
     }
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialBox), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
         className: "InspectObject",
         sx: {
             m: 1,
@@ -396,7 +440,11 @@ function $b5643637aedb000b$export$2e2bcd8739ae039({ object: object , sx: sx , ..
         },
         ...props,
         children: string
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/InspectObject.js",
+        lineNumber: 17,
+        columnNumber: 10
+    }, this);
 }
 function $b5643637aedb000b$var$inspect(object, indentation = 2) {
     return JSON.stringify(object, $b5643637aedb000b$var$replaceUndefinedWithUndefinedString, indentation).replace(/"UNDEFINEDPLACEHOLDER"/g, "undefined");
@@ -438,10 +486,10 @@ function $bd5e7b1f34144514$export$2e2bcd8739ae039() {
         name: name,
         optionsJson: optionsJson
     };
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialContainer), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialContainer), {
         maxWidth: false,
         disableGutters: true,
-        children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
+        children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
             sx: {
                 display: "flex",
                 flexDirection: "row",
@@ -449,49 +497,85 @@ function $bd5e7b1f34144514$export$2e2bcd8739ae039() {
                 minWidth: "100vw"
             },
             children: [
-                /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNav, {
+                /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNav, {
                     spec: spec
-                }),
-                /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
+                }, void 0, false, {
+                    fileName: "client-src/pages/DebugPage.js",
+                    lineNumber: 67,
+                    columnNumber: 7
+                }, this),
+                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
                     sx: {
                         flex: "1 1",
                         p: 2
                     },
                     children: [
-                        /*#__PURE__*/ (0, $d8gED$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
+                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
                             error: error
-                        }),
-                        /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$ErrorBoundary), {
+                        }, void 0, false, {
+                            fileName: "client-src/pages/DebugPage.js",
+                            lineNumber: 69,
+                            columnNumber: 9
+                        }, this),
+                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$ErrorBoundary), {
                             FallbackComponent: (0, $398477c469915369$export$2e2bcd8739ae039),
-                            children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$Routes), {
+                            children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$Routes), {
                                 children: [
-                                    /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$Route), {
+                                    /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$Route), {
                                         path: "/q/:name",
-                                        element: /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$ExecForm, {
+                                        element: /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$ExecForm, {
                                             ...props,
                                             type: "query"
-                                        }, name),
+                                        }, name, false, void 0, void 0),
                                         title: "do a query"
-                                    }),
-                                    /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$Route), {
+                                    }, void 0, false, {
+                                        fileName: "client-src/pages/DebugPage.js",
+                                        lineNumber: 72,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$Route), {
                                         path: "/c/:name",
-                                        element: /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$ExecForm, {
+                                        element: /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$ExecForm, {
                                             ...props,
                                             type: "command"
-                                        }, name),
+                                        }, name, false, void 0, void 0),
                                         title: "do a command"
-                                    })
+                                    }, void 0, false, {
+                                        fileName: "client-src/pages/DebugPage.js",
+                                        lineNumber: 77,
+                                        columnNumber: 13
+                                    }, this)
                                 ]
-                            })
-                        })
+                            }, void 0, true, {
+                                fileName: "client-src/pages/DebugPage.js",
+                                lineNumber: 71,
+                                columnNumber: 11
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "client-src/pages/DebugPage.js",
+                            lineNumber: 70,
+                            columnNumber: 9
+                        }, this)
                     ]
-                })
+                }, void 0, true, {
+                    fileName: "client-src/pages/DebugPage.js",
+                    lineNumber: 68,
+                    columnNumber: 7
+                }, this)
             ]
-        })
-    });
+        }, void 0, true, {
+            fileName: "client-src/pages/DebugPage.js",
+            lineNumber: 61,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 60,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$SideNav({ spec: spec  }) {
-    return /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
         sx: {
             display: "flex",
             flexDirection: "column",
@@ -501,7 +585,7 @@ function $bd5e7b1f34144514$var$SideNav({ spec: spec  }) {
             overflowX: "auto"
         },
         children: [
-            /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialTypography), {
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTypography), {
                 variant: "h6",
                 sx: {
                     my: 2,
@@ -511,78 +595,134 @@ function $bd5e7b1f34144514$var$SideNav({ spec: spec  }) {
                     "Debug ",
                     process.env.APP_NAME
                 ]
-            }),
-            /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNavButton, {
+            }, void 0, true, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 98,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNavButton, {
                 to: `/`,
-                icon: /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muiiconsmaterialCottage), {}),
+                icon: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muiiconsmaterialCottage), {}, void 0, false, void 0, void 0),
                 title: "Home"
-            }),
-            /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNavButtonList, {
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 104,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNavButtonList, {
                 name: "Queries",
                 types: spec?.queries,
-                icon: /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muiiconsmaterialHelpOutline), {}),
+                icon: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muiiconsmaterialHelpOutline), {}, void 0, false, void 0, void 0),
                 linkPrefix: "/debug/q/"
-            }),
-            /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNavButtonList, {
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 109,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNavButtonList, {
                 name: "Commands",
                 types: spec?.commands,
-                icon: /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muiiconsmaterialKeyboardCommandKeyTwoTone), {}),
+                icon: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muiiconsmaterialKeyboardCommandKeyTwoTone), {}, void 0, false, void 0, void 0),
                 linkPrefix: "/debug/c/"
-            })
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 115,
+                columnNumber: 5
+            }, this)
         ]
-    });
+    }, void 0, true, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 90,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$SideNavButton({ icon: icon , title: title , subtitle: subtitle , ...props }) {
-    if (props.to) props.component = (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039);
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialListItem), {
+    if (props.to) props.component = (0, $08b8c86ef070e3a0$exports.default);
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialListItem), {
         disablePadding: true,
-        children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialListItemButton), {
+        children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialListItemButton), {
             ...props,
             children: [
-                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialListItemIcon), {
+                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialListItemIcon), {
                     sx: {
                         minWidth: "30px"
                     },
                     children: icon
-                }),
-                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialListItemText), {
+                }, void 0, false, {
+                    fileName: "client-src/pages/DebugPage.js",
+                    lineNumber: 128,
+                    columnNumber: 7
+                }, this),
+                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialListItemText), {
                     primary: title,
                     secondary: subtitle
-                })
+                }, void 0, false, {
+                    fileName: "client-src/pages/DebugPage.js",
+                    lineNumber: 131,
+                    columnNumber: 7
+                }, this)
             ]
-        })
-    });
+        }, void 0, true, {
+            fileName: "client-src/pages/DebugPage.js",
+            lineNumber: 127,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 126,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$SideNavButtonList({ name: name , types: types , icon: icon , linkPrefix: linkPrefix  }) {
-    return /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
         children: [
-            /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialTypography), {
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTypography), {
                 variant: "h6",
                 sx: {
                     pl: 1
                 },
                 children: name
-            }),
-            /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialList), {
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 138,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialList), {
                 dense: true,
                 sx: {
                     pt: 0
                 },
                 children: Array.isArray(types) ? [
                     ...types
-                ].sort().map(({ name: name , args: args  })=>/*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNavButton, {
+                ].sort().map(({ name: name , args: args  })=>/*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNavButton, {
                         key: name,
                         to: `${linkPrefix}${name}`,
                         icon: icon,
                         title: name,
                         subtitle: args
-                    })) : Array(3).fill().map((_, i)=>/*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialSkeleton), {
+                    }, void 0, false, {
+                        fileName: "client-src/pages/DebugPage.js",
+                        lineNumber: 142,
+                        columnNumber: 11
+                    }, this)) : Array(3).fill().map((_, i)=>/*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialSkeleton), {
                         animation: "wave",
                         height: "40px"
-                    }, i))
-            })
+                    }, i, false, {
+                        fileName: "client-src/pages/DebugPage.js",
+                        lineNumber: 151,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 139,
+                columnNumber: 5
+            }, this)
         ]
-    });
+    }, void 0, true, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 137,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$ExecForm({ spec: spec , type: type , name: name , optionsJson: optionsJson = "{}"  }) {
     const location = (0, $d8gED$useLocation)();
@@ -626,36 +766,52 @@ function $bd5e7b1f34144514$var$ExecForm({ spec: spec , type: type , name: name ,
     const names = spec && (isCommand ? spec.commands : spec.queries) || [];
     const disabled = !!(execution && !executionDone);
     const Exec = isCommand ? $bd5e7b1f34144514$var$ExecuteCommand : $bd5e7b1f34144514$var$ExecuteQuery;
-    return /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
         children: [
-            /*#__PURE__*/ (0, $d8gED$jsx)((0, $1abdbf2868e540b2$export$2e2bcd8739ae039), {
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $1abdbf2868e540b2$export$2e2bcd8739ae039), {
                 disabled: disabled,
                 onSubmit: onSubmit,
-                children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialStack), {
+                children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialStack), {
                     spacing: 2,
                     children: [
-                        /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialStack), {
+                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialStack), {
                             direction: "row",
                             spacing: 2,
                             children: [
-                                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialTypography), {
+                                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTypography), {
                                     variant: "h4",
                                     children: type
-                                }),
-                                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialSelect), {
+                                }, void 0, false, {
+                                    fileName: "client-src/pages/DebugPage.js",
+                                    lineNumber: 208,
+                                    columnNumber: 11
+                                }, this),
+                                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialSelect), {
                                     value: name,
                                     // onChange={e => setName(e.target.value)}
                                     autoWidth: true,
-                                    children: names.map(({ name: name  })=>/*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialMenuItem), {
+                                    children: names.map(({ name: name  })=>/*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialMenuItem), {
                                             value: name,
-                                            component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
+                                            component: (0, $08b8c86ef070e3a0$exports.default),
                                             to: `/debug/${isCommand ? "c" : "q"}/${name}`,
                                             children: name
-                                        }, name))
-                                })
+                                        }, name, false, {
+                                            fileName: "client-src/pages/DebugPage.js",
+                                            lineNumber: 215,
+                                            columnNumber: 15
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "client-src/pages/DebugPage.js",
+                                    lineNumber: 209,
+                                    columnNumber: 11
+                                }, this)
                             ]
-                        }),
-                        /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialTextField), {
+                        }, void 0, true, {
+                            fileName: "client-src/pages/DebugPage.js",
+                            lineNumber: 207,
+                            columnNumber: 9
+                        }, this),
+                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTextField), {
                             disabled: disabled,
                             label: "options (JSON)",
                             fullWidth: true,
@@ -665,33 +821,61 @@ function $bd5e7b1f34144514$var$ExecForm({ spec: spec , type: type , name: name ,
                                 setOptionsJson(e.target.value, true);
                             },
                             error: optionsJsonIsValid ? false : true
-                        }),
-                        /*#__PURE__*/ (0, $d8gED$jsxs)((0, $33fea69a0e10afc7$export$2e2bcd8739ae039), {
+                        }, void 0, false, {
+                            fileName: "client-src/pages/DebugPage.js",
+                            lineNumber: 224,
+                            columnNumber: 9
+                        }, this),
+                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $33fea69a0e10afc7$export$2e2bcd8739ae039), {
                             sx: {
                                 mt: 2
                             },
                             children: [
-                                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialButton), {
+                                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialButton), {
                                     disabled: disabled || !submittable,
                                     variant: "contained",
                                     type: "submit",
                                     autoFocus: true,
                                     children: isCommand ? "execute" : "query"
-                                }),
-                                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialButton), {
+                                }, void 0, false, {
+                                    fileName: "client-src/pages/DebugPage.js",
+                                    lineNumber: 234,
+                                    columnNumber: 11
+                                }, this),
+                                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialButton), {
                                     disabled: disabled,
                                     variant: "text",
                                     onClick: reset,
                                     children: "reset"
-                                })
+                                }, void 0, false, {
+                                    fileName: "client-src/pages/DebugPage.js",
+                                    lineNumber: 241,
+                                    columnNumber: 11
+                                }, this)
                             ]
-                        })
+                        }, void 0, true, {
+                            fileName: "client-src/pages/DebugPage.js",
+                            lineNumber: 233,
+                            columnNumber: 9
+                        }, this)
                     ]
-                })
-            }),
-            /*#__PURE__*/ (0, $d8gED$jsx)("hr", {}),
-            /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialBox), {
-                children: execution ? /*#__PURE__*/ (0, $d8gED$jsx)(Exec, {
+                }, void 0, true, {
+                    fileName: "client-src/pages/DebugPage.js",
+                    lineNumber: 206,
+                    columnNumber: 7
+                }, this)
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 205,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)("hr", {}, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 249,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+                children: execution ? /*#__PURE__*/ (0, $d8gED$jsxDEV)(Exec, {
                     key: execution.id,
                     id: execution.id,
                     name: name,
@@ -699,10 +883,22 @@ function $bd5e7b1f34144514$var$ExecForm({ spec: spec , type: type , name: name ,
                     onComplete () {
                         setExecutionDone(true);
                     }
-                }) : null
-            })
+                }, void 0, false, {
+                    fileName: "client-src/pages/DebugPage.js",
+                    lineNumber: 252,
+                    columnNumber: 11
+                }, this) : null
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 250,
+                columnNumber: 5
+            }, this)
         ]
-    });
+    }, void 0, true, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 204,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$ExecuteQuery({ id: id , name: name , options: options , onComplete: onComplete  }) {
     const results = (0, $ba2cbc8f2cb18116$export$dd0a697e1782aedd)(name, options, {
@@ -715,51 +911,87 @@ function $bd5e7b1f34144514$var$ExecuteQuery({ id: id , name: name , options: opt
     }, [
         results.loading
     ]);
-    return /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$Execution, {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$Execution, {
         ...results,
         name: name,
         options: options
-    });
+    }, void 0, false, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 275,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$ExecuteCommand({ name: name , options: options , onComplete: onComplete  }) {
     const results = (0, $ba2cbc8f2cb18116$export$b87ac4c6452497e4)(name, options, {
         onComplete: onComplete
     });
-    return /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$Execution, {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$Execution, {
         ...results,
         name: name,
         options: options
-    });
+    }, void 0, false, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 280,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$Execution({ name: name , options: options , result: result , loading: loading , error: error  }) {
-    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialBox), {
-        children: loading ? /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialCircularProgress), {}) : error ? /*#__PURE__*/ (0, $d8gED$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+        children: loading ? /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialCircularProgress), {}, void 0, false, {
+            fileName: "client-src/pages/DebugPage.js",
+            lineNumber: 287,
+            columnNumber: 11
+        }, this) : error ? /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
             error: error
-        }) : /*#__PURE__*/ (0, $d8gED$jsx)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
+        }, void 0, false, {
+            fileName: "client-src/pages/DebugPage.js",
+            lineNumber: 289,
+            columnNumber: 13
+        }, this) : /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
             object: result,
             sx: {
                 m: 0,
                 backgroundColor: "#232323"
             }
-        })
-    });
+        }, void 0, false, {
+            fileName: "client-src/pages/DebugPage.js",
+            lineNumber: 290,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 284,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$Command({ name: name , options: options , ...prop }) {
     const command = (0, $ba2cbc8f2cb18116$export$b87ac4c6452497e4)(name, options);
-    return /*#__PURE__*/ (0, $d8gED$jsxs)(Tile, {
+    return /*#__PURE__*/ (0, $d8gED$jsxDEV)(Tile, {
         title: `command: ${name}`,
         ...prop,
         children: [
-            /*#__PURE__*/ (0, $d8gED$jsx)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
                 object: {
                     options: options
                 }
-            }),
-            /*#__PURE__*/ (0, $d8gED$jsx)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 305,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
                 object: command
-            })
+            }, void 0, false, {
+                fileName: "client-src/pages/DebugPage.js",
+                lineNumber: 306,
+                columnNumber: 5
+            }, this)
         ]
-    });
+    }, void 0, true, {
+        fileName: "client-src/pages/DebugPage.js",
+        lineNumber: 304,
+        columnNumber: 10
+    }, this);
 }
 function $bd5e7b1f34144514$var$safeJsonParse(json) {
     try {

@@ -10,7 +10,10 @@ import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
 import * as dotenv from 'dotenv'
 
-const spawn = promisify(childProcess.spawn)
+const spawn = (...args) => {
+  console.log('spawn', ...args)
+  return promisify(childProcess.spawn)(...args)
+}
 
 const THIS_SCRIPT = fileURLToPath(import.meta.url)
 
@@ -79,7 +82,7 @@ async function devStart(){
     [
       {
         name: 'server',
-        command: `npx nodemon -w ./node_modules/app-shared -w ./server -- ${THIS_SCRIPT} dev-start-server`,
+        command: `${THIS_SCRIPT} dev-start-server`,
         env: {
           PORT: serverPort
         },
@@ -128,9 +131,24 @@ async function devStartClient(){
 async function devStartServer(){
   process.env.NODE_ENV = "development"
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
-  await _start()
+  // await _start()
+  await spawn(
+    'npx',
+    [
+      'nodemon',
+      '-w', `${THIS_SCRIPT}`,
+      '-w', `${process.env.APP_PATH}/node_modules/app-shared/bin/app-shared.js`,
+      '-w', `${process.env.APP_PATH}/node_modules/app-shared/server`,
+      '-w', `${process.env.APP_PATH}/server`,
+      '--exec',
+      `${THIS_SCRIPT} start`
+    ],
+    { stdio: 'inherit' }
+  )
 }
 
+// npx nodemon -w ./node_modules/app-shared -w ./server -- ${THIS_SCRIPT} dev-start-server
+// npx nodemon -w ./node_modules/app-shared -w ./server --
 async function build(){
   await spawn(
     'npx',
@@ -146,11 +164,9 @@ async function build(){
 
 async function start(){
   if (!process.env.NODE_ENV) process.env.NODE_ENV = "production"
-  await _start()
-}
-
-async function _start(){
+  console.log(`starting server in NODE_ENV=${process.env.NODE_ENV}`)
   const { createServer } = await import('../server/index.js')
   const server = await createServer()
   await server.start()
 }
+
