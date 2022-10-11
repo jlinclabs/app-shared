@@ -56,15 +56,8 @@ export function createController(opts){
 // CONSIDER NOT importing shared by default and instead
 // making each app require the bits it want
 
-const queries = await importProcedures([
-  Path.join(process.env.SHARED_PATH, 'server/queries'),
-  Path.join(process.env.APP_PATH, 'server/queries'),
-])
-
-const commands = await importProcedures([
-  Path.join(process.env.SHARED_PATH, 'server/commands'),
-  Path.join(process.env.APP_PATH, 'server/commands'),
-])
+const queries = await importProcedures('queries')
+const commands = await importProcedures('commands')
 
 console.log({ queries, commands })
 
@@ -88,28 +81,23 @@ if (process.env.NODE_ENV === 'development'){
 }
 
 
-async function importProcedures(roots){
-  console.log({ roots })
-  const paths = []
-  for (const root of roots){
-    try{ await fs.stat(root) }catch(e){ continue }
-    (await readDirRecursive(root))
-      .map(path => ({
-        root,
-        path,
-        parts: path.match(/(.+).js$/),
-      }))
-      .filter(p => p.parts)
-      .forEach(path => paths.push(path))
-  }
-  console.log({ paths })
+async function importProcedures(subdir){
+  const root = Path.join(process.env.APP_PATH, 'server', subDir)
+  try{ await fs.stat(root) }catch(e){ return [] }
+  const paths = (await readDirRecursive(root))
+    .map(path => ({
+      root,
+      path,
+      parts: path.match(/(.+).js$/),
+    }))
+    .filter(p => p.parts)
 
   const modules = await Promise.all(
     paths.map(({path}) => import(path))
   )
 
   const procedures = {}
-  paths.forEach(({root, path, parts}, index) => {
+  paths.forEach(({root, parts}, index) => {
     const name = parts[1].replace(root+'/', '')
     let module = modules[index]
     if (typeof module.default === 'object'){

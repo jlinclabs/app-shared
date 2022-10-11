@@ -10,10 +10,11 @@ import * as dotenv from 'dotenv'
 
 const spawn = promisify(childProcess.spawn)
 
-const APP_PATH = await packageDirectory()
+if (!process.env.APP_PATH)
+  process.env.APP_PATH = await packageDirectory()
 
 dotenv.config({
-  path: Path.join(APP_PATH, '.env')
+  path: Path.join(process.env.APP_PATH, '.env')
 })
 
 const program = new Command()
@@ -26,11 +27,6 @@ program
   .command('find-open-port')
   .description('find an open port')
   .action(findOpenPort)
-
-program
-  .command('prisma')
-  .description('prisma')
-  .action(prisma)
 
 program
   .command('dev-db-migrate')
@@ -67,16 +63,8 @@ async function findOpenPort(){
   console.log(await findPort())
 }
 
-async function prisma(...args){
-  console.log('prisma', args)
-  // console.log(await packageDirectory())
-  // console.log(`npx prisma migrate dev --schema=./server/schema.prisma`)
-  // await spawn('npx', ['prisma', 'migrate', 'dev', `--schema=./server/schema.prisma`])
-}
-
 async function devDbMigrate(){
-  const APP_PATH = await packageDirectory()
-  const SCHEMA_PATH = Path.join(APP_PATH, 'server', 'schema.prisma')
+  const SCHEMA_PATH = Path.join(process.env.APP_PATH, 'server', 'schema.prisma')
   await spawn(
     'npx',
     ['prisma', 'migrate', 'dev', `--schema=${SCHEMA_PATH}`],
@@ -90,11 +78,6 @@ async function devStart(){
 
   const serverPort = await findPort()
   const apiServerUrl = `http://localhost:${serverPort}`
-
-  // process.env.NODE_ENV = "development"
-  // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
-  process.env.APP_PATH = await packageDirectory()
-
   await concurrently(
     [
       {
@@ -117,54 +100,29 @@ async function devStart(){
       cwd: process.env.APP_PATH,
     }
   )
-  // exec dotenv -e .env -- concurrently \
-  //   --kill-others \
-  //   --names "${APP_NAME} SERVER,${APP_NAME} CLIENT" \
-  //   "PORT=${SERVER_PORT} nodemon -w ./shared -w \"${APP_PATH}\" -- dev-start-server \"${APP_PATH}\"" \
-  //   "API_SERVER=${API_SERVER} dev-start-client \"${APP_PATH}\""
 }
 
 async function devStartClient(){
-  console.log('devStartClient')
-
   if (!process.env.API_SERVER) throw new Error('ERROR: $API_SERVER is not set')
-
+  process.env.NODE_ENV = "development"
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
   await spawn(
     'npx',
     [
       'parcel',
       'serve',
       '--port', `${process.env.PORT}`,
-      '--cache-dir', `${APP_PATH}/tmp/cache`,
-      '--dist-dir', `${APP_PATH}/client-build`,
-      `${APP_PATH}/client/index.html`
+      '--cache-dir', `${process.env.APP_PATH}/tmp/cache`,
+      '--dist-dir', `${process.env.APP_PATH}/client-build`,
+      `${process.env.APP_PATH}/client/index.html`
     ],
     { stdio: 'inherit' }
   )
-
-// PORT=$(dotenv -e ${APP_PATH}/.env -p PORT)
-// echo PORT=${PORT}
-
-// cat > "${APP_ROOT}/.proxyrc" <<-EOF
-// {
-//   "/api": {
-//     "target": "${API_SERVER}"
-//   }
-// }
-// EOF
-
-// dotenv -e "${APP_PATH}/.env" -- npx parcel serve \
-//   --port ${PORT} \
-//   --cache-dir "${APP_PATH}/tmp/cache" \
-//   --dist-dir "${APP_PATH}/client-build" \
-//   "${APP_PATH}/client/index.html"
-
 }
 
 async function devStartServer(){
-  process.env.NODE_ENV = 'development'
-  process.env.APP_PATH = APP_PATH
-  console.log('process.env.APP_PATH', process.env.APP_PATH)
+  process.env.NODE_ENV = "development"
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
   const { createServer } = await import('../server/index.js')
   const server = await createServer()
   await server.start()
@@ -176,8 +134,8 @@ async function build(){
     [
       'parcel',
       'build',
-      '--dist-dir', `${APP_PATH}/client-build`,
-      `${APP_PATH}/client/index.html`
+      '--dist-dir', `${process.env.APP_PATH}/client-build`,
+      `${process.env.APP_PATH}/client/index.html`
     ],
     { stdio: 'inherit' }
   )
