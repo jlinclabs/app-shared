@@ -3,12 +3,16 @@
 // ONE BIN TO RULES THEM ALL
 import Path from 'path'
 import { promisify } from 'node:util'
+import { writeFile } from 'node:fs/promises'
 import childProcess from 'node:child_process'
+import { fileURLToPath } from 'url'
 import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
 import * as dotenv from 'dotenv'
 
 const spawn = promisify(childProcess.spawn)
+
+const THIS_SCRIPT = fileURLToPath(import.meta.url)
 
 if (!process.env.APP_PATH)
   process.env.APP_PATH = await packageDirectory()
@@ -22,11 +26,6 @@ const program = new Command()
 program
   .name('app-shared')
   .version('0.0.1')
-
-program
-  .command('find-open-port')
-  .description('find an open port')
-  .action(findOpenPort)
 
 program
   .command('dev-db-migrate')
@@ -61,11 +60,6 @@ program
 program.parse(process.argv)
 
 
-async function findOpenPort(){
-  const {default: findPort} = await import('find-open-port')
-  console.log(await findPort())
-}
-
 async function devDbMigrate(){
   const SCHEMA_PATH = Path.join(process.env.APP_PATH, 'server', 'schema.prisma')
   await spawn(
@@ -85,14 +79,14 @@ async function devStart(){
     [
       {
         name: 'server',
-        command: `nodemon -w ./node_modules/app-shared -w ./server -- npx app-shared dev-start-server`,
+        command: `npx nodemon -w ./node_modules/app-shared -w ./server -- ${THIS_SCRIPT} dev-start-server`,
         env: {
           PORT: serverPort
         },
       },
       {
         name: 'client',
-        command: `npx app-shared dev-start-client`,
+        command: `${THIS_SCRIPT} dev-start-client`,
         env: {
           API_SERVER: apiServerUrl,
         },
@@ -109,6 +103,14 @@ async function devStartClient(){
   if (!process.env.API_SERVER) throw new Error('ERROR: $API_SERVER is not set')
   process.env.NODE_ENV = "development"
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+  await writeFile(
+    Path.join(process.env.APP_PATH, '.proxyrc'),
+    JSON.stringify({
+      "/api": {
+        "target": process.env.API_SERVER,
+      }
+    }, null, 2)
+  )
   await spawn(
     'npx',
     [
