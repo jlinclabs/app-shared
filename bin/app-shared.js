@@ -47,13 +47,16 @@ program
   .command('dev-start-server')
   .description('start development api server')
   .action(devStartServer)
-  // .command('update', 'update installed packages', { executableFile: 'myUpdateSubCommand' })
-  // .command('list', 'list packages installed', { isDefault: true })
 
 program
   .command('build')
   .description('build client for production')
   .action(build)
+
+program
+  .command('start')
+  .description('start server for production')
+  .action(start)
 
 program.parse(process.argv)
 
@@ -123,9 +126,7 @@ async function devStartClient(){
 async function devStartServer(){
   process.env.NODE_ENV = "development"
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
-  const { createServer } = await import('../server/index.js')
-  const server = await createServer()
-  await server.start()
+  await _start()
 }
 
 async function build(){
@@ -141,3 +142,13 @@ async function build(){
   )
 }
 
+async function start(){
+  if (!process.env.NODE_ENV) process.env.NODE_ENV = "production"
+  await _start()
+}
+
+async function _start(){
+  const { createServer } = await import('../server/index.js')
+  const server = await createServer()
+  await server.start()
+}

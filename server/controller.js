@@ -82,7 +82,7 @@ if (process.env.NODE_ENV === 'development'){
 
 
 async function importProcedures(subdir){
-  const root = Path.join(process.env.APP_PATH, 'server', subDir)
+  const root = Path.join(process.env.APP_PATH, 'server', subdir)
   try{ await fs.stat(root) }catch(e){ return [] }
   const paths = (await readDirRecursive(root))
     .map(path => ({
