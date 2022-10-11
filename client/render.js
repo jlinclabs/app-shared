@@ -496,13 +496,13 @@ const $bd5e7b1f34144514$var$defaultExec = ()=>({
     });
 const $bd5e7b1f34144514$var$searchToString = (object)=>new URLSearchParams(object).toString();
 const $bd5e7b1f34144514$var$searchToObject = (search)=>Object.fromEntries(new URLSearchParams(search).entries());
-function $bd5e7b1f34144514$export$2e2bcd8739ae039() {
+function $bd5e7b1f34144514$export$2e2bcd8739ae039({ APP_NAME: APP_NAME  }) {
     const location = (0, $h2dLv$useLocation)();
     const name = location.pathname.split("/").reverse()[0];
     const search = $bd5e7b1f34144514$var$searchToObject(location.search);
     const optionsJson = search.opts;
     (0, $h2dLv$useEffect)(()=>{
-        document.title = `Debug ${process.env.APP_NAME}: ${name}(${optionsJson || ""})`;
+        document.title = `Debug@ ${APP_NAME}: ${name}(${optionsJson || ""})`;
     }, [
         name,
         optionsJson
@@ -1050,7 +1050,10 @@ function $8ea33c689192dd62$export$2e2bcd8739ae039() {
 
 const $3d27138bea64f431$var$root = (0, $h2dLv$reactdomclient).createRoot(document.querySelector("body > main"));
 function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
-    const { Routes: Routes , theme: theme = (0, $c8b71836488e4bbe$export$2e2bcd8739ae039) ,  } = opts;
+    const { APP_NAME: APP_NAME , Routes: Routes , theme: theme = (0, $c8b71836488e4bbe$export$2e2bcd8739ae039) ,  } = opts;
+    const props = {
+        APP_NAME: APP_NAME
+    };
     $3d27138bea64f431$var$root.render(/*#__PURE__*/ (0, $h2dLv$jsxDEV)($h2dLv$StrictMode, {
         children: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$BrowserRouter), {
             children: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$ThemeProvider), {
@@ -1060,47 +1063,51 @@ function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
                         enableColorScheme: true
                     }, void 0, false, {
                         fileName: "client-src/render.js",
-                        lineNumber: 22,
+                        lineNumber: 26,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, $h2dLv$jsxDEV)(Routes, {
                         children: [
                             /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$Route), {
                                 path: "/debug/*",
-                                element: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $bd5e7b1f34144514$export$2e2bcd8739ae039), {}, void 0, false, void 0, void 0)
+                                element: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $bd5e7b1f34144514$export$2e2bcd8739ae039), {
+                                    ...props
+                                }, void 0, false, void 0, void 0)
                             }, void 0, false, {
                                 fileName: "client-src/render.js",
-                                lineNumber: 24,
+                                lineNumber: 28,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$Route), {
                                 path: "*",
-                                element: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $8ea33c689192dd62$export$2e2bcd8739ae039), {}, void 0, false, void 0, void 0)
+                                element: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $8ea33c689192dd62$export$2e2bcd8739ae039), {
+                                    ...props
+                                }, void 0, false, void 0, void 0)
                             }, void 0, false, {
                                 fileName: "client-src/render.js",
-                                lineNumber: 25,
+                                lineNumber: 29,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "client-src/render.js",
-                        lineNumber: 23,
+                        lineNumber: 27,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "client-src/render.js",
-                lineNumber: 21,
+                lineNumber: 25,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "client-src/render.js",
-            lineNumber: 20,
+            lineNumber: 24,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "client-src/render.js",
-        lineNumber: 19,
+        lineNumber: 23,
         columnNumber: 5
     }, this));
 }

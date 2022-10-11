@@ -120,7 +120,8 @@ async function devStartClient(){
       'parcel',
       'serve',
       '--port', `${process.env.PORT}`,
-      '--cache-dir', `${process.env.APP_PATH}/tmp/cache`,
+      '--no-cache',
+      // '--cache-dir', `${process.env.APP_PATH}/tmp/cache`,
       '--dist-dir', `${process.env.APP_PATH}/client-build`,
       `${process.env.APP_PATH}/client/index.html`
     ],

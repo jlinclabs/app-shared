@@ -27,8 +27,7 @@
     "browser": false,
     "default": {
       "isLibrary": true,
-      "outputFormat": "esmodule",
-      "distDir": "./client"
+      "outputFormat": "esmodule"
     }
   },
   "bin": {

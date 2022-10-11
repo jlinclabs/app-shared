@@ -49,19 +49,11 @@ async function importProcedures(subdir){
   const modules = await Promise.all(
     paths.map(({path}) => import(path))
   )
-
   const procedures = {}
   paths.forEach(({root, parts}, index) => {
     const name = parts[1].replace(root+'/', '')
-    let { default:_, ...module} = modules[index]
-    console.log('???', module)
-    // if (typeof module.default === 'object'){
-    //   module = module.default
-    // }
-    procedures[name] = module
-    // for (const key in module){
-    //   procedures[`${name}.${key}`] = module[key]
-    // }
+    let { default: _default, ...module } = modules[index]
+    procedures[name] = typeof _default === 'function' ? _default : module
   })
   return procedures
 }

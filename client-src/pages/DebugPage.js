@@ -46,13 +46,13 @@ const defaultExec = () => ({
 const searchToString = object => (new URLSearchParams(object)).toString()
 const searchToObject = search => Object.fromEntries((new URLSearchParams(search)).entries())
 
-export default function DebugPage() {
+export default function DebugPage({ APP_NAME }) {
   const location = useLocation()
   const name = location.pathname.split('/').reverse()[0]
   const search = searchToObject(location.search)
   const optionsJson = search.opts
   useEffect(
-    () => { document.title = `Debug ${process.env.APP_NAME}: ${name}(${optionsJson || ''})` },
+    () => { document.title = `Debug ${APP_NAME}: ${name}(${optionsJson || ''})` },
     [name, optionsJson]
   )
   const { result: spec, error } = useQuery('__spec')
@@ -64,7 +64,7 @@ export default function DebugPage() {
       minHeight: '100vh',
       minWidth: '100vw',
     }}>
-      <SideNav {...{spec}}/>
+      <SideNav {...{APP_NAME, spec}}/>
       <Box sx={{ flex: '1 1', p: 2 }}>
         <ErrorMessage {...{error}}/>
         <ErrorBoundary FallbackComponent={AppError}>
@@ -86,7 +86,7 @@ export default function DebugPage() {
   </Container>
 }
 
-function SideNav({ spec }){
+function SideNav({ APP_NAME, spec }){
   return <Box sx={{
     display: 'flex',
     flexDirection: 'column',
@@ -100,7 +100,7 @@ function SideNav({ spec }){
         my: 2,
         textAlign: 'center',
       }}
-    >Debug {process.env.APP_NAME}</Typography>
+    >Debug {APP_NAME}</Typography>
     <SideNavButton {...{
       to: `/`,
       icon: <CottageIcon/>,
@@ -108,13 +108,13 @@ function SideNav({ spec }){
     }}/>
     <SideNavButtonList {...{
       name: 'Queries',
-      types: spec?.queries,
+      tree: spec?.queries,
       icon: <HelpOutlineIcon/>,
       linkPrefix: '/debug/q/',
     }}/>
     <SideNavButtonList {...{
       name: 'Commands',
-      types: spec?.commands,
+      tree: spec?.commands,
       icon: <KeyboardCommandKeyTwoToneIcon/>,
       linkPrefix: '/debug/c/',
     }}/>
@@ -133,25 +133,33 @@ function SideNavButton({ icon, title, subtitle, ...props }){
   </ListItem>
 }
 
-function SideNavButtonList({ name, types, icon, linkPrefix }){
+function SideNavButtonList({ name, tree, icon, linkPrefix }){
+  const objectToNodes = obj => {
+    const nodes = []
+    for (key in obj){
+      if (key.startsWith('__')) continue;
+      const value = obj[key]
+      const node = (value && value.name && value.source)
+        ? <SideNavButton {...{
+          key,
+          to: `${linkPrefix}${key}`,
+          icon,
+          title: key,
+          subtitle: value.args,
+        }}/>
+        : <div>DOWN</div>
+      nodes.push(node)
+    }
+    return nodes
+  }
+  const list = tree
+    ? objectToNodes(tree)
+    : Array(3).fill().map((_, i) =>
+      <Skeleton key={i} animation="wave" height="40px" />
+    )
   return <Box>
     <Typography variant="h6" sx={{pl: 1}}>{name}</Typography>
-    <List dense sx={{pt: 0}}>
-      {Array.isArray(types)
-        ? [...types].sort().map(({name, args}) =>
-          <SideNavButton {...{
-            key: name,
-            to: `${linkPrefix }${name}`,
-            icon,
-            title: name,
-            subtitle: args,
-          }}/>
-        )
-        : Array(3).fill().map((_, i) =>
-          <Skeleton key={i} animation="wave" height="40px" />
-        )
-      }
-    </List>
+    <List dense sx={{pt: 0}}>{list}</List>
   </Box>
 }
 
@@ -197,7 +205,8 @@ function ExecForm({ spec, type, name, optionsJson = '{}' }){
     [name, options],
   )
 
-  const names = spec && (isCommand ? spec.commands : spec.queries) || []
+  const procedures = spec && Object.values(isCommand ? spec.commands : spec.queries) || []
+  console.log({ procedures })
   const disabled = !!(execution && !executionDone)
   const Exec = isCommand ? ExecuteCommand : ExecuteQuery
 
@@ -211,7 +220,7 @@ function ExecForm({ spec, type, name, optionsJson = '{}' }){
             // onChange={e => setName(e.target.value)}
             autoWidth
           >
-            {names.map(({name}) =>
+            {procedures.map(({name}) =>
               <MenuItem
                 key={name}
                 value={name}

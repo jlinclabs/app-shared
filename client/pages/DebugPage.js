@@ -469,13 +469,13 @@ const $bd5e7b1f34144514$var$defaultExec = ()=>({
     });
 const $bd5e7b1f34144514$var$searchToString = (object)=>new URLSearchParams(object).toString();
 const $bd5e7b1f34144514$var$searchToObject = (search)=>Object.fromEntries(new URLSearchParams(search).entries());
-function $bd5e7b1f34144514$export$2e2bcd8739ae039() {
+function $bd5e7b1f34144514$export$2e2bcd8739ae039({ APP_NAME: APP_NAME  }) {
     const location = (0, $d8gED$useLocation)();
     const name = location.pathname.split("/").reverse()[0];
     const search = $bd5e7b1f34144514$var$searchToObject(location.search);
     const optionsJson = search.opts;
     (0, $d8gED$useEffect)(()=>{
-        document.title = `Debug ${process.env.APP_NAME}: ${name}(${optionsJson || ""})`;
+        document.title = `Debug@ ${APP_NAME}: ${name}(${optionsJson || ""})`;
     }, [
         name,
         optionsJson

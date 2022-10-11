@@ -12,17 +12,21 @@ const root = ReactDOM.createRoot(document.querySelector('body > main'))
 
 export function render(opts = {}){
   const {
+    APP_NAME,
     Routes,
     theme = defaultTheme,
   } = opts
+  const props = {
+    APP_NAME,
+  }
   root.render(
     <React.StrictMode>
       <BrowserRouter>
         <ThemeProvider {...{theme}}>
           <CssBaseline enableColorScheme />
           <Routes>
-            <Route path="/debug/*" element={<DebugPage/>}/>
-            <Route path="*" element={<NotFoundPage/>}/>
+            <Route path="/debug/*" element={<DebugPage {...props}/>}/>
+            <Route path="*" element={<NotFoundPage {...props}/>}/>
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

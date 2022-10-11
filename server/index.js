@@ -18,7 +18,10 @@ export async function createServer(){
   console.log('LOADING QUERIES AND COMMANDS')
   Context.queries = await discovery.importQueries()
   Context.commands = await discovery.importCommands()
-  console.log(Context)
+  console.log({
+    queries: Context.queries,
+    commands: Context.commands,
+  })
 
   app.start = function(){
     app.server = app.listen(process.env.PORT, () => {
