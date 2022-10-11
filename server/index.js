@@ -71,7 +71,7 @@ export async function createServer(){
   })
 
   if (process.env.NODE_ENV === 'production') {
-    const buildPath = Path.join(options.appPath, 'client-build')
+    const buildPath = Path.join(process.env.APP_PATH, 'client-build')
     const indexPath = Path.join(buildPath, 'index.html')
     app.use(express.static(buildPath))
     app.get('/*', function (req, res) {
