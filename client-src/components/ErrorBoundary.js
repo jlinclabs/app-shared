@@ -1,4 +1,5 @@
 import * as React from 'react'
+import AppError from './AppError'
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -16,8 +17,11 @@ export default class ErrorBoundary extends React.Component {
   }
 
   render() {
-    return this.state.error
-      ? props.onError(this.state.error)
-      : this.props.children
+    const { error } = this.state
+    if (error){
+      const Component = this.props.component || AppError
+      return <Component {...{error}}/>
+    }
+    return this.props.children
   }
 }

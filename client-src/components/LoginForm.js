@@ -11,9 +11,9 @@ import ErrorMessage from './ErrorMessage'
 import { useLogin } from '../hooks/auth'
 
 export default function LoginForm(props){
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const destination = searchParams.get('d')
+  // const navigate = useNavigate()
+  // const [searchParams] = useSearchParams()
+  // const destination = searchParams.get('d')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
@@ -21,7 +21,7 @@ export default function LoginForm(props){
   const login = useLogin({
     onSuccess(){
       // setError(null)
-      navigate(destination || '/')
+      // navigate(destination || '/')
     },
     onFailure(error){
       if (`${error}`.includes('email or password is invalid')){

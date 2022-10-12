@@ -46,13 +46,13 @@ const defaultExec = () => ({
 const searchToString = object => (new URLSearchParams(object)).toString()
 const searchToObject = search => Object.fromEntries((new URLSearchParams(search)).entries())
 
-export default function DebugPage({ APP_NAME }) {
+export default function DebugPage({ appName }) {
   const location = useLocation()
   const name = location.pathname.split('/').reverse()[0]
   const search = searchToObject(location.search)
   const optionsJson = search.opts
   useEffect(
-    () => { document.title = `Debug ${APP_NAME}: ${name}(${optionsJson || ''})` },
+    () => { document.title = `Debug ${appName}: ${name}(${optionsJson || ''})` },
     [name, optionsJson]
   )
   const { result: spec, error } = useQuery('__spec')
@@ -64,10 +64,10 @@ export default function DebugPage({ APP_NAME }) {
       minHeight: '100vh',
       minWidth: '100vw',
     }}>
-      <SideNav {...{APP_NAME, spec}}/>
+      <SideNav {...{appName, spec}}/>
       <Box sx={{ flex: '1 1', p: 2 }}>
         <ErrorMessage {...{error}}/>
-        <ErrorBoundary FallbackComponent={AppError}>
+        <ErrorBoundary onError={AppError}>
           <Routes>
             <Route
               path="/q/:name"
@@ -86,7 +86,7 @@ export default function DebugPage({ APP_NAME }) {
   </Container>
 }
 
-function SideNav({ APP_NAME, spec }){
+function SideNav({ appName, spec }){
   return <Box sx={{
     display: 'flex',
     flexDirection: 'column',
@@ -100,7 +100,7 @@ function SideNav({ APP_NAME, spec }){
         my: 2,
         textAlign: 'center',
       }}
-    >Debug {APP_NAME}</Typography>
+    >Debug {appName}</Typography>
     <SideNavButton {...{
       to: `/`,
       icon: <CottageIcon/>,

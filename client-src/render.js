@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 
 import defaultTheme from './theme'
-import ErrorBoundry from './components/ErrorBoundry'
+import ErrorBoundary from './components/ErrorBoundary'
 import AppError from './components/AppError'
 import './cqrs'
 
@@ -24,9 +24,9 @@ export function render(opts = {}){
       <BrowserRouter>
         <ThemeProvider {...{theme}}>
           <CssBaseline enableColorScheme />
-          <ErrorBoundry onError={error => <AppError {...{error}}/>}>
+          <ErrorBoundary onError={error => <AppError {...{error}}/>}>
             <Routes/>
-          </ErrorBoundry>
+          </ErrorBoundary>
         </ThemeProvider>
       </BrowserRouter>
     </React.StrictMode>

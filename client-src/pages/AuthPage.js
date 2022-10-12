@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { createElement as h, useState } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import Container from '@mui/material/Container'
 import Paper from '@mui/material/Paper'
@@ -8,7 +8,6 @@ import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Box from '@mui/material/Box'
-import CircularProgress from '@mui/material/CircularProgress'
 
 import RedirectPage from './RedirectPage'
 import { useSignup } from '../hooks/auth'
@@ -16,10 +15,17 @@ import ErrorMessage from '../components/ErrorMessage'
 import Link from '../components/Link'
 import LoginForm from '../components/LoginForm'
 import SignupForm from '../components/SignupForm'
-// import LoginWithEthereum from '../components/LoginWithEthereum'
 
-export default function AuthPage({ loading, error }) {
+export default function AuthPage({ currentUser }) {
   const [destination] = useState(location.toString().split(location.origin)[1])
+  return h(currentUser ? LoggedIn : LoggedOut, { destination })
+}
+
+function LoggedIn({ destination }){
+  return <RedirectPage to={destination || '/'}/>
+}
+
+function LoggedOut({ destination }){
   return <Container
     sx={{
       minHeight: '100vh',
@@ -35,20 +41,16 @@ export default function AuthPage({ loading, error }) {
         justifyContent: 'center',
       }}
     >
-      {
-        error ? <ErrorMessage {...{error}}/> :
-        loading ? <CircularProgress/> :
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/login/eth" element={<LoginEth />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signup/password" element={<SignupWithPassword />} />
-          <Route path="/signup/wallet" element={<SignupWithWallet />} />
-          <Route path="/logout" element={<RedirectPage to="/" />} />
-          <Route path="*" element={<Main {...{destination}}/>} />
-        </Routes>
-      }
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/login/eth" element={<LoginEth />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup/password" element={<SignupWithPassword />} />
+        <Route path="/signup/wallet" element={<SignupWithWallet />} />
+        <Route path="/logout" element={<RedirectPage to={destination} />} />
+        <Route path="*" element={<Main {...{destination}}/>} />
+      </Routes>
     </Container>
   </Container>
 }

@@ -34,7 +34,6 @@ async function apiFetch(method, path, body, tries = 0){
     return apiFetch(method, path, body, tries + 1)
   }
   const { result, error } = await res.json()
-  console.log('RESULT', { result, error })
   if (error) throw new Error(error.message)
   return result || null
 }
