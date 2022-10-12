@@ -1,5 +1,6 @@
-import { createElement as h, useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useNavigate, useSearchParams } from 'react-router-dom'
+import create from 'zustand'
 
 import Container from '@mui/material/Container'
 import Paper from '@mui/material/Paper'
@@ -16,16 +17,21 @@ import Link from '../components/Link'
 import LoginForm from '../components/LoginForm'
 import SignupForm from '../components/SignupForm'
 
+const useDestination = create(set => ({
+  destination: '/',
+  setDestination(destination){ set({ destination }) }
+}))
+
 export default function AuthPage({ currentUser }) {
-  const [destination] = useState(location.toString().split(location.origin)[1])
-  return h(currentUser ? LoggedIn : LoggedOut, { destination })
+  return currentUser ? <LoggedIn/> : <LoggedOut/>
 }
 
-function LoggedIn({ destination }){
+function LoggedIn(){
+  const destination = useDestination(s => s.destination)
   return <RedirectPage to={destination || '/'}/>
 }
 
-function LoggedOut({ destination }){
+function LoggedOut(){
   return <Container
     sx={{
       minHeight: '100vh',
@@ -48,15 +54,23 @@ function LoggedOut({ destination }){
         <Route path="/signup" element={<Signup />} />
         <Route path="/signup/password" element={<SignupWithPassword />} />
         <Route path="/signup/wallet" element={<SignupWithWallet />} />
-        <Route path="/logout" element={<RedirectPage to={destination} />} />
-        <Route path="*" element={<Main {...{destination}}/>} />
+        <Route path="*" element={<Main />} />
       </Routes>
     </Container>
   </Container>
 }
 
-function Main({ destination }){
-  const query = new URLSearchParams({ d: destination })
+function Main(){
+  const {destination, setDestination} = useDestination()
+  useEffect(
+    () => {
+      setDestination(location.toString().split(location.origin)[1])
+    },
+    []
+  )
+  const query = (destination && destination !== '/')
+    ? '?' + new URLSearchParams({ d: destination })
+    : ''
   return <Stack
     divider={<Divider sx={{my: 3}}>OR</Divider>}
   >
@@ -71,12 +85,12 @@ function Main({ destination }){
     <Button
       variant="contained"
       component={Link}
-      to={`/login?${query}`}
+      to={`/login${query}`}
     >Login</Button>
 
     <Button
       variant="contained"
-      to={`/signup?${query}`}
+      to={`/signup${query}`}
       component={Link}
     >Signup</Button>
   </Stack>

@@ -6,7 +6,6 @@ import { ThemeProvider, CssBaseline } from '@mui/material'
 import defaultTheme from './theme'
 import ErrorBoundary from './components/ErrorBoundary'
 import AppError from './components/AppError'
-import './cqrs'
 
 const root = ReactDOM.createRoot(document.querySelector('body > main'))
 

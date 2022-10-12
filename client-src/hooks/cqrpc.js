@@ -4,8 +4,10 @@ import useSWR, { useSWRConfig } from 'swr'
 import useAsync from './useAsync'
 
 export async function fetchQuery(name, options = {}){
-  const params = new URLSearchParams(options)
-  return await apiFetch('GET', `/api/${name}?${params}`)
+  const json = JSON.stringify(options)
+  const params = json === '{}' ? '' :
+    '?' + new URLSearchParams({ o: json })
+  return await apiFetch('GET', `/api/${name}${params}`)
 }
 
 export async function fetchCommand(name, options){

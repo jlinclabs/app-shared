@@ -30,6 +30,11 @@ export async function createServer(){
     })
   }
 
+  // TODO
+  // - look for APP_DIR/server/index.js and expect default func to pass app
+  // - rename Controller to Context
+  // - look for APP_DIR/server/context.js and use it instead of Context base class
+
   app.use(async (req, res, next) => {
     // console.log(`${req.method} ${req.url}`)
     await loadSession(req, res)
@@ -51,11 +56,6 @@ export async function createServer(){
     limit: 102400 * 10,
   }))
 
-  // TODO
-  // - look for APP_DIR/server/index.js and expect default func to pass app
-  // - rename Controller to Context
-  // - look for APP_DIR/server/context.js and use it instead of Context base class
-
   if (await discovery.serverRoutesExists()){
     const handler = await discovery.importServerRoutesHandler()
     let router = new Router()
@@ -68,7 +68,7 @@ export async function createServer(){
     let options, action
     if (req.method === 'GET'){
       action = 'query'
-      options = req.query
+      options = JSON.parse(req.query.o || '{}')
     }else if (req.method === 'POST'){
       action = 'command'
       options = req.body

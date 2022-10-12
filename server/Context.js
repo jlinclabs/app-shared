@@ -2,29 +2,27 @@ import fs from 'node:fs/promises'
 import Path from 'path'
 import readDirRecursive from 'recursive-readdir'
 import prisma from './prisma.js'
-import { InvalidArgumentError } from './errors.js'
+import { InvalidArgumentError, UnauthorizedError } from './errors.js'
 
 export class Context {
-  // static get queries(){ return this.prototype.queries}
-  // static set queries(queries){
-  //   this.prototype.queries = cloneAndBind(queries)
-  // }
-  // static get commands(){ return this.prototype.commands}
-  // static set commands(commands){
-  //   this.prototype.commands = cloneAndBind(commands)
-  // }
-
   constructor({ session, userId, readOnly }){
     this.session = session
     this.userId = userId
     this.readOnly = !!readOnly
     this.queries = cloneAndBind(this.constructor.queries, this)
-    this.commands = cloneAndBind(this.constructor.commands, this)
+    if (!this.readOnly)
+      this._commands = cloneAndBind(this.constructor.commands, this)
     if (process.env.NODE_ENV === 'development'){
       this.queries.__spec = getSpec.bind(null, {}, this)
     }
     // // TODO context.queries.auth.currentUser({}) // auto sets context as 2nd arg
   }
+
+  get commands(){
+    if (this.readOnly) throw new Error(`cannot exec command in ready only session`)
+    return this._commands
+  }
+  get prisma(){ return prisma }
 
   async loginAs(userId){
     if (this.session) await this.session.loginAs(userId)
@@ -47,6 +45,11 @@ export class Context {
     })
   }
 
+  requireLoggedIn(action){
+    if (this.userId) return true
+    throw new UnauthorizedError(action)
+  }
+
   async query(name, options){
     const handler = findProcedure(name, this.queries)
     if (!handler) throw new InvalidArgumentError('queryName', name)
@@ -54,15 +57,10 @@ export class Context {
   }
 
   async command(name, options){
-    if (this.readOnly) throw new Error(`cannot exec command in ready only session`)
     const handler = findProcedure(name, this.commands)
-    if (!handler) throw new InvalidArgumentError('commandName', 'name')
+    if (!handler) throw new InvalidArgumentError('commandName', name)
     return await handler(options)
   }
-}
-
-export function createContext(opts){
-  return new Context(opts)
 }
 
 function findProcedure(name, procedures){
@@ -71,7 +69,6 @@ function findProcedure(name, procedures){
   while (handler && parts.length) handler = handler[parts.shift()]
   return handler
 }
-
 
 function cloneNestedFunctions(object, handler, keys = []){
   const clone = {}
@@ -89,7 +86,7 @@ function cloneNestedFunctions(object, handler, keys = []){
 function cloneAndBind(procedures, context){
   return cloneNestedFunctions(procedures, (func, name) => {
     const wrapper = ({
-      [name](options){ return func(options, context) }
+      [name](options = {}){ return func(options, context) }
     })[name]
     wrapper.valueOf = () => func.valueOf()
     wrapper.toString = () => func.toString()
@@ -109,8 +106,8 @@ async function getSpec({}, context){
     }
   }
   spec.queries = {}
-  cloneNestedFunctions(context.queries, inspectFunc(spec.queries))
+  cloneNestedFunctions(Context.queries, inspectFunc(spec.queries))
   spec.commands = {}
-  cloneNestedFunctions(context.commands, inspectFunc(spec.commands))
+  cloneNestedFunctions(Context.commands, inspectFunc(spec.commands))
   return spec
 }

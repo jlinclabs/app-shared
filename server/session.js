@@ -28,6 +28,7 @@ class Session {
       indent + '  createdAt: ' + opts.stylize(this.createdAt, 'date') + '\n' +
       indent + '  lastSeenAt: ' + opts.stylize(this.lastSeenAt, 'date') + '\n' +
       indent + '  userId: ' + opts.stylize(this.userId, 'number') + '\n' +
+      indent + '  readOnly: ' + opts.stylize(this.readOnly, 'boolean') + '\n' +
       indent + ')'
   }
 
