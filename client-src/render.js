@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 
 import defaultTheme from './theme'
@@ -14,16 +14,20 @@ export function render(opts = {}){
     Routes,
     theme = defaultTheme,
   } = opts
+  console.log('SAME REACT??', React === opts.React, {
+    given: opts.React,
+    imported: React,
+  })
   root.render(
     <React.StrictMode>
-      <BrowserRouter>
-        <ThemeProvider {...{theme}}>
-          <CssBaseline enableColorScheme />
-          <ErrorBoundary onError={error => <AppError {...{error}}/>}>
+      <ThemeProvider {...{theme}}>
+        <CssBaseline enableColorScheme />
+        <ErrorBoundary onError={error => <AppError {...{error}}/>}>
+          <BrowserRouter>
             <Routes/>
-          </ErrorBoundary>
-        </ThemeProvider>
-      </BrowserRouter>
+          </BrowserRouter>
+        </ErrorBoundary>
+      </ThemeProvider>
     </React.StrictMode>
   )
 }
