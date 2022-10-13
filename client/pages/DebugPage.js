@@ -1,10 +1,9 @@
-import {jsxDEV as $d8gED$jsxDEV} from "react/jsx-dev-runtime";
+import {jsx as $d8gED$jsx, jsxs as $d8gED$jsxs} from "react/jsx-runtime";
 import {useEffect as $d8gED$useEffect, useState as $d8gED$useState, useCallback as $d8gED$useCallback, forwardRef as $d8gED$forwardRef} from "react";
 import {useLocation as $d8gED$useLocation, Routes as $d8gED$Routes, Route as $d8gED$Route, useNavigate as $d8gED$useNavigate, Link as $d8gED$Link} from "react-router-dom";
 import {ErrorBoundary as $d8gED$ErrorBoundary} from "react-error-boundary";
 import $d8gED$muimaterialContainer from "@mui/material/Container";
 import $d8gED$muimaterialBox from "@mui/material/Box";
-import $d8gED$muimaterialPaper from "@mui/material/Paper";
 import $d8gED$muimaterialTypography from "@mui/material/Typography";
 import $d8gED$muimaterialStack from "@mui/material/Stack";
 import $d8gED$muimaterialSelect from "@mui/material/Select";
@@ -18,12 +17,10 @@ import $d8gED$muimaterialListItemButton from "@mui/material/ListItemButton";
 import $d8gED$muimaterialListItemIcon from "@mui/material/ListItemIcon";
 import $d8gED$muimaterialListItemText from "@mui/material/ListItemText";
 import $d8gED$muimaterialSkeleton from "@mui/material/Skeleton";
-import "@mui/material/IconButton";
-import "@mui/icons-material/Edit";
-import "@mui/icons-material/Close";
 import $d8gED$muiiconsmaterialHelpOutline from "@mui/icons-material/HelpOutline";
 import $d8gED$muiiconsmaterialKeyboardCommandKeyTwoTone from "@mui/icons-material/KeyboardCommandKeyTwoTone";
 import $d8gED$muiiconsmaterialCottage from "@mui/icons-material/Cottage";
+import $d8gED$muimaterialPaper from "@mui/material/Paper";
 import $d8gED$muimaterialAlert from "@mui/material/Alert";
 import $d8gED$muimaterialLink from "@mui/material/Link";
 import $d8gED$swr from "swr";
@@ -34,10 +31,16 @@ function $parcel$defineInteropFlag(a) {
 function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
-
-
-
-
+var $parcel$global =
+typeof globalThis !== 'undefined'
+  ? globalThis
+  : typeof self !== 'undefined'
+  ? self
+  : typeof window !== 'undefined'
+  ? window
+  : typeof global !== 'undefined'
+  ? global
+  : {};
 
 
 
@@ -75,9 +78,9 @@ $parcel$export($398477c469915369$exports, "default", () => $398477c469915369$exp
 
 
 function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBoundary: resetErrorBoundary  }) {
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialContainer), {
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialContainer), {
         maxWidth: "lg",
-        children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialPaper), {
+        children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialPaper), {
             elevation: 3,
             role: "alert",
             sx: {
@@ -85,60 +88,32 @@ function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBou
                 p: 3
             },
             children: [
-                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialAlert), {
+                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialAlert), {
                     severity: "error",
                     children: "App Error"
-                }, void 0, false, {
-                    fileName: "client-src/components/AppError.js",
-                    lineNumber: 17,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+                }),
+                /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
                     component: "pre",
                     sx: {
                         overflow: "scroll"
                     },
                     children: [
-                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTypography), {
+                        /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialTypography), {
                             variant: "h4",
                             children: error.message
-                        }, void 0, false, {
-                            fileName: "client-src/components/AppError.js",
-                            lineNumber: 19,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, $d8gED$jsxDEV)("br", {}, void 0, false, {
-                            fileName: "client-src/components/AppError.js",
-                            lineNumber: 20,
-                            columnNumber: 11
-                        }, this),
+                        }),
+                        /*#__PURE__*/ (0, $d8gED$jsx)("br", {}),
                         error.stack
                     ]
-                }, void 0, true, {
-                    fileName: "client-src/components/AppError.js",
-                    lineNumber: 18,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialButton), {
+                }),
+                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialButton), {
                     variant: "contained",
                     onClick: resetErrorBoundary,
                     children: "Try again"
-                }, void 0, false, {
-                    fileName: "client-src/components/AppError.js",
-                    lineNumber: 23,
-                    columnNumber: 9
-                }, this)
+                })
             ]
-        }, void 0, true, {
-            fileName: "client-src/components/AppError.js",
-            lineNumber: 12,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/components/AppError.js",
-        lineNumber: 11,
-        columnNumber: 5
-    }, this);
+        })
+    });
 }
 
 
@@ -146,7 +121,7 @@ var $08b8c86ef070e3a0$exports = {};
 
 $parcel$defineInteropFlag($08b8c86ef070e3a0$exports);
 
-$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039, (v) => $08b8c86ef070e3a0$export$2e2bcd8739ae039 = v);
+$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039);
 
 
 
@@ -161,14 +136,10 @@ const $08b8c86ef070e3a0$var$Link = /*#__PURE__*/ $d8gED$forwardRef(({ ...props }
         props.target = props.target || "_blank";
         props.component = "a";
     }
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialLink), {
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialLink), {
         ...props,
         ref: ref
-    }, void 0, false, {
-        fileName: "client-src/components/Link.js",
-        lineNumber: 17,
-        columnNumber: 10
-    }, undefined);
+    });
 });
 $08b8c86ef070e3a0$var$Link.displayName = "Link";
 var $08b8c86ef070e3a0$export$2e2bcd8739ae039 = $08b8c86ef070e3a0$var$Link;
@@ -192,17 +163,13 @@ function $1abdbf2868e540b2$export$2e2bcd8739ae039({ disabled: disabled , childre
         disabled,
         onSubmit
     ]);
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialBox), {
         component: "form",
         disabled: disabled,
         ...props,
         onSubmit: _onSubmit,
         children: children
-    }, void 0, false, {
-        fileName: "client-src/components/Form.js",
-        lineNumber: 16,
-        columnNumber: 10
-    }, this);
+    });
 }
 
 
@@ -215,17 +182,13 @@ $parcel$export($33fea69a0e10afc7$exports, "default", () => $33fea69a0e10afc7$exp
 
 
 function $33fea69a0e10afc7$export$2e2bcd8739ae039({ children: children , ...props }) {
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialStack), {
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialStack), {
         spacing: 2,
         direction: "row-reverse",
         alignItems: "center",
         ...props,
         children: children
-    }, void 0, false, {
-        fileName: "client-src/components/ButtonRow.js",
-        lineNumber: 5,
-        columnNumber: 10
-    }, this);
+    });
 }
 
 
@@ -233,32 +196,28 @@ var $e57fa53a045bcfbf$exports = {};
 
 $parcel$defineInteropFlag($e57fa53a045bcfbf$exports);
 
-$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039, (v) => $e57fa53a045bcfbf$export$2e2bcd8739ae039 = v);
+$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039);
 
 
 
 const $e57fa53a045bcfbf$var$ErrorMessage = ({ error: error , ...props })=>{
     if (!error) return null;
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialAlert), {
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialAlert), {
         severity: "error",
         ...props,
         children: error.message
-    }, void 0, false, {
-        fileName: "client-src/components/ErrorMessage.js",
-        lineNumber: 6,
-        columnNumber: 10
-    }, undefined);
+    });
 };
 var $e57fa53a045bcfbf$export$2e2bcd8739ae039 = $e57fa53a045bcfbf$var$ErrorMessage;
 
 
-var $ba2cbc8f2cb18116$exports = {};
+var $80d64c4521a01cab$exports = {};
 
-$parcel$export($ba2cbc8f2cb18116$exports, "fetchQuery", () => $ba2cbc8f2cb18116$export$a1c549e76b7f385e);
-$parcel$export($ba2cbc8f2cb18116$exports, "fetchCommand", () => $ba2cbc8f2cb18116$export$df781a4386db1cc8);
-$parcel$export($ba2cbc8f2cb18116$exports, "useQuery", () => $ba2cbc8f2cb18116$export$dd0a697e1782aedd);
-$parcel$export($ba2cbc8f2cb18116$exports, "useCommand", () => $ba2cbc8f2cb18116$export$194d0c7cb6792e23);
-$parcel$export($ba2cbc8f2cb18116$exports, "useCommandOnMount", () => $ba2cbc8f2cb18116$export$b87ac4c6452497e4);
+$parcel$export($80d64c4521a01cab$exports, "fetchQuery", () => $80d64c4521a01cab$export$a1c549e76b7f385e);
+$parcel$export($80d64c4521a01cab$exports, "fetchCommand", () => $80d64c4521a01cab$export$df781a4386db1cc8);
+$parcel$export($80d64c4521a01cab$exports, "useQuery", () => $80d64c4521a01cab$export$dd0a697e1782aedd);
+$parcel$export($80d64c4521a01cab$exports, "useCommand", () => $80d64c4521a01cab$export$194d0c7cb6792e23);
+$parcel$export($80d64c4521a01cab$exports, "useCommandOnMount", () => $80d64c4521a01cab$export$b87ac4c6452497e4);
 
 
 var $27954de794c56674$exports = {};
@@ -321,7 +280,7 @@ function $27954de794c56674$export$2e2bcd8739ae039(asyncFunction, config = {}) {
             setState(3);
             return error;
         }).then((result)=>{
-            onComplete(result);
+            if (onComplete) onComplete(result);
         });
         setState(1);
         return ctx.promise;
@@ -339,18 +298,29 @@ function $27954de794c56674$export$2e2bcd8739ae039(asyncFunction, config = {}) {
 }
 
 
-async function $ba2cbc8f2cb18116$export$a1c549e76b7f385e(name, options = {}) {
-    const params = new URLSearchParams(options);
-    return await $ba2cbc8f2cb18116$var$apiFetch("GET", `/api/${name}?${params}`);
+const $3b200ebc3435d25f$var$wait = (ms)=>new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve();
+        }, ms);
+    });
+var $3b200ebc3435d25f$export$2e2bcd8739ae039 = $3b200ebc3435d25f$var$wait;
+
+
+async function $80d64c4521a01cab$export$a1c549e76b7f385e(name, options = {}) {
+    const json = JSON.stringify(options);
+    const params = json === "{}" ? "" : "?" + new URLSearchParams({
+        o: json
+    });
+    return await $80d64c4521a01cab$var$apiFetch("GET", `/api/${name}${params}`);
 }
-async function $ba2cbc8f2cb18116$export$df781a4386db1cc8(name, options) {
-    return await $ba2cbc8f2cb18116$var$apiFetch("POST", `/api/${name}`, options);
+async function $80d64c4521a01cab$export$df781a4386db1cc8(name, options) {
+    return await $80d64c4521a01cab$var$apiFetch("POST", `/api/${name}`, options);
 }
-// window.cqrs = {
-//   query: fetchQuery,
-//   command: fetchCommand,
-// }
-async function $ba2cbc8f2cb18116$var$apiFetch(method, path, body, tries = 0) {
+/**/ $parcel$global.cqrpc = {
+    query: $80d64c4521a01cab$export$a1c549e76b7f385e,
+    command: $80d64c4521a01cab$export$df781a4386db1cc8
+};
+async function $80d64c4521a01cab$var$apiFetch(method, path, body, tries = 0) {
     const res = await fetch(path, {
         method: method,
         headers: {
@@ -361,26 +331,21 @@ async function $ba2cbc8f2cb18116$var$apiFetch(method, path, body, tries = 0) {
     });
     if (res.status === 502) throw new Error(`API server looks down or you're offline`);
     if (res.status === 504 && tries < 5) {
-        await $ba2cbc8f2cb18116$var$wait(500);
-        return $ba2cbc8f2cb18116$var$apiFetch(method, path, body, tries + 1);
+        await (0, $3b200ebc3435d25f$export$2e2bcd8739ae039)(500);
+        return $80d64c4521a01cab$var$apiFetch(method, path, body, tries + 1);
     }
     const { result: result , error: error  } = await res.json();
     if (error) throw new Error(error.message);
     return result || null;
 }
-const $ba2cbc8f2cb18116$var$wait = (ms)=>new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve();
-        }, ms);
-    });
-function $ba2cbc8f2cb18116$export$dd0a697e1782aedd(name, options = {}, config) {
+function $80d64c4521a01cab$export$dd0a697e1782aedd(name, options = {}, config) {
     const swrKey = name ? [
         name,
         options
     ] : null;
     const { data: result , error: error , mutate: mutate  } = (0, $d8gED$swr)(swrKey, {
         ...config,
-        fetcher: $ba2cbc8f2cb18116$export$a1c549e76b7f385e
+        fetcher: $80d64c4521a01cab$export$a1c549e76b7f385e
     });
     const loading = typeof result === "undefined" && !error;
     const reload = (0, $d8gED$useCallback)(()=>{
@@ -396,11 +361,11 @@ function $ba2cbc8f2cb18116$export$dd0a697e1782aedd(name, options = {}, config) {
         reload: reload
     };
 }
-function $ba2cbc8f2cb18116$export$194d0c7cb6792e23(name, config) {
-    return (0, $27954de794c56674$export$2e2bcd8739ae039)((options)=>$ba2cbc8f2cb18116$export$df781a4386db1cc8(name, options), config);
+function $80d64c4521a01cab$export$194d0c7cb6792e23(name, config) {
+    return (0, $27954de794c56674$export$2e2bcd8739ae039)((options)=>$80d64c4521a01cab$export$df781a4386db1cc8(name, options), config);
 }
-function $ba2cbc8f2cb18116$export$b87ac4c6452497e4(name, options, config) {
-    const command = $ba2cbc8f2cb18116$export$194d0c7cb6792e23(name, config);
+function $80d64c4521a01cab$export$b87ac4c6452497e4(name, options, config) {
+    const command = $80d64c4521a01cab$export$194d0c7cb6792e23(name, config);
     (0, $d8gED$useEffect)(()=>{
         if (command.idle) command.call(options);
     }, [
@@ -428,7 +393,7 @@ function $b5643637aedb000b$export$2e2bcd8739ae039({ object: object , sx: sx , ..
     } catch (error) {
         string = `ERROR: ${error}`;
     }
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialBox), {
         className: "InspectObject",
         sx: {
             m: 1,
@@ -440,11 +405,7 @@ function $b5643637aedb000b$export$2e2bcd8739ae039({ object: object , sx: sx , ..
         },
         ...props,
         children: string
-    }, void 0, false, {
-        fileName: "client-src/components/InspectObject.js",
-        lineNumber: 17,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $b5643637aedb000b$var$inspect(object, indentation = 2) {
     return JSON.stringify(object, $b5643637aedb000b$var$replaceUndefinedWithUndefinedString, indentation).replace(/"UNDEFINEDPLACEHOLDER"/g, "undefined");
@@ -459,37 +420,29 @@ const $b5643637aedb000b$var$replaceUndefinedWithUndefinedString = (k, v)=>{
 };
 
 
-// import { useCurrentAgent } from '../resources/auth'
-// import LinkToDid from '../components/LinkToDid'
-// import CopyButton from '../components/CopyButton'
-const $bd5e7b1f34144514$var$defaultExec = ()=>({
-        isCommand: false,
-        name: "",
-        optionsJson: "{}"
-    });
 const $bd5e7b1f34144514$var$searchToString = (object)=>new URLSearchParams(object).toString();
 const $bd5e7b1f34144514$var$searchToObject = (search)=>Object.fromEntries(new URLSearchParams(search).entries());
-function $bd5e7b1f34144514$export$2e2bcd8739ae039({ APP_NAME: APP_NAME  }) {
+function $bd5e7b1f34144514$export$2e2bcd8739ae039({ appName: appName  }) {
     const location = (0, $d8gED$useLocation)();
     const name = location.pathname.split("/").reverse()[0];
     const search = $bd5e7b1f34144514$var$searchToObject(location.search);
     const optionsJson = search.opts;
     (0, $d8gED$useEffect)(()=>{
-        document.title = `Debug@ ${APP_NAME}: ${name}(${optionsJson || ""})`;
+        document.title = `Debug ${appName}: ${name}(${optionsJson || ""})`;
     }, [
         name,
         optionsJson
     ]);
-    const { result: spec , error: error  } = (0, $ba2cbc8f2cb18116$export$dd0a697e1782aedd)("__spec");
+    const { result: spec , error: error  } = (0, $80d64c4521a01cab$export$dd0a697e1782aedd)("__spec");
     const props = {
         spec: spec,
         name: name,
         optionsJson: optionsJson
     };
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialContainer), {
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialContainer), {
         maxWidth: false,
         disableGutters: true,
-        children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+        children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
             sx: {
                 display: "flex",
                 flexDirection: "row",
@@ -497,85 +450,50 @@ function $bd5e7b1f34144514$export$2e2bcd8739ae039({ APP_NAME: APP_NAME  }) {
                 minWidth: "100vw"
             },
             children: [
-                /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNav, {
+                /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNav, {
+                    appName: appName,
                     spec: spec
-                }, void 0, false, {
-                    fileName: "client-src/pages/DebugPage.js",
-                    lineNumber: 67,
-                    columnNumber: 7
-                }, this),
-                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+                }),
+                /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
                     sx: {
                         flex: "1 1",
                         p: 2
                     },
                     children: [
-                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
+                        /*#__PURE__*/ (0, $d8gED$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
                             error: error
-                        }, void 0, false, {
-                            fileName: "client-src/pages/DebugPage.js",
-                            lineNumber: 69,
-                            columnNumber: 9
-                        }, this),
-                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$ErrorBoundary), {
-                            FallbackComponent: (0, $398477c469915369$export$2e2bcd8739ae039),
-                            children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$Routes), {
+                        }),
+                        /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$ErrorBoundary), {
+                            onError: (0, $398477c469915369$export$2e2bcd8739ae039),
+                            children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$Routes), {
                                 children: [
-                                    /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$Route), {
+                                    /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$Route), {
                                         path: "/q/:name",
-                                        element: /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$ExecForm, {
+                                        element: /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$ExecForm, {
                                             ...props,
                                             type: "query"
-                                        }, name, false, void 0, void 0),
+                                        }, name),
                                         title: "do a query"
-                                    }, void 0, false, {
-                                        fileName: "client-src/pages/DebugPage.js",
-                                        lineNumber: 72,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$Route), {
+                                    }),
+                                    /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$Route), {
                                         path: "/c/:name",
-                                        element: /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$ExecForm, {
+                                        element: /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$ExecForm, {
                                             ...props,
                                             type: "command"
-                                        }, name, false, void 0, void 0),
+                                        }, name),
                                         title: "do a command"
-                                    }, void 0, false, {
-                                        fileName: "client-src/pages/DebugPage.js",
-                                        lineNumber: 77,
-                                        columnNumber: 13
-                                    }, this)
+                                    })
                                 ]
-                            }, void 0, true, {
-                                fileName: "client-src/pages/DebugPage.js",
-                                lineNumber: 71,
-                                columnNumber: 11
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "client-src/pages/DebugPage.js",
-                            lineNumber: 70,
-                            columnNumber: 9
-                        }, this)
+                            })
+                        })
                     ]
-                }, void 0, true, {
-                    fileName: "client-src/pages/DebugPage.js",
-                    lineNumber: 68,
-                    columnNumber: 7
-                }, this)
+                })
             ]
-        }, void 0, true, {
-            fileName: "client-src/pages/DebugPage.js",
-            lineNumber: 61,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 60,
-        columnNumber: 10
-    }, this);
+        })
+    });
 }
-function $bd5e7b1f34144514$var$SideNav({ spec: spec  }) {
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+function $bd5e7b1f34144514$var$SideNav({ appName: appName , spec: spec  }) {
+    return /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
         sx: {
             display: "flex",
             flexDirection: "column",
@@ -585,7 +503,7 @@ function $bd5e7b1f34144514$var$SideNav({ spec: spec  }) {
             overflowX: "auto"
         },
         children: [
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTypography), {
+            /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialTypography), {
                 variant: "h6",
                 sx: {
                     my: 2,
@@ -593,136 +511,91 @@ function $bd5e7b1f34144514$var$SideNav({ spec: spec  }) {
                 },
                 children: [
                     "Debug ",
-                    process.env.APP_NAME
+                    appName
                 ]
-            }, void 0, true, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 98,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNavButton, {
+            }),
+            /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNavButton, {
                 to: `/`,
-                icon: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muiiconsmaterialCottage), {}, void 0, false, void 0, void 0),
+                icon: /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muiiconsmaterialCottage), {}),
                 title: "Home"
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 104,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNavButtonList, {
+            }),
+            /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNavButtonList, {
                 name: "Queries",
-                types: spec?.queries,
-                icon: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muiiconsmaterialHelpOutline), {}, void 0, false, void 0, void 0),
+                tree: spec?.queries,
+                icon: /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muiiconsmaterialHelpOutline), {}),
                 linkPrefix: "/debug/q/"
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 109,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNavButtonList, {
+            }),
+            /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNavButtonList, {
                 name: "Commands",
-                types: spec?.commands,
-                icon: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muiiconsmaterialKeyboardCommandKeyTwoTone), {}, void 0, false, void 0, void 0),
+                tree: spec?.commands,
+                icon: /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muiiconsmaterialKeyboardCommandKeyTwoTone), {}),
                 linkPrefix: "/debug/c/"
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 115,
-                columnNumber: 5
-            }, this)
+            })
         ]
-    }, void 0, true, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 90,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $bd5e7b1f34144514$var$SideNavButton({ icon: icon , title: title , subtitle: subtitle , ...props }) {
-    if (props.to) props.component = (0, $08b8c86ef070e3a0$exports.default);
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialListItem), {
+    if (props.to) props.component = (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039);
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialListItem), {
         disablePadding: true,
-        children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialListItemButton), {
+        children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialListItemButton), {
             ...props,
             children: [
-                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialListItemIcon), {
+                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialListItemIcon), {
                     sx: {
                         minWidth: "30px"
                     },
                     children: icon
-                }, void 0, false, {
-                    fileName: "client-src/pages/DebugPage.js",
-                    lineNumber: 128,
-                    columnNumber: 7
-                }, this),
-                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialListItemText), {
+                }),
+                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialListItemText), {
                     primary: title,
                     secondary: subtitle
-                }, void 0, false, {
-                    fileName: "client-src/pages/DebugPage.js",
-                    lineNumber: 131,
-                    columnNumber: 7
-                }, this)
+                })
             ]
-        }, void 0, true, {
-            fileName: "client-src/pages/DebugPage.js",
-            lineNumber: 127,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 126,
-        columnNumber: 10
-    }, this);
+        })
+    });
 }
-function $bd5e7b1f34144514$var$SideNavButtonList({ name: name , types: types , icon: icon , linkPrefix: linkPrefix  }) {
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+function $bd5e7b1f34144514$var$SideNavButtonList({ name: name , tree: tree , icon: icon , linkPrefix: linkPrefix  }) {
+    const objectToNodes = (obj)=>{
+        const nodes = [];
+        for(const key in obj){
+            if (key.startsWith("__")) continue;
+            const value = obj[key];
+            const node = value && value.name && value.source ? /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$SideNavButton, {
+                key: key,
+                to: `${linkPrefix}${key}`,
+                icon: icon,
+                title: key,
+                subtitle: value.args
+            }) : /*#__PURE__*/ (0, $d8gED$jsx)("div", {
+                children: "DOWN"
+            });
+            nodes.push(node);
+        }
+        return nodes;
+    };
+    const list = tree ? objectToNodes(tree) : Array(3).fill("").map((_, i)=>/*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialSkeleton), {
+            animation: "wave",
+            height: "40px"
+        }, i));
+    return /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
         children: [
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTypography), {
+            /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialTypography), {
                 variant: "h6",
                 sx: {
                     pl: 1
                 },
                 children: name
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 138,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialList), {
+            }),
+            /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialList), {
                 dense: true,
                 sx: {
                     pt: 0
                 },
-                children: Array.isArray(types) ? [
-                    ...types
-                ].sort().map(({ name: name , args: args  })=>/*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$SideNavButton, {
-                        key: name,
-                        to: `${linkPrefix}${name}`,
-                        icon: icon,
-                        title: name,
-                        subtitle: args
-                    }, void 0, false, {
-                        fileName: "client-src/pages/DebugPage.js",
-                        lineNumber: 142,
-                        columnNumber: 11
-                    }, this)) : Array(3).fill().map((_, i)=>/*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialSkeleton), {
-                        animation: "wave",
-                        height: "40px"
-                    }, i, false, {
-                        fileName: "client-src/pages/DebugPage.js",
-                        lineNumber: 151,
-                        columnNumber: 11
-                    }, this))
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 139,
-                columnNumber: 5
-            }, this)
+                children: list
+            })
         ]
-    }, void 0, true, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 137,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $bd5e7b1f34144514$var$ExecForm({ spec: spec , type: type , name: name , optionsJson: optionsJson = "{}"  }) {
     const location = (0, $d8gED$useLocation)();
@@ -763,55 +636,38 @@ function $bd5e7b1f34144514$var$ExecForm({ spec: spec , type: type , name: name ,
         name,
         options
     ]);
-    const names = spec && (isCommand ? spec.commands : spec.queries) || [];
+    const procedures = spec && Object.values(isCommand ? spec.commands : spec.queries) || [];
     const disabled = !!(execution && !executionDone);
     const Exec = isCommand ? $bd5e7b1f34144514$var$ExecuteCommand : $bd5e7b1f34144514$var$ExecuteQuery;
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
+    return /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialBox), {
         children: [
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $1abdbf2868e540b2$export$2e2bcd8739ae039), {
+            /*#__PURE__*/ (0, $d8gED$jsx)((0, $1abdbf2868e540b2$export$2e2bcd8739ae039), {
                 disabled: disabled,
                 onSubmit: onSubmit,
-                children: /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialStack), {
+                children: /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialStack), {
                     spacing: 2,
                     children: [
-                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialStack), {
+                        /*#__PURE__*/ (0, $d8gED$jsxs)((0, $d8gED$muimaterialStack), {
                             direction: "row",
                             spacing: 2,
                             children: [
-                                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTypography), {
+                                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialTypography), {
                                     variant: "h4",
                                     children: type
-                                }, void 0, false, {
-                                    fileName: "client-src/pages/DebugPage.js",
-                                    lineNumber: 208,
-                                    columnNumber: 11
-                                }, this),
-                                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialSelect), {
+                                }),
+                                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialSelect), {
                                     value: name,
-                                    // onChange={e => setName(e.target.value)}
                                     autoWidth: true,
-                                    children: names.map(({ name: name  })=>/*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialMenuItem), {
+                                    children: procedures.map(({ name: name  })=>/*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialMenuItem), {
                                             value: name,
-                                            component: (0, $08b8c86ef070e3a0$exports.default),
+                                            component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
                                             to: `/debug/${isCommand ? "c" : "q"}/${name}`,
                                             children: name
-                                        }, name, false, {
-                                            fileName: "client-src/pages/DebugPage.js",
-                                            lineNumber: 215,
-                                            columnNumber: 15
-                                        }, this))
-                                }, void 0, false, {
-                                    fileName: "client-src/pages/DebugPage.js",
-                                    lineNumber: 209,
-                                    columnNumber: 11
-                                }, this)
+                                        }, name))
+                                })
                             ]
-                        }, void 0, true, {
-                            fileName: "client-src/pages/DebugPage.js",
-                            lineNumber: 207,
-                            columnNumber: 9
-                        }, this),
-                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialTextField), {
+                        }),
+                        /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialTextField), {
                             disabled: disabled,
                             label: "options (JSON)",
                             fullWidth: true,
@@ -820,62 +676,34 @@ function $bd5e7b1f34144514$var$ExecForm({ spec: spec , type: type , name: name ,
                             onChange: (e)=>{
                                 setOptionsJson(e.target.value, true);
                             },
-                            error: optionsJsonIsValid ? false : true
-                        }, void 0, false, {
-                            fileName: "client-src/pages/DebugPage.js",
-                            lineNumber: 224,
-                            columnNumber: 9
-                        }, this),
-                        /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $33fea69a0e10afc7$export$2e2bcd8739ae039), {
+                            error: !optionsJsonIsValid
+                        }),
+                        /*#__PURE__*/ (0, $d8gED$jsxs)((0, $33fea69a0e10afc7$export$2e2bcd8739ae039), {
                             sx: {
                                 mt: 2
                             },
                             children: [
-                                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialButton), {
+                                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialButton), {
                                     disabled: disabled || !submittable,
                                     variant: "contained",
                                     type: "submit",
                                     autoFocus: true,
                                     children: isCommand ? "execute" : "query"
-                                }, void 0, false, {
-                                    fileName: "client-src/pages/DebugPage.js",
-                                    lineNumber: 234,
-                                    columnNumber: 11
-                                }, this),
-                                /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialButton), {
+                                }),
+                                /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialButton), {
                                     disabled: disabled,
                                     variant: "text",
                                     onClick: reset,
                                     children: "reset"
-                                }, void 0, false, {
-                                    fileName: "client-src/pages/DebugPage.js",
-                                    lineNumber: 241,
-                                    columnNumber: 11
-                                }, this)
+                                })
                             ]
-                        }, void 0, true, {
-                            fileName: "client-src/pages/DebugPage.js",
-                            lineNumber: 233,
-                            columnNumber: 9
-                        }, this)
+                        })
                     ]
-                }, void 0, true, {
-                    fileName: "client-src/pages/DebugPage.js",
-                    lineNumber: 206,
-                    columnNumber: 7
-                }, this)
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 205,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)("hr", {}, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 249,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
-                children: execution ? /*#__PURE__*/ (0, $d8gED$jsxDEV)(Exec, {
+                })
+            }),
+            /*#__PURE__*/ (0, $d8gED$jsx)("hr", {}),
+            /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialBox), {
+                children: execution ? /*#__PURE__*/ (0, $d8gED$jsx)(Exec, {
                     key: execution.id,
                     id: execution.id,
                     name: name,
@@ -883,25 +711,13 @@ function $bd5e7b1f34144514$var$ExecForm({ spec: spec , type: type , name: name ,
                     onComplete () {
                         setExecutionDone(true);
                     }
-                }, void 0, false, {
-                    fileName: "client-src/pages/DebugPage.js",
-                    lineNumber: 252,
-                    columnNumber: 11
-                }, this) : null
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 250,
-                columnNumber: 5
-            }, this)
+                }) : null
+            })
         ]
-    }, void 0, true, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 204,
-        columnNumber: 10
-    }, this);
+    });
 }
-function $bd5e7b1f34144514$var$ExecuteQuery({ id: id , name: name , options: options , onComplete: onComplete  }) {
-    const results = (0, $ba2cbc8f2cb18116$export$dd0a697e1782aedd)(name, options, {
+function $bd5e7b1f34144514$var$ExecuteQuery({ name: name , options: options , onComplete: onComplete  }) {
+    const results = (0, $80d64c4521a01cab$export$dd0a697e1782aedd)(name, options, {
         dedupingInterval: 0,
         revalidateOnMount: true,
         revalidateOnFocus: true
@@ -911,87 +727,34 @@ function $bd5e7b1f34144514$var$ExecuteQuery({ id: id , name: name , options: opt
     }, [
         results.loading
     ]);
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$Execution, {
+    return /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$Execution, {
         ...results,
         name: name,
         options: options
-    }, void 0, false, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 275,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $bd5e7b1f34144514$var$ExecuteCommand({ name: name , options: options , onComplete: onComplete  }) {
-    const results = (0, $ba2cbc8f2cb18116$export$b87ac4c6452497e4)(name, options, {
+    const results = (0, $80d64c4521a01cab$export$b87ac4c6452497e4)(name, options, {
         onComplete: onComplete
     });
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)($bd5e7b1f34144514$var$Execution, {
+    return /*#__PURE__*/ (0, $d8gED$jsx)($bd5e7b1f34144514$var$Execution, {
         ...results,
         name: name,
         options: options
-    }, void 0, false, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 280,
-        columnNumber: 10
-    }, this);
+    });
 }
-function $bd5e7b1f34144514$var$Execution({ name: name , options: options , result: result , loading: loading , error: error  }) {
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialBox), {
-        children: loading ? /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $d8gED$muimaterialCircularProgress), {}, void 0, false, {
-            fileName: "client-src/pages/DebugPage.js",
-            lineNumber: 287,
-            columnNumber: 11
-        }, this) : error ? /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
+function $bd5e7b1f34144514$var$Execution({ result: result , loading: loading , error: error  }) {
+    return /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialBox), {
+        children: loading ? /*#__PURE__*/ (0, $d8gED$jsx)((0, $d8gED$muimaterialCircularProgress), {}) : error ? /*#__PURE__*/ (0, $d8gED$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
             error: error
-        }, void 0, false, {
-            fileName: "client-src/pages/DebugPage.js",
-            lineNumber: 289,
-            columnNumber: 13
-        }, this) : /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
+        }) : /*#__PURE__*/ (0, $d8gED$jsx)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
             object: result,
             sx: {
                 m: 0,
                 backgroundColor: "#232323"
             }
-        }, void 0, false, {
-            fileName: "client-src/pages/DebugPage.js",
-            lineNumber: 290,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 284,
-        columnNumber: 10
-    }, this);
-}
-function $bd5e7b1f34144514$var$Command({ name: name , options: options , ...prop }) {
-    const command = (0, $ba2cbc8f2cb18116$export$b87ac4c6452497e4)(name, options);
-    return /*#__PURE__*/ (0, $d8gED$jsxDEV)(Tile, {
-        title: `command: ${name}`,
-        ...prop,
-        children: [
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
-                object: {
-                    options: options
-                }
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 305,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $d8gED$jsxDEV)((0, $b5643637aedb000b$export$2e2bcd8739ae039), {
-                object: command
-            }, void 0, false, {
-                fileName: "client-src/pages/DebugPage.js",
-                lineNumber: 306,
-                columnNumber: 5
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "client-src/pages/DebugPage.js",
-        lineNumber: 304,
-        columnNumber: 10
-    }, this);
+        })
+    });
 }
 function $bd5e7b1f34144514$var$safeJsonParse(json) {
     try {

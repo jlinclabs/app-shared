@@ -1,4 +1,4 @@
-import {jsxDEV as $5BDeY$jsxDEV} from "react/jsx-dev-runtime";
+import {jsx as $5BDeY$jsx} from "react/jsx-runtime";
 import "react";
 import $5BDeY$muimaterialBox from "@mui/material/Box";
 
@@ -14,7 +14,7 @@ function $b5643637aedb000b$export$2e2bcd8739ae039({ object: object , sx: sx , ..
     } catch (error) {
         string = `ERROR: ${error}`;
     }
-    return /*#__PURE__*/ (0, $5BDeY$jsxDEV)((0, $5BDeY$muimaterialBox), {
+    return /*#__PURE__*/ (0, $5BDeY$jsx)((0, $5BDeY$muimaterialBox), {
         className: "InspectObject",
         sx: {
             m: 1,
@@ -26,11 +26,7 @@ function $b5643637aedb000b$export$2e2bcd8739ae039({ object: object , sx: sx , ..
         },
         ...props,
         children: string
-    }, void 0, false, {
-        fileName: "client-src/components/InspectObject.js",
-        lineNumber: 17,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $b5643637aedb000b$var$inspect(object, indentation = 2) {
     return JSON.stringify(object, $b5643637aedb000b$var$replaceUndefinedWithUndefinedString, indentation).replace(/"UNDEFINEDPLACEHOLDER"/g, "undefined");

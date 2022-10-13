@@ -61,7 +61,7 @@ function $27954de794c56674$export$2e2bcd8739ae039(asyncFunction, config = {}) {
             setState(3);
             return error;
         }).then((result)=>{
-            onComplete(result);
+            if (onComplete) onComplete(result);
         });
         setState(1);
         return ctx.promise;
