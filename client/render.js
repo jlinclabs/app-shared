@@ -1,5 +1,5 @@
 import {jsx as $h2dLv$jsx, jsxs as $h2dLv$jsxs} from "react/jsx-runtime";
-import {StrictMode as $h2dLv$StrictMode, Component as $h2dLv$Component} from "react";
+import $h2dLv$react, {Component as $h2dLv$Component} from "react";
 import $h2dLv$reactdomclient from "react-dom/client";
 import {BrowserRouter as $h2dLv$BrowserRouter} from "react-router-dom";
 import {ThemeProvider as $h2dLv$ThemeProvider, CssBaseline as $h2dLv$CssBaseline} from "@mui/material";
@@ -130,22 +130,26 @@ class $2db3f843c0804b10$export$2e2bcd8739ae039 extends $h2dLv$Component {
 const $3d27138bea64f431$var$root = (0, $h2dLv$reactdomclient).createRoot(document.querySelector("body > main"));
 function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
     const { Routes: Routes , theme: theme = (0, $c8b71836488e4bbe$export$2e2bcd8739ae039) ,  } = opts;
-    $3d27138bea64f431$var$root.render(/*#__PURE__*/ (0, $h2dLv$jsx)($h2dLv$StrictMode, {
-        children: /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$BrowserRouter), {
-            children: /*#__PURE__*/ (0, $h2dLv$jsxs)((0, $h2dLv$ThemeProvider), {
-                theme: theme,
-                children: [
-                    /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$CssBaseline), {
-                        enableColorScheme: true
-                    }),
-                    /*#__PURE__*/ (0, $h2dLv$jsx)((0, $2db3f843c0804b10$export$2e2bcd8739ae039), {
-                        onError: (error)=>/*#__PURE__*/ (0, $h2dLv$jsx)((0, $398477c469915369$export$2e2bcd8739ae039), {
-                                error: error
-                            }),
+    console.log("SAME REACT??", (0, $h2dLv$react) === opts.React, {
+        given: opts.React,
+        imported: (0, $h2dLv$react)
+    });
+    $3d27138bea64f431$var$root.render(/*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$react).StrictMode, {
+        children: /*#__PURE__*/ (0, $h2dLv$jsxs)((0, $h2dLv$ThemeProvider), {
+            theme: theme,
+            children: [
+                /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$CssBaseline), {
+                    enableColorScheme: true
+                }),
+                /*#__PURE__*/ (0, $h2dLv$jsx)((0, $2db3f843c0804b10$export$2e2bcd8739ae039), {
+                    onError: (error)=>/*#__PURE__*/ (0, $h2dLv$jsx)((0, $398477c469915369$export$2e2bcd8739ae039), {
+                            error: error
+                        }),
+                    children: /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$BrowserRouter), {
                         children: /*#__PURE__*/ (0, $h2dLv$jsx)(Routes, {})
                     })
-                ]
-            })
+                })
+            ]
         })
     }));
 }
