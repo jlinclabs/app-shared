@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { useEffect, useState, useCallback, useMemo } from 'react'
-import { Routes, Route, useParams, useNavigate, useLocation } from 'react-router-dom'
+import { useEffect, useState, useCallback } from 'react'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
-import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import Select from '@mui/material/Select'
@@ -19,9 +18,6 @@ import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import Skeleton from '@mui/material/Skeleton'
-import IconButton from '@mui/material/IconButton'
-import EditIcon from '@mui/icons-material/Edit'
-import CloseIcon from '@mui/icons-material/Close'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import KeyboardCommandKeyTwoToneIcon from '@mui/icons-material/KeyboardCommandKeyTwoTone'
 import CottageIcon from '@mui/icons-material/Cottage'
@@ -33,15 +29,6 @@ import ButtonRow from '../components/ButtonRow'
 import ErrorMessage from '../components/ErrorMessage'
 import { useQuery, useCommandOnMount } from '../hooks/cqrpc.js'
 import InspectObject from '../components/InspectObject'
-// import { useCurrentAgent } from '../resources/auth'
-// import LinkToDid from '../components/LinkToDid'
-// import CopyButton from '../components/CopyButton'
-
-const defaultExec = () => ({
-  isCommand: false,
-  name: '',
-  optionsJson: '{}',
-})
 
 const searchToString = object => (new URLSearchParams(object)).toString()
 const searchToObject = search => Object.fromEntries((new URLSearchParams(search)).entries())
@@ -136,7 +123,7 @@ function SideNavButton({ icon, title, subtitle, ...props }){
 function SideNavButtonList({ name, tree, icon, linkPrefix }){
   const objectToNodes = obj => {
     const nodes = []
-    for (key in obj){
+    for (const key in obj){
       if (key.startsWith('__')) continue;
       const value = obj[key]
       const node = (value && value.name && value.source)
@@ -154,7 +141,7 @@ function SideNavButtonList({ name, tree, icon, linkPrefix }){
   }
   const list = tree
     ? objectToNodes(tree)
-    : Array(3).fill().map((_, i) =>
+    : Array(3).fill('').map((_, i) =>
       <Skeleton key={i} animation="wave" height="40px" />
     )
   return <Box>
@@ -232,7 +219,7 @@ function ExecForm({ spec, type, name, optionsJson = '{}' }){
           multiline
           value={optionsJson}
           onChange={e => { setOptionsJson(e.target.value, true) }}
-          error={optionsJsonIsValid ? false : true}
+          error={!optionsJsonIsValid}
         />
         <ButtonRow sx={{mt: 2}}>
           <Button
@@ -266,7 +253,7 @@ function ExecForm({ spec, type, name, optionsJson = '{}' }){
   </Box>
 }
 
-function ExecuteQuery({ id, name, options, onComplete }){
+function ExecuteQuery({ name, options, onComplete }){
   const results = useQuery(name, options, {
     dedupingInterval: 0,
     revalidateOnMount: true,
@@ -284,7 +271,7 @@ function ExecuteCommand({ name, options, onComplete }){
   return <Execution {...{ ...results, name, options, }}/>
 }
 
-function Execution({ name, options, result, loading, error }){
+function Execution({ /*name, options,*/ result, loading, error }){
   return <Box>
     {
       loading
@@ -303,13 +290,6 @@ function Execution({ name, options, result, loading, error }){
   </Box>
 }
 
-function Command({ name, options,  ...prop }){
-  const command = useCommandOnMount(name, options)
-  return <Tile {...{ title: `command: ${name}`, ...prop}}>
-    <InspectObject object={{ options }}/>
-    <InspectObject object={command}/>
-  </Tile>
-}
 
 function safeJsonParse(json){
   try{

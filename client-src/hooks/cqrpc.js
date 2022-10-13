@@ -1,7 +1,8 @@
-// Command. Query. Remote. Procedute. Call
+// Command. Query. Remote. Procedure. Call
 import { useEffect, useCallback } from 'react'
-import useSWR, { useSWRConfig } from 'swr'
+import useSWR from 'swr'
 import useAsync from './useAsync'
+import wait from '../../wait.js'
 
 export async function fetchQuery(name, options = {}){
   const json = JSON.stringify(options)
@@ -13,7 +14,7 @@ export async function fetchQuery(name, options = {}){
 export async function fetchCommand(name, options){
   return await apiFetch('POST', `/api/${name}`, options)
 }
-
+/**/
 global.cqrpc = {
   query: fetchQuery,
   command: fetchCommand,
@@ -39,10 +40,6 @@ async function apiFetch(method, path, body, tries = 0){
   if (error) throw new Error(error.message)
   return result || null
 }
-
-const wait = ms => new Promise(resolve => {
-  setTimeout(() => { resolve() }, ms)
-})
 
 export function useQuery(name, options = {}, config){
   const swrKey = name ? [name, options] : null
