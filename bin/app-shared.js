@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 // ONE BIN TO RULES THEM ALL
-import Debug from 'debug'
 import Path from 'path'
 import { promisify } from 'node:util'
 import { readFile, writeFile } from 'node:fs/promises'
@@ -11,15 +10,14 @@ import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
 import * as dotenv from 'dotenv'
 
-const debug = Debug('app-shared')
-
 const spawn = (cmd, args, options) => {
-  debug('spawn', cmd, args, options)
+  options = { stdio: 'inherit', ...options }
+  console.log('spawn', cmd, args, options)
   return promisify(childProcess.spawn)(cmd, args, options)
 }
 
 const exec = (cmd, options) => {
-  debug('exec', cmd, options)
+  console.log('exec', cmd, options)
   return promisify(childProcess.exec)(cmd, options)
 }
 
@@ -88,7 +86,6 @@ async function devDbMigrate(){
   await spawn(
     'npx',
     ['prisma', 'migrate', 'dev', `--schema=${SCHEMA_PATH}`],
-    { stdio: 'inherit' }
   )
 }
 
@@ -145,7 +142,6 @@ async function devStartClient(){
       '--dist-dir', `${process.env.APP_PATH}/client-build`,
       `${process.env.APP_PATH}/client/index.html`
     ],
-    { stdio: 'inherit' }
   )
 }
 
@@ -164,7 +160,6 @@ async function devStartServer(){
       '--exec',
       `${THIS_SCRIPT} start`
     ],
-    { stdio: 'inherit' }
   )
 }
 
@@ -179,7 +174,6 @@ async function build(){
       '--dist-dir', `${process.env.APP_PATH}/client-build`,
       `${process.env.APP_PATH}/client/index.html`
     ],
-    { stdio: 'inherit' }
   )
 }
 
@@ -199,7 +193,7 @@ async function devNpmInstallLatest(){
     .then(({ stdout }) => stdout.split(/\s+/)[0])
   await spawn(
     `npm`,
-    ['install', `${packageName}#${latest}`]
+    ['install', `${packageName}#${latest}`],
   )
 }
 
