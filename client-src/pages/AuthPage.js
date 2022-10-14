@@ -19,19 +19,15 @@ import SignupForm from '../components/SignupForm'
 
 const useDestination = create(set => ({
   destination: '/',
-  setDestination(destination){ set({ destination }) }
+  setDestination(destination){
+    console.log('SET DESTINATION', destination)
+    set({ destination })
+  }
 }))
 
-export default function AuthPage({ currentUser }) {
-  return currentUser ? <LoggedIn/> : <LoggedOut/>
-}
-
-function LoggedIn(){
-  const destination = useDestination(s => s.destination)
-  return <RedirectPage to={destination || '/'}/>
-}
-
-function LoggedOut(){
+export default function AuthPage({ component }) {
+  const Component = component
+  // return currentUser ? <LoggedIn/> : <LoggedOut/>
   return <Container
     sx={{
       minHeight: '100vh',
@@ -47,17 +43,35 @@ function LoggedOut(){
         justifyContent: 'center',
       }}
     >
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/login/eth" element={<LoginEth />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signup/password" element={<SignupWithPassword />} />
-        <Route path="/signup/wallet" element={<SignupWithWallet />} />
-        <Route path="*" element={<Main />} />
-      </Routes>
+      <Component />
     </Container>
   </Container>
+}
+
+AuthPage.routes = props => {
+  return props.currentUser ?
+    <>
+      <Route path="/login" element={<RedirectToDestination/>} />
+      <Route path="/login/eth" element={<RedirectToDestination/>} />
+      <Route path="/forgot-password" element={<RedirectToDestination/>} />
+      <Route path="/signup" element={<RedirectToDestination/>} />
+      <Route path="/signup/password" element={<RedirectToDestination/>} />
+      <Route path="/signup/wallet" element={<RedirectToDestination/>} />
+    </> :
+    <>
+      <Route path="/login" element={<AuthPage component={Login} />} />
+      <Route path="/login/eth" element={<AuthPage component={LoginEth} />} />
+      <Route path="/forgot-password" element={<AuthPage component={ForgotPassword} />} />
+      <Route path="/signup" element={<AuthPage component={Signup} />} />
+      <Route path="/signup/password" element={<AuthPage component={SignupWithPassword} />} />
+      <Route path="/signup/wallet" element={<AuthPage component={SignupWithWallet} />} />
+      <Route path="*" element={<AuthPage component={Main} />} />
+    </>
+}
+
+function RedirectToDestination() {
+  const {destination} = useDestination()
+  return <RedirectPage to={destination || '/'}/>
 }
 
 function Main(){
@@ -112,12 +126,7 @@ function LoginEth(){
 }
 
 function Signup(){
-  const navigate = useNavigate()
-  const signup = useSignup({
-    onSuccess(){
-      navigate('/')
-    },
-  })
+  const signup = useSignup()
   const justTryIt = () => {
     signup.call({})
   }

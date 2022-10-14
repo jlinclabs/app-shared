@@ -1,6 +1,6 @@
-import {jsx as $8Hdk9$jsx, jsxs as $8Hdk9$jsxs} from "react/jsx-runtime";
+import {jsx as $8Hdk9$jsx, jsxs as $8Hdk9$jsxs, Fragment as $8Hdk9$Fragment} from "react/jsx-runtime";
 import {useEffect as $8Hdk9$useEffect, useCallback as $8Hdk9$useCallback, useState as $8Hdk9$useState, forwardRef as $8Hdk9$forwardRef} from "react";
-import {Routes as $8Hdk9$Routes, Route as $8Hdk9$Route, useNavigate as $8Hdk9$useNavigate, Link as $8Hdk9$Link} from "react-router-dom";
+import {Route as $8Hdk9$Route, useNavigate as $8Hdk9$useNavigate, Link as $8Hdk9$Link} from "react-router-dom";
 import $8Hdk9$zustand from "zustand";
 import $8Hdk9$muimaterialContainer from "@mui/material/Container";
 import $8Hdk9$muimaterialPaper from "@mui/material/Paper";
@@ -575,21 +575,15 @@ function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFai
 const $b0e3fa2d987314e2$var$useDestination = (0, $8Hdk9$zustand)((set)=>({
         destination: "/",
         setDestination (destination) {
+            console.log("SET DESTINATION", destination);
             set({
                 destination: destination
             });
         }
     }));
-function $b0e3fa2d987314e2$export$2e2bcd8739ae039({ currentUser: currentUser  }) {
-    return currentUser ? /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$LoggedIn, {}) : /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$LoggedOut, {});
-}
-function $b0e3fa2d987314e2$var$LoggedIn() {
-    const destination = $b0e3fa2d987314e2$var$useDestination((s)=>s.destination);
-    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $e4cfecd068afd020$export$2e2bcd8739ae039), {
-        to: destination || "/"
-    });
-}
-function $b0e3fa2d987314e2$var$LoggedOut() {
+function $b0e3fa2d987314e2$export$2e2bcd8739ae039({ component: component  }) {
+    const Component = component;
+    // return currentUser ? <LoggedIn/> : <LoggedOut/>
     return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialContainer), {
         sx: {
             minHeight: "100vh",
@@ -603,39 +597,89 @@ function $b0e3fa2d987314e2$var$LoggedOut() {
                 alignItems: "center",
                 justifyContent: "center"
             },
-            children: /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$Routes), {
-                children: [
-                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
-                        path: "/login",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$Login, {})
-                    }),
-                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
-                        path: "/login/eth",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$LoginEth, {})
-                    }),
-                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
-                        path: "/forgot-password",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$ForgotPassword, {})
-                    }),
-                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
-                        path: "/signup",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$Signup, {})
-                    }),
-                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
-                        path: "/signup/password",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$SignupWithPassword, {})
-                    }),
-                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
-                        path: "/signup/wallet",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$SignupWithWallet, {})
-                    }),
-                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
-                        path: "*",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$Main, {})
-                    })
-                ]
-            })
+            children: /*#__PURE__*/ (0, $8Hdk9$jsx)(Component, {})
         })
+    });
+}
+$b0e3fa2d987314e2$export$2e2bcd8739ae039.routes = (props)=>{
+    return props.currentUser ? /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$Fragment), {
+        children: [
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/login",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/login/eth",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/forgot-password",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/signup",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/signup/password",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/signup/wallet",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+            })
+        ]
+    }) : /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$Fragment), {
+        children: [
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/login",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$2e2bcd8739ae039, {
+                    component: $b0e3fa2d987314e2$var$Login
+                })
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/login/eth",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$2e2bcd8739ae039, {
+                    component: $b0e3fa2d987314e2$var$LoginEth
+                })
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/forgot-password",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$2e2bcd8739ae039, {
+                    component: $b0e3fa2d987314e2$var$ForgotPassword
+                })
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/signup",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$2e2bcd8739ae039, {
+                    component: $b0e3fa2d987314e2$var$Signup
+                })
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/signup/password",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$2e2bcd8739ae039, {
+                    component: $b0e3fa2d987314e2$var$SignupWithPassword
+                })
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "/signup/wallet",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$2e2bcd8739ae039, {
+                    component: $b0e3fa2d987314e2$var$SignupWithWallet
+                })
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
+                path: "*",
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$2e2bcd8739ae039, {
+                    component: $b0e3fa2d987314e2$var$Main
+                })
+            })
+        ]
+    });
+};
+function $b0e3fa2d987314e2$var$RedirectToDestination() {
+    const { destination: destination  } = $b0e3fa2d987314e2$var$useDestination();
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $e4cfecd068afd020$export$2e2bcd8739ae039), {
+        to: destination || "/"
     });
 }
 function $b0e3fa2d987314e2$var$Main() {
@@ -691,12 +735,7 @@ function $b0e3fa2d987314e2$var$LoginEth() {
     });
 }
 function $b0e3fa2d987314e2$var$Signup() {
-    const navigate = (0, $8Hdk9$useNavigate)();
-    const signup = (0, $64a3a77a2f3e8ee3$export$da8941e4c91255e0)({
-        onSuccess () {
-            navigate("/");
-        }
-    });
+    const signup = (0, $64a3a77a2f3e8ee3$export$da8941e4c91255e0)();
     const justTryIt = ()=>{
         signup.call({});
     };
