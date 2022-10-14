@@ -3,7 +3,7 @@
 // ONE BIN TO RULES THEM ALL
 import Path from 'path'
 import { promisify } from 'node:util'
-import { writeFile } from 'node:fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 import childProcess from 'node:child_process'
 import { fileURLToPath } from 'url'
 import { Command } from 'commander'
@@ -34,6 +34,12 @@ program
   .command('dev-db-migrate')
   .description('migrate db in development')
   .action(devDbMigrate)
+
+program
+  .command('dev-npm-link')
+  .description('npm link app-shared and all peer deps')
+  .argument('<path>', 'path to local checkout for app-shared')
+  .action(devNpmLink)
 
 program
   .command('dev-start')
@@ -171,3 +177,16 @@ async function start(){
   await server.start()
 }
 
+async function devNpmLink(appSharedPath){
+  const packageJson = JSON.parse(await readFile(Path.join(appSharedPath, 'package.json')))
+  const packageName = packageJson.name
+  if (packageName !== 'app-shared') throw new Error(`"${appSharedPath}" doesnt look like an app-shared`)
+  const peerDependencies = Object.keys(packageJson.peerDependencies)
+  console.log({ appSharedPath, peerDependencies })
+  for (const dep of peerDependencies){
+    console.log(`rm -rf "${process.env.APP_PATH}/node_modules/${dep}"`)
+    console.log(`ln -s "${appSharedPath}/node_modules/${dep}" "${process.env.APP_PATH}/node_modules/${dep}"`)
+  }
+  console.log(`rm -rf "${process.env.APP_PATH}/node_modules/${packageName}"`)
+  console.log(`ln -s "${appSharedPath}" "${process.env.APP_PATH}/node_modules/${packageName}"`)
+}

@@ -256,10 +256,7 @@ function $53b6bf491df20cc5$export$2e2bcd8739ae039({ component: component = (0, $
     }, [
         logout.call
     ]);
-    console.log("LogoutButton render", {
-        component: component,
-        children: children
-    });
+    console.log("\n\n\n LogoutButton render !!!! \n\n\n");
     return /*#__PURE__*/ (0, $9t1NK$createElement)(component, {
         ...props,
         onClick: onClick

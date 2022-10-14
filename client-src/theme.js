@@ -3,12 +3,12 @@ import { createTheme } from '@mui/material/styles'
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
-    // primary: {
-    //   main: `${process.env.REACT_APP_COLOR}`,
-    // },
-    // secondary: {
-
-    // }
+    primary: {
+      main: colors.gray[600],
+    },
+    secondary: {
+      main: colors.gray[400],
+    },
   },
 })
 
