@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles'
+import * as colors from '@mui/material/colors'
 
 const darkTheme = createTheme({
   palette: {
