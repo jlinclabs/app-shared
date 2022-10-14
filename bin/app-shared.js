@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 // ONE BIN TO RULES THEM ALL
+import Debug from 'debug'
 import Path from 'path'
 import { promisify } from 'node:util'
 import { readFile, writeFile } from 'node:fs/promises'
@@ -10,13 +11,15 @@ import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
 import * as dotenv from 'dotenv'
 
+const debug = Debug('app-shared')
+
 const spawn = (cmd, args, options) => {
-  console.log('spawn', cmd, args, options)
+  debug('spawn', cmd, args, options)
   return promisify(childProcess.spawn)(cmd, args, options)
 }
 
 const exec = (cmd, options) => {
-  console.log('exec', cmd, options)
+  debug('exec', cmd, options)
   return promisify(childProcess.exec)(cmd, options)
 }
 
@@ -192,7 +195,6 @@ async function devNpmInstallLatest(){
   const packageJson = JSON.parse(await readFile(Path.join(THIS_PACKAGE, 'package.json')))
   const origin = packageJson.repository.url.split('git+')[1]
   const packageName = 'github:' + origin.match(/github\.com\/(.+)\.git/)[1]
-  console.log({origin, packageName})
   const latest = await exec(`git ls-remote -h "${origin}" master`)
     .then(({ stdout }) => stdout.split(/\s+/)[0])
   await spawn(
