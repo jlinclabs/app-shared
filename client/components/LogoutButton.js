@@ -20,7 +20,6 @@ function $parcel$defineInteropFlag(a) {
 }
 
 
-
 var $64a3a77a2f3e8ee3$exports = {};
 
 $parcel$export($64a3a77a2f3e8ee3$exports, "useCurrentUser", () => $64a3a77a2f3e8ee3$export$3901076af3749fa9);
@@ -252,7 +251,7 @@ const $64a3a77a2f3e8ee3$export$da8941e4c91255e0 = (callbacks)=>$64a3a77a2f3e8ee3
 
 function $53b6bf491df20cc5$export$2e2bcd8739ae039({ component: component = (0, $9t1NK$muimaterialButton) , children: children , ...props }) {
     const logout = (0, $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585)();
-    const onClick = $9t1NK$useCallback(()=>{
+    const onClick = (0, $9t1NK$useCallback)(()=>{
         logout.call();
     }, [
         logout.call

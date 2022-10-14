@@ -162,6 +162,7 @@ class $2db3f843c0804b10$export$2e2bcd8739ae039 extends $h2dLv$Component {
 const $3d27138bea64f431$var$root = (0, $h2dLv$reactdomclient).createRoot(document.querySelector("body > main"));
 function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
     const { Routes: Routes , theme: theme = (0, $c8b71836488e4bbe$export$2e2bcd8739ae039) ,  } = opts;
+    if ((0, $h2dLv$react) !== opts.React) throw new Error(`REACTS DONT MATCH!!`);
     console.log("SAME REACT??", (0, $h2dLv$react) === opts.React, {
         given: opts.React,
         imported: (0, $h2dLv$react)
@@ -174,7 +175,7 @@ function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
                     enableColorScheme: true
                 }, void 0, false, {
                     fileName: "client-src/render.js",
-                    lineNumber: 24,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $2db3f843c0804b10$export$2e2bcd8739ae039), {
@@ -184,28 +185,28 @@ function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
                     children: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$BrowserRouter), {
                         children: /*#__PURE__*/ (0, $h2dLv$jsxDEV)(Routes, {}, void 0, false, {
                             fileName: "client-src/render.js",
-                            lineNumber: 27,
+                            lineNumber: 30,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "client-src/render.js",
-                        lineNumber: 26,
+                        lineNumber: 29,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "client-src/render.js",
-                    lineNumber: 25,
+                    lineNumber: 28,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "client-src/render.js",
-            lineNumber: 23,
+            lineNumber: 26,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "client-src/render.js",
-        lineNumber: 22,
+        lineNumber: 25,
         columnNumber: 5
     }, this));
 }

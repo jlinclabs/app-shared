@@ -14,6 +14,9 @@ export function render(opts = {}){
     Routes,
     theme = defaultTheme,
   } = opts
+  if (React !== opts.React){
+    throw new Error(`REACTS DONT MATCH!!`)
+  }
   console.log('SAME REACT??', React === opts.React, {
     given: opts.React,
     imported: React,
