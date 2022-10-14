@@ -1,4 +1,4 @@
-import {jsxDEV as $aLgL9$jsxDEV} from "react/jsx-dev-runtime";
+import {jsx as $aLgL9$jsx} from "react/jsx-runtime";
 import "react";
 import $aLgL9$muimaterialTypography from "@mui/material/Typography";
 
@@ -8,14 +8,10 @@ import $aLgL9$muimaterialTypography from "@mui/material/Typography";
 function $f28a375900f42503$export$2e2bcd8739ae039({ at: at , locales: locales , localeOptions: localeOptions , ...props }) {
     const date = new Date(at);
     const value = date.toLocaleDateString(locales, localeOptions) + " " + date.toLocaleTimeString(locales, localeOptions);
-    return /*#__PURE__*/ (0, $aLgL9$jsxDEV)((0, $aLgL9$muimaterialTypography), {
+    return /*#__PURE__*/ (0, $aLgL9$jsx)((0, $aLgL9$muimaterialTypography), {
         ...props,
         children: value
-    }, void 0, false, {
-        fileName: "client-src/components/Timestamp.js",
-        lineNumber: 12,
-        columnNumber: 10
-    }, this);
+    });
 }
 $f28a375900f42503$export$2e2bcd8739ae039.defaultProps = {
     variant: "body1",

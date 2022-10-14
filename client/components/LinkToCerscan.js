@@ -1,4 +1,4 @@
-import {jsxDEV as $i3kuG$jsxDEV} from "react/jsx-dev-runtime";
+import {jsx as $i3kuG$jsx} from "react/jsx-runtime";
 import {forwardRef as $i3kuG$forwardRef} from "react";
 import $i3kuG$muimaterialBox from "@mui/material/Box";
 import {Link as $i3kuG$Link} from "react-router-dom";
@@ -17,7 +17,7 @@ var $08b8c86ef070e3a0$exports = {};
 
 $parcel$defineInteropFlag($08b8c86ef070e3a0$exports);
 
-$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039, (v) => $08b8c86ef070e3a0$export$2e2bcd8739ae039 = v);
+$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039);
 
 
 
@@ -32,14 +32,10 @@ const $08b8c86ef070e3a0$var$Link = /*#__PURE__*/ $i3kuG$forwardRef(({ ...props }
         props.target = props.target || "_blank";
         props.component = "a";
     }
-    return /*#__PURE__*/ (0, $i3kuG$jsxDEV)((0, $i3kuG$muimaterialLink), {
+    return /*#__PURE__*/ (0, $i3kuG$jsx)((0, $i3kuG$muimaterialLink), {
         ...props,
         ref: ref
-    }, void 0, false, {
-        fileName: "client-src/components/Link.js",
-        lineNumber: 17,
-        columnNumber: 10
-    }, undefined);
+    });
 });
 $08b8c86ef070e3a0$var$Link.displayName = "Link";
 var $08b8c86ef070e3a0$export$2e2bcd8739ae039 = $08b8c86ef070e3a0$var$Link;
@@ -47,39 +43,23 @@ var $08b8c86ef070e3a0$export$2e2bcd8739ae039 = $08b8c86ef070e3a0$var$Link;
 
 function $7f8ba4072a6e7e6a$export$2e2bcd8739ae039({ id: id , children: children , ...props }) {
     const to = `https://cerscan.com/testnet-clay/stream/${id}`;
-    return /*#__PURE__*/ (0, $i3kuG$jsxDEV)((0, $08b8c86ef070e3a0$exports.default), {
+    return /*#__PURE__*/ (0, $i3kuG$jsx)((0, $08b8c86ef070e3a0$export$2e2bcd8739ae039), {
         ...props,
         to: to,
         target: "_blank",
-        children: children ?? /*#__PURE__*/ (0, $i3kuG$jsxDEV)($7f8ba4072a6e7e6a$var$CerscanIcon, {}, void 0, false, {
-            fileName: "client-src/components/LinkToCerscan.js",
-            lineNumber: 9,
-            columnNumber: 18
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/components/LinkToCerscan.js",
-        lineNumber: 8,
-        columnNumber: 10
-    }, this);
+        children: children ?? /*#__PURE__*/ (0, $i3kuG$jsx)($7f8ba4072a6e7e6a$var$CerscanIcon, {})
+    });
 }
 function $7f8ba4072a6e7e6a$var$CerscanIcon() {
-    return /*#__PURE__*/ (0, $i3kuG$jsxDEV)((0, $i3kuG$muimaterialBox), {
+    return /*#__PURE__*/ (0, $i3kuG$jsx)((0, $i3kuG$muimaterialBox), {
         component: "span",
         sx: {
             verticalAlign: "bottom"
         },
-        children: /*#__PURE__*/ (0, $i3kuG$jsxDEV)("img", {
+        children: /*#__PURE__*/ (0, $i3kuG$jsx)("img", {
             src: "https://cerscan.com/img/favicon.png"
-        }, void 0, false, {
-            fileName: "client-src/components/LinkToCerscan.js",
-            lineNumber: 18,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/components/LinkToCerscan.js",
-        lineNumber: 15,
-        columnNumber: 10
-    }, this);
+        })
+    });
 }
 
 

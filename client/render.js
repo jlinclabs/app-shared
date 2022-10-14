@@ -1,4 +1,4 @@
-import {jsxDEV as $h2dLv$jsxDEV} from "react/jsx-dev-runtime";
+import {jsx as $h2dLv$jsx, jsxs as $h2dLv$jsxs} from "react/jsx-runtime";
 import $h2dLv$react, {Component as $h2dLv$Component} from "react";
 import $h2dLv$reactdomclient from "react-dom/client";
 import {BrowserRouter as $h2dLv$BrowserRouter} from "react-router-dom";
@@ -63,9 +63,9 @@ $parcel$export($398477c469915369$exports, "default", () => $398477c469915369$exp
 
 
 function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBoundary: resetErrorBoundary  }) {
-    return /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$muimaterialContainer), {
+    return /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$muimaterialContainer), {
         maxWidth: "lg",
-        children: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$muimaterialPaper), {
+        children: /*#__PURE__*/ (0, $h2dLv$jsxs)((0, $h2dLv$muimaterialPaper), {
             elevation: 3,
             role: "alert",
             sx: {
@@ -73,60 +73,32 @@ function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBou
                 p: 3
             },
             children: [
-                /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$muimaterialAlert), {
+                /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$muimaterialAlert), {
                     severity: "error",
                     children: "App Error"
-                }, void 0, false, {
-                    fileName: "client-src/components/AppError.js",
-                    lineNumber: 17,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$muimaterialBox), {
+                }),
+                /*#__PURE__*/ (0, $h2dLv$jsxs)((0, $h2dLv$muimaterialBox), {
                     component: "pre",
                     sx: {
                         overflow: "scroll"
                     },
                     children: [
-                        /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$muimaterialTypography), {
+                        /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$muimaterialTypography), {
                             variant: "h4",
                             children: error.message
-                        }, void 0, false, {
-                            fileName: "client-src/components/AppError.js",
-                            lineNumber: 19,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, $h2dLv$jsxDEV)("br", {}, void 0, false, {
-                            fileName: "client-src/components/AppError.js",
-                            lineNumber: 20,
-                            columnNumber: 11
-                        }, this),
+                        }),
+                        /*#__PURE__*/ (0, $h2dLv$jsx)("br", {}),
                         error.stack
                     ]
-                }, void 0, true, {
-                    fileName: "client-src/components/AppError.js",
-                    lineNumber: 18,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$muimaterialButton), {
+                }),
+                /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$muimaterialButton), {
                     variant: "contained",
                     onClick: resetErrorBoundary,
                     children: "Try again"
-                }, void 0, false, {
-                    fileName: "client-src/components/AppError.js",
-                    lineNumber: 23,
-                    columnNumber: 9
-                }, this)
+                })
             ]
-        }, void 0, true, {
-            fileName: "client-src/components/AppError.js",
-            lineNumber: 12,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/components/AppError.js",
-        lineNumber: 11,
-        columnNumber: 5
-    }, this);
+        })
+    });
 }
 
 
@@ -151,13 +123,9 @@ class $2db3f843c0804b10$export$2e2bcd8739ae039 extends $h2dLv$Component {
         const { error: error  } = this.state;
         if (error) {
             const Component = this.props.component || (0, $398477c469915369$export$2e2bcd8739ae039);
-            return /*#__PURE__*/ (0, $h2dLv$jsxDEV)(Component, {
+            return /*#__PURE__*/ (0, $h2dLv$jsx)(Component, {
                 error: error
-            }, void 0, false, {
-                fileName: "client-src/components/ErrorBoundary.js",
-                lineNumber: 23,
-                columnNumber: 14
-            }, this);
+            });
         }
         return this.props.children;
     }
@@ -168,48 +136,24 @@ class $2db3f843c0804b10$export$2e2bcd8739ae039 extends $h2dLv$Component {
 const $3d27138bea64f431$var$root = (0, $h2dLv$reactdomclient).createRoot(document.querySelector("body > main"));
 function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
     const { Routes: Routes , theme: theme = (0, $c8b71836488e4bbe$export$2e2bcd8739ae039) ,  } = opts;
-    $3d27138bea64f431$var$root.render(/*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$react).StrictMode, {
-        children: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$ThemeProvider), {
+    $3d27138bea64f431$var$root.render(/*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$react).StrictMode, {
+        children: /*#__PURE__*/ (0, $h2dLv$jsxs)((0, $h2dLv$ThemeProvider), {
             theme: theme,
             children: [
-                /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$CssBaseline), {
+                /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$CssBaseline), {
                     enableColorScheme: true
-                }, void 0, false, {
-                    fileName: "client-src/render.js",
-                    lineNumber: 20,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $2db3f843c0804b10$export$2e2bcd8739ae039), {
-                    onError: (error)=>/*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $398477c469915369$export$2e2bcd8739ae039), {
+                }),
+                /*#__PURE__*/ (0, $h2dLv$jsx)((0, $2db3f843c0804b10$export$2e2bcd8739ae039), {
+                    onError: (error)=>/*#__PURE__*/ (0, $h2dLv$jsx)((0, $398477c469915369$export$2e2bcd8739ae039), {
                             error: error
-                        }, void 0, false, void 0, void 0),
-                    children: /*#__PURE__*/ (0, $h2dLv$jsxDEV)((0, $h2dLv$BrowserRouter), {
-                        children: /*#__PURE__*/ (0, $h2dLv$jsxDEV)(Routes, {}, void 0, false, {
-                            fileName: "client-src/render.js",
-                            lineNumber: 23,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "client-src/render.js",
-                        lineNumber: 22,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "client-src/render.js",
-                    lineNumber: 21,
-                    columnNumber: 9
-                }, this)
+                        }),
+                    children: /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$BrowserRouter), {
+                        children: /*#__PURE__*/ (0, $h2dLv$jsx)(Routes, {})
+                    })
+                })
             ]
-        }, void 0, true, {
-            fileName: "client-src/render.js",
-            lineNumber: 19,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/render.js",
-        lineNumber: 18,
-        columnNumber: 5
-    }, this));
+        })
+    }));
 }
 
 

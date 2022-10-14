@@ -1,4 +1,4 @@
-import {jsxDEV as $8Hdk9$jsxDEV} from "react/jsx-dev-runtime";
+import {jsx as $8Hdk9$jsx, jsxs as $8Hdk9$jsxs} from "react/jsx-runtime";
 import {useEffect as $8Hdk9$useEffect, useCallback as $8Hdk9$useCallback, useState as $8Hdk9$useState, forwardRef as $8Hdk9$forwardRef} from "react";
 import {Routes as $8Hdk9$Routes, Route as $8Hdk9$Route, useNavigate as $8Hdk9$useNavigate, Link as $8Hdk9$Link} from "react-router-dom";
 import $8Hdk9$zustand from "zustand";
@@ -295,21 +295,17 @@ var $e57fa53a045bcfbf$exports = {};
 
 $parcel$defineInteropFlag($e57fa53a045bcfbf$exports);
 
-$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039, (v) => $e57fa53a045bcfbf$export$2e2bcd8739ae039 = v);
+$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039);
 
 
 
 const $e57fa53a045bcfbf$var$ErrorMessage = ({ error: error , ...props })=>{
     if (!error) return null;
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialAlert), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialAlert), {
         severity: "error",
         ...props,
         children: error.message
-    }, void 0, false, {
-        fileName: "client-src/components/ErrorMessage.js",
-        lineNumber: 6,
-        columnNumber: 10
-    }, undefined);
+    });
 };
 var $e57fa53a045bcfbf$export$2e2bcd8739ae039 = $e57fa53a045bcfbf$var$ErrorMessage;
 
@@ -318,7 +314,7 @@ var $08b8c86ef070e3a0$exports = {};
 
 $parcel$defineInteropFlag($08b8c86ef070e3a0$exports);
 
-$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039, (v) => $08b8c86ef070e3a0$export$2e2bcd8739ae039 = v);
+$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039);
 
 
 
@@ -333,14 +329,10 @@ const $08b8c86ef070e3a0$var$Link = /*#__PURE__*/ $8Hdk9$forwardRef(({ ...props }
         props.target = props.target || "_blank";
         props.component = "a";
     }
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialLink), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialLink), {
         ...props,
         ref: ref
-    }, void 0, false, {
-        fileName: "client-src/components/Link.js",
-        lineNumber: 17,
-        columnNumber: 10
-    }, undefined);
+    });
 });
 $08b8c86ef070e3a0$var$Link.displayName = "Link";
 var $08b8c86ef070e3a0$export$2e2bcd8739ae039 = $08b8c86ef070e3a0$var$Link;
@@ -396,29 +388,21 @@ function $000fbe8322a2baca$export$2e2bcd8739ae039(props) {
     };
     const submittable = email && password;
     const disabled = !!login.pending;
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialBox), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialBox), {
         ...props,
         children: [
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTypography), {
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTypography), {
                 variant: "h4",
                 children: "Login"
-            }, void 0, false, {
-                fileName: "client-src/components/LoginForm.js",
-                lineNumber: 50,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialBox), {
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialBox), {
                 component: "form",
                 onSubmit: onSubmit,
                 children: [
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
                         error: error
-                    }, void 0, false, {
-                        fileName: "client-src/components/LoginForm.js",
-                        lineNumber: 55,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTextField), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTextField), {
                         autoFocus: true,
                         label: "email",
                         autoComplete: "email",
@@ -431,12 +415,8 @@ function $000fbe8322a2baca$export$2e2bcd8739ae039(props) {
                         onChange: (e)=>{
                             setEmail(e.target.value);
                         }
-                    }, void 0, false, {
-                        fileName: "client-src/components/LoginForm.js",
-                        lineNumber: 56,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTextField), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTextField), {
                         label: "password",
                         autoComplete: "email",
                         disabled: disabled,
@@ -448,64 +428,36 @@ function $000fbe8322a2baca$export$2e2bcd8739ae039(props) {
                         onChange: (e)=>{
                             setPassword(e.target.value);
                         }
-                    }, void 0, false, {
-                        fileName: "client-src/components/LoginForm.js",
-                        lineNumber: 68,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialStack), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialStack), {
                         spacing: 2,
                         direction: "row-reverse",
                         alignItems: "center",
                         mt: 2,
                         children: [
-                            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+                            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                                 type: "submit",
                                 variant: "contained",
                                 disabled: disabled || !submittable,
                                 children: "Login"
-                            }, void 0, false, {
-                                fileName: "client-src/components/LoginForm.js",
-                                lineNumber: 81,
-                                columnNumber: 9
-                            }, this),
-                            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+                            }),
+                            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                                 variant: "outlined",
                                 to: "/forgot-password",
-                                component: (0, $08b8c86ef070e3a0$exports.default),
+                                component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
                                 children: "Forgot Password"
-                            }, void 0, false, {
-                                fileName: "client-src/components/LoginForm.js",
-                                lineNumber: 86,
-                                columnNumber: 9
-                            }, this),
-                            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $08b8c86ef070e3a0$exports.default), {
+                            }),
+                            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $08b8c86ef070e3a0$export$2e2bcd8739ae039), {
                                 variant: "text",
                                 to: "/",
                                 children: "back"
-                            }, void 0, false, {
-                                fileName: "client-src/components/LoginForm.js",
-                                lineNumber: 91,
-                                columnNumber: 9
-                            }, this)
+                            })
                         ]
-                    }, void 0, true, {
-                        fileName: "client-src/components/LoginForm.js",
-                        lineNumber: 80,
-                        columnNumber: 7
-                    }, this)
+                    })
                 ]
-            }, void 0, true, {
-                fileName: "client-src/components/LoginForm.js",
-                lineNumber: 51,
-                columnNumber: 5
-            }, this)
+            })
         ]
-    }, void 0, true, {
-        fileName: "client-src/components/LoginForm.js",
-        lineNumber: 49,
-        columnNumber: 10
-    }, this);
+    });
 }
 
 
@@ -548,34 +500,26 @@ function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFai
     // const emailIsValid = email.length >= 3 && email.includes('@')
     // const secretKeyIsValid = PassphraseInput.isValid(secretKey)
     const submittable = !!(email ?? password);
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialPaper), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialPaper), {
         ...props,
         sx: {
             ...props.sx,
             minWidth: `min(100vw, 500px)`
         },
         children: [
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTypography), {
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTypography), {
                 variant: "h4",
                 mb: 2,
                 children: "Signup"
-            }, void 0, false, {
-                fileName: "client-src/components/SignupForm.js",
-                lineNumber: 51,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialBox), {
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialBox), {
                 component: "form",
                 onSubmit: onSubmit,
                 children: [
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
                         error: signup.error
-                    }, void 0, false, {
-                        fileName: "client-src/components/SignupForm.js",
-                        lineNumber: 56,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTextField), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTextField), {
                         label: "email",
                         autoComplete: "email",
                         disabled: disabled,
@@ -587,12 +531,8 @@ function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFai
                         onChange: (e)=>{
                             setEmail(e.target.value);
                         }
-                    }, void 0, false, {
-                        fileName: "client-src/components/SignupForm.js",
-                        lineNumber: 57,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTextField), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTextField), {
                         label: "password",
                         autoComplete: "email",
                         disabled: disabled,
@@ -604,55 +544,31 @@ function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFai
                         onChange: (e)=>{
                             setPassword(e.target.value);
                         }
-                    }, void 0, false, {
-                        fileName: "client-src/components/SignupForm.js",
-                        lineNumber: 68,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialStack), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialStack), {
                         spacing: 2,
                         direction: "row-reverse",
                         alignItems: "center",
                         mt: 2,
                         children: [
-                            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+                            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                                 disabled: disabled || !submittable,
                                 type: "submit",
                                 variant: "contained",
                                 size: "large",
                                 children: "Signup"
-                            }, void 0, false, {
-                                fileName: "client-src/components/SignupForm.js",
-                                lineNumber: 80,
-                                columnNumber: 9
-                            }, this),
-                            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $08b8c86ef070e3a0$exports.default), {
+                            }),
+                            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $08b8c86ef070e3a0$export$2e2bcd8739ae039), {
                                 variant: "text",
                                 to: "/signup",
                                 children: "back"
-                            }, void 0, false, {
-                                fileName: "client-src/components/SignupForm.js",
-                                lineNumber: 86,
-                                columnNumber: 9
-                            }, this)
+                            })
                         ]
-                    }, void 0, true, {
-                        fileName: "client-src/components/SignupForm.js",
-                        lineNumber: 79,
-                        columnNumber: 7
-                    }, this)
+                    })
                 ]
-            }, void 0, true, {
-                fileName: "client-src/components/SignupForm.js",
-                lineNumber: 52,
-                columnNumber: 5
-            }, this)
+            })
         ]
-    }, void 0, true, {
-        fileName: "client-src/components/SignupForm.js",
-        lineNumber: 44,
-        columnNumber: 10
-    }, this);
+    });
 }
 
 
@@ -665,114 +581,62 @@ const $b0e3fa2d987314e2$var$useDestination = (0, $8Hdk9$zustand)((set)=>({
         }
     }));
 function $b0e3fa2d987314e2$export$2e2bcd8739ae039({ currentUser: currentUser  }) {
-    return currentUser ? /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$LoggedIn, {}, void 0, false, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 26,
-        columnNumber: 24
-    }, this) : /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$LoggedOut, {}, void 0, false, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 26,
-        columnNumber: 38
-    }, this);
+    return currentUser ? /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$LoggedIn, {}) : /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$LoggedOut, {});
 }
 function $b0e3fa2d987314e2$var$LoggedIn() {
     const destination = $b0e3fa2d987314e2$var$useDestination((s)=>s.destination);
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $e4cfecd068afd020$export$2e2bcd8739ae039), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $e4cfecd068afd020$export$2e2bcd8739ae039), {
         to: destination || "/"
-    }, void 0, false, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 31,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $b0e3fa2d987314e2$var$LoggedOut() {
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialContainer), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialContainer), {
         sx: {
             minHeight: "100vh",
             width: "100vw",
             display: "flex"
         },
-        children: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialContainer), {
+        children: /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialContainer), {
             maxWidth: "sm",
             sx: {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center"
             },
-            children: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$Routes), {
+            children: /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$Routes), {
                 children: [
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$Route), {
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                         path: "/login",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$Login, {}, void 0, false, void 0, void 0)
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 51,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$Route), {
+                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$Login, {})
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                         path: "/login/eth",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$LoginEth, {}, void 0, false, void 0, void 0)
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 52,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$Route), {
+                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$LoginEth, {})
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                         path: "/forgot-password",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$ForgotPassword, {}, void 0, false, void 0, void 0)
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 53,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$Route), {
+                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$ForgotPassword, {})
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                         path: "/signup",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$Signup, {}, void 0, false, void 0, void 0)
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 54,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$Route), {
+                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$Signup, {})
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                         path: "/signup/password",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$SignupWithPassword, {}, void 0, false, void 0, void 0)
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 55,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$Route), {
+                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$SignupWithPassword, {})
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                         path: "/signup/wallet",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$SignupWithWallet, {}, void 0, false, void 0, void 0)
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 56,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$Route), {
+                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$SignupWithWallet, {})
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                         path: "*",
-                        element: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)($b0e3fa2d987314e2$var$Main, {}, void 0, false, void 0, void 0)
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 57,
-                        columnNumber: 9
-                    }, this)
+                        element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$Main, {})
+                    })
                 ]
-            }, void 0, true, {
-                fileName: "client-src/pages/AuthPage.js",
-                lineNumber: 50,
-                columnNumber: 7
-            }, this)
-        }, void 0, false, {
-            fileName: "client-src/pages/AuthPage.js",
-            lineNumber: 42,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 35,
-        columnNumber: 10
-    }, this);
+            })
+        })
+    });
 }
 function $b0e3fa2d987314e2$var$Main() {
     const { destination: destination , setDestination: setDestination  } = $b0e3fa2d987314e2$var$useDestination();
@@ -782,77 +646,49 @@ function $b0e3fa2d987314e2$var$Main() {
     const query = destination && destination !== "/" ? "?" + new URLSearchParams({
         d: destination
     }) : "";
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialStack), {
-        divider: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialDivider), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialStack), {
+        divider: /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialDivider), {
             sx: {
                 my: 3
             },
             children: "OR"
-        }, void 0, false, void 0, void 0),
+        }),
         children: [
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                 variant: "contained",
-                component: (0, $08b8c86ef070e3a0$exports.default),
+                component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
                 to: `/login${query}`,
                 children: "Login"
-            }, void 0, false, {
-                fileName: "client-src/pages/AuthPage.js",
-                lineNumber: 85,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                 variant: "contained",
                 to: `/signup${query}`,
-                component: (0, $08b8c86ef070e3a0$exports.default),
+                component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
                 children: "Signup"
-            }, void 0, false, {
-                fileName: "client-src/pages/AuthPage.js",
-                lineNumber: 91,
-                columnNumber: 5
-            }, this)
+            })
         ]
-    }, void 0, true, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 74,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $b0e3fa2d987314e2$var$Login() {
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialPaper), {
-        children: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $000fbe8322a2baca$export$2e2bcd8739ae039), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialPaper), {
+        children: /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $000fbe8322a2baca$export$2e2bcd8739ae039), {
             sx: {
                 p: 2
             }
-        }, void 0, false, {
-            fileName: "client-src/pages/AuthPage.js",
-            lineNumber: 101,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 100,
-        columnNumber: 10
-    }, this);
+        })
+    });
 }
 function $b0e3fa2d987314e2$var$LoginEth() {
     const navigate = (0, $8Hdk9$useNavigate)();
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialPaper), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialPaper), {
         sx: {
             p: 2
         },
-        children: /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTypography), {
+        children: /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTypography), {
             variant: "h5",
             children: "Logging in with Ethereum…"
-        }, void 0, false, {
-            fileName: "client-src/pages/AuthPage.js",
-            lineNumber: 109,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 108,
-        columnNumber: 10
-    }, this);
+        })
+    });
 }
 function $b0e3fa2d987314e2$var$Signup() {
     const navigate = (0, $8Hdk9$useNavigate)();
@@ -864,141 +700,85 @@ function $b0e3fa2d987314e2$var$Signup() {
     const justTryIt = ()=>{
         signup.call({});
     };
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialBox), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialBox), {
         children: [
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTypography), {
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTypography), {
                 variant: "h4",
                 mb: 3,
                 children: "Signup"
-            }, void 0, false, {
-                fileName: "client-src/pages/AuthPage.js",
-                lineNumber: 125,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialStack), {
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialStack), {
                 spacing: 2,
                 children: [
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                         variant: "contained",
                         onClick: justTryIt,
                         disabled: signup.pending,
                         children: "Just Try It!"
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 127,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
                         error: signup.error
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 132,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                         variant: "contained",
                         to: "/signup/password",
-                        component: (0, $08b8c86ef070e3a0$exports.default),
+                        component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
                         children: "Email & Password"
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 133,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                         variant: "contained",
                         to: "/signup/wallet",
-                        component: (0, $08b8c86ef070e3a0$exports.default),
+                        component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
                         children: "Crypto Wallet"
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 138,
-                        columnNumber: 7
-                    }, this),
-                    /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialButton), {
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                         variant: "text",
                         to: "/",
-                        component: (0, $08b8c86ef070e3a0$exports.default),
+                        component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
                         size: "small",
                         children: "back"
-                    }, void 0, false, {
-                        fileName: "client-src/pages/AuthPage.js",
-                        lineNumber: 143,
-                        columnNumber: 7
-                    }, this)
+                    })
                 ]
-            }, void 0, true, {
-                fileName: "client-src/pages/AuthPage.js",
-                lineNumber: 126,
-                columnNumber: 5
-            }, this)
+            })
         ]
-    }, void 0, true, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 124,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $b0e3fa2d987314e2$var$SignupWithPassword() {
     const navigate = (0, $8Hdk9$useNavigate)();
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $325d7b40613f983f$export$2e2bcd8739ae039), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $325d7b40613f983f$export$2e2bcd8739ae039), {
         sx: {
             p: 2
         },
         onSuccess: ()=>{
             navigate("/");
         }
-    }, void 0, false, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 155,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $b0e3fa2d987314e2$var$SignupWithWallet() {
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialBox), {
+    return /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialBox), {
         children: [
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTypography), {
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTypography), {
                 variant: "h4",
                 mb: 3,
                 children: "Signup with crypto wallet"
-            }, void 0, false, {
-                fileName: "client-src/pages/AuthPage.js",
-                lineNumber: 165,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $8Hdk9$muimaterialTypography), {
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialTypography), {
                 variant: "body1",
                 mb: 3,
                 children: "coming soon…"
-            }, void 0, false, {
-                fileName: "client-src/pages/AuthPage.js",
-                lineNumber: 166,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, $8Hdk9$jsxDEV)((0, $08b8c86ef070e3a0$exports.default), {
+            }),
+            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $08b8c86ef070e3a0$export$2e2bcd8739ae039), {
                 variant: "text",
                 to: "/signup",
                 children: "back"
-            }, void 0, false, {
-                fileName: "client-src/pages/AuthPage.js",
-                lineNumber: 167,
-                columnNumber: 5
-            }, this)
+            })
         ]
-    }, void 0, true, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 164,
-        columnNumber: 10
-    }, this);
+    });
 }
 function $b0e3fa2d987314e2$var$ForgotPassword() {
-    return /*#__PURE__*/ (0, $8Hdk9$jsxDEV)("div", {
+    return /*#__PURE__*/ (0, $8Hdk9$jsx)("div", {
         children: "forgot password form TBD"
-    }, void 0, false, {
-        fileName: "client-src/pages/AuthPage.js",
-        lineNumber: 172,
-        columnNumber: 10
-    }, this);
+    });
 }
 
 
