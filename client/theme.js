@@ -1,5 +1,5 @@
 import {createTheme as $bix3n$createTheme} from "@mui/material/styles";
-import {blue as $bix3n$blue, gray as $bix3n$gray} from "@mui/material/colors";
+import {red as $bix3n$red, purple as $bix3n$purple} from "@mui/material/colors";
 
 
 
@@ -7,10 +7,10 @@ const $c8b71836488e4bbe$var$darkTheme = (0, $bix3n$createTheme)({
     palette: {
         mode: "dark",
         primary: {
-            main: $bix3n$blue[600]
+            main: $bix3n$red[600]
         },
         secondary: {
-            main: $bix3n$gray[400]
+            main: $bix3n$purple[600]
         }
     }
 });

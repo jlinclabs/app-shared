@@ -27,3 +27,5 @@ export function render(opts = {}){
     </React.StrictMode>
   )
 }
+
+console.log('RENDER 5')

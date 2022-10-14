@@ -4,7 +4,7 @@ import $h2dLv$reactdomclient from "react-dom/client";
 import {BrowserRouter as $h2dLv$BrowserRouter} from "react-router-dom";
 import {ThemeProvider as $h2dLv$ThemeProvider, CssBaseline as $h2dLv$CssBaseline} from "@mui/material";
 import {createTheme as $h2dLv$createTheme} from "@mui/material/styles";
-import {blue as $h2dLv$blue, gray as $h2dLv$gray} from "@mui/material/colors";
+import {red as $h2dLv$red, purple as $h2dLv$purple} from "@mui/material/colors";
 import $h2dLv$muimaterialContainer from "@mui/material/Container";
 import $h2dLv$muimaterialPaper from "@mui/material/Paper";
 import $h2dLv$muimaterialTypography from "@mui/material/Typography";
@@ -34,10 +34,10 @@ const $c8b71836488e4bbe$var$darkTheme = (0, $h2dLv$createTheme)({
     palette: {
         mode: "dark",
         primary: {
-            main: $h2dLv$blue[600]
+            main: $h2dLv$red[600]
         },
         secondary: {
-            main: $h2dLv$gray[400]
+            main: $h2dLv$purple[600]
         }
     }
 });
@@ -157,6 +157,7 @@ function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
         })
     }));
 }
+console.log("RENDER 5");
 
 
 export {$3d27138bea64f431$export$b3890eb0ae9dca99 as render};

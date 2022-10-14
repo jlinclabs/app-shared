@@ -136,6 +136,11 @@ async function devStartClient(){
   await spawn(
     'npx',
     [
+      'nodemon',
+      '-w', `${THIS_SCRIPT}`,
+      '-w', `${process.env.APP_PATH}/node_modules/app-shared/client/*`,
+      '--exec',
+      'npx',
       'parcel',
       'serve',
       '--port', `${process.env.PORT}`,
