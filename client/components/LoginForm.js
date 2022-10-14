@@ -1,4 +1,4 @@
-import {jsxs as $8aBhW$jsxs, jsx as $8aBhW$jsx} from "react/jsx-runtime";
+import {jsxDEV as $8aBhW$jsxDEV} from "react/jsx-dev-runtime";
 import {useState as $8aBhW$useState, forwardRef as $8aBhW$forwardRef, useCallback as $8aBhW$useCallback, useEffect as $8aBhW$useEffect} from "react";
 import {Link as $8aBhW$Link} from "react-router-dom";
 import $8aBhW$muimaterialBox from "@mui/material/Box";
@@ -38,7 +38,7 @@ var $08b8c86ef070e3a0$exports = {};
 
 $parcel$defineInteropFlag($08b8c86ef070e3a0$exports);
 
-$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039);
+$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039, (v) => $08b8c86ef070e3a0$export$2e2bcd8739ae039 = v);
 
 
 
@@ -53,10 +53,14 @@ const $08b8c86ef070e3a0$var$Link = /*#__PURE__*/ $8aBhW$forwardRef(({ ...props }
         props.target = props.target || "_blank";
         props.component = "a";
     }
-    return /*#__PURE__*/ (0, $8aBhW$jsx)((0, $8aBhW$muimaterialLink), {
+    return /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialLink), {
         ...props,
         ref: ref
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/Link.js",
+        lineNumber: 17,
+        columnNumber: 10
+    }, undefined);
 });
 $08b8c86ef070e3a0$var$Link.displayName = "Link";
 var $08b8c86ef070e3a0$export$2e2bcd8739ae039 = $08b8c86ef070e3a0$var$Link;
@@ -66,17 +70,21 @@ var $e57fa53a045bcfbf$exports = {};
 
 $parcel$defineInteropFlag($e57fa53a045bcfbf$exports);
 
-$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039);
+$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039, (v) => $e57fa53a045bcfbf$export$2e2bcd8739ae039 = v);
 
 
 
 const $e57fa53a045bcfbf$var$ErrorMessage = ({ error: error , ...props })=>{
     if (!error) return null;
-    return /*#__PURE__*/ (0, $8aBhW$jsx)((0, $8aBhW$muimaterialAlert), {
+    return /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialAlert), {
         severity: "error",
         ...props,
         children: error.message
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/ErrorMessage.js",
+        lineNumber: 6,
+        columnNumber: 10
+    }, undefined);
 };
 var $e57fa53a045bcfbf$export$2e2bcd8739ae039 = $e57fa53a045bcfbf$var$ErrorMessage;
 
@@ -344,21 +352,29 @@ function $000fbe8322a2baca$export$2e2bcd8739ae039(props) {
     };
     const submittable = email && password;
     const disabled = !!login.pending;
-    return /*#__PURE__*/ (0, $8aBhW$jsxs)((0, $8aBhW$muimaterialBox), {
+    return /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialBox), {
         ...props,
         children: [
-            /*#__PURE__*/ (0, $8aBhW$jsx)((0, $8aBhW$muimaterialTypography), {
+            /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialTypography), {
                 variant: "h4",
                 children: "Login"
-            }),
-            /*#__PURE__*/ (0, $8aBhW$jsxs)((0, $8aBhW$muimaterialBox), {
+            }, void 0, false, {
+                fileName: "client-src/components/LoginForm.js",
+                lineNumber: 50,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialBox), {
                 component: "form",
                 onSubmit: onSubmit,
                 children: [
-                    /*#__PURE__*/ (0, $8aBhW$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
+                    /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
                         error: error
-                    }),
-                    /*#__PURE__*/ (0, $8aBhW$jsx)((0, $8aBhW$muimaterialTextField), {
+                    }, void 0, false, {
+                        fileName: "client-src/components/LoginForm.js",
+                        lineNumber: 55,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialTextField), {
                         autoFocus: true,
                         label: "email",
                         autoComplete: "email",
@@ -371,8 +387,12 @@ function $000fbe8322a2baca$export$2e2bcd8739ae039(props) {
                         onChange: (e)=>{
                             setEmail(e.target.value);
                         }
-                    }),
-                    /*#__PURE__*/ (0, $8aBhW$jsx)((0, $8aBhW$muimaterialTextField), {
+                    }, void 0, false, {
+                        fileName: "client-src/components/LoginForm.js",
+                        lineNumber: 56,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialTextField), {
                         label: "password",
                         autoComplete: "email",
                         disabled: disabled,
@@ -384,36 +404,64 @@ function $000fbe8322a2baca$export$2e2bcd8739ae039(props) {
                         onChange: (e)=>{
                             setPassword(e.target.value);
                         }
-                    }),
-                    /*#__PURE__*/ (0, $8aBhW$jsxs)((0, $8aBhW$muimaterialStack), {
+                    }, void 0, false, {
+                        fileName: "client-src/components/LoginForm.js",
+                        lineNumber: 68,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialStack), {
                         spacing: 2,
                         direction: "row-reverse",
                         alignItems: "center",
                         mt: 2,
                         children: [
-                            /*#__PURE__*/ (0, $8aBhW$jsx)((0, $8aBhW$muimaterialButton), {
+                            /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialButton), {
                                 type: "submit",
                                 variant: "contained",
                                 disabled: disabled || !submittable,
                                 children: "Login"
-                            }),
-                            /*#__PURE__*/ (0, $8aBhW$jsx)((0, $8aBhW$muimaterialButton), {
+                            }, void 0, false, {
+                                fileName: "client-src/components/LoginForm.js",
+                                lineNumber: 81,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $8aBhW$muimaterialButton), {
                                 variant: "outlined",
                                 to: "/forgot-password",
-                                component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
+                                component: (0, $08b8c86ef070e3a0$exports.default),
                                 children: "Forgot Password"
-                            }),
-                            /*#__PURE__*/ (0, $8aBhW$jsx)((0, $08b8c86ef070e3a0$export$2e2bcd8739ae039), {
+                            }, void 0, false, {
+                                fileName: "client-src/components/LoginForm.js",
+                                lineNumber: 86,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ (0, $8aBhW$jsxDEV)((0, $08b8c86ef070e3a0$exports.default), {
                                 variant: "text",
                                 to: "/",
                                 children: "back"
-                            })
+                            }, void 0, false, {
+                                fileName: "client-src/components/LoginForm.js",
+                                lineNumber: 91,
+                                columnNumber: 9
+                            }, this)
                         ]
-                    })
+                    }, void 0, true, {
+                        fileName: "client-src/components/LoginForm.js",
+                        lineNumber: 80,
+                        columnNumber: 7
+                    }, this)
                 ]
-            })
+            }, void 0, true, {
+                fileName: "client-src/components/LoginForm.js",
+                lineNumber: 51,
+                columnNumber: 5
+            }, this)
         ]
-    });
+    }, void 0, true, {
+        fileName: "client-src/components/LoginForm.js",
+        lineNumber: 49,
+        columnNumber: 10
+    }, this);
 }
 
 

@@ -1,4 +1,4 @@
-import {jsx as $2GvjJ$jsx, jsxs as $2GvjJ$jsxs} from "react/jsx-runtime";
+import {jsxDEV as $2GvjJ$jsxDEV} from "react/jsx-dev-runtime";
 import "react";
 import $2GvjJ$muimaterialContainer from "@mui/material/Container";
 import $2GvjJ$muimaterialPaper from "@mui/material/Paper";
@@ -16,9 +16,9 @@ import $2GvjJ$muimaterialButton from "@mui/material/Button";
 
 
 function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBoundary: resetErrorBoundary  }) {
-    return /*#__PURE__*/ (0, $2GvjJ$jsx)((0, $2GvjJ$muimaterialContainer), {
+    return /*#__PURE__*/ (0, $2GvjJ$jsxDEV)((0, $2GvjJ$muimaterialContainer), {
         maxWidth: "lg",
-        children: /*#__PURE__*/ (0, $2GvjJ$jsxs)((0, $2GvjJ$muimaterialPaper), {
+        children: /*#__PURE__*/ (0, $2GvjJ$jsxDEV)((0, $2GvjJ$muimaterialPaper), {
             elevation: 3,
             role: "alert",
             sx: {
@@ -26,32 +26,60 @@ function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBou
                 p: 3
             },
             children: [
-                /*#__PURE__*/ (0, $2GvjJ$jsx)((0, $2GvjJ$muimaterialAlert), {
+                /*#__PURE__*/ (0, $2GvjJ$jsxDEV)((0, $2GvjJ$muimaterialAlert), {
                     severity: "error",
                     children: "App Error"
-                }),
-                /*#__PURE__*/ (0, $2GvjJ$jsxs)((0, $2GvjJ$muimaterialBox), {
+                }, void 0, false, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 17,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, $2GvjJ$jsxDEV)((0, $2GvjJ$muimaterialBox), {
                     component: "pre",
                     sx: {
                         overflow: "scroll"
                     },
                     children: [
-                        /*#__PURE__*/ (0, $2GvjJ$jsx)((0, $2GvjJ$muimaterialTypography), {
+                        /*#__PURE__*/ (0, $2GvjJ$jsxDEV)((0, $2GvjJ$muimaterialTypography), {
                             variant: "h4",
                             children: error.message
-                        }),
-                        /*#__PURE__*/ (0, $2GvjJ$jsx)("br", {}),
+                        }, void 0, false, {
+                            fileName: "client-src/components/AppError.js",
+                            lineNumber: 19,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, $2GvjJ$jsxDEV)("br", {}, void 0, false, {
+                            fileName: "client-src/components/AppError.js",
+                            lineNumber: 20,
+                            columnNumber: 11
+                        }, this),
                         error.stack
                     ]
-                }),
-                /*#__PURE__*/ (0, $2GvjJ$jsx)((0, $2GvjJ$muimaterialButton), {
+                }, void 0, true, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 18,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, $2GvjJ$jsxDEV)((0, $2GvjJ$muimaterialButton), {
                     variant: "contained",
                     onClick: resetErrorBoundary,
                     children: "Try again"
-                })
+                }, void 0, false, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 23,
+                    columnNumber: 9
+                }, this)
             ]
-        })
-    });
+        }, void 0, true, {
+            fileName: "client-src/components/AppError.js",
+            lineNumber: 12,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "client-src/components/AppError.js",
+        lineNumber: 11,
+        columnNumber: 5
+    }, this);
 }
 
 
