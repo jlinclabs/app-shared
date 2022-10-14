@@ -3,4 +3,5 @@
 set -e
 set -x
 
-parcel watch $@ $(./scripts/ls-client-build-files) --dist-dir ./client
+#parcel watch $@ $(./scripts/ls-client-build-files) --dist-dir ./client
+nodemon -w client-src -w node_modules --exec ./scripts/build
