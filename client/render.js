@@ -157,7 +157,7 @@ function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
         })
     }));
 }
-console.log("RENDER 5");
+console.log("RENDER 9");
 
 
 export {$3d27138bea64f431$export$b3890eb0ae9dca99 as render};

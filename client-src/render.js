@@ -28,4 +28,4 @@ export function render(opts = {}){
   )
 }
 
-console.log('RENDER 5')
+console.log('RENDER 9')

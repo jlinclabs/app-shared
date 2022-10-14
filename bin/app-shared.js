@@ -23,6 +23,12 @@ const exec = (cmd, options) => {
   return childProcess.exec(cmd, options)
 }
 
+const realpath = async path =>
+  (await exec('npx', ['realpath', path])).trim()
+
+const modPath = path =>
+  realpath(Path.join(process.env.APP_PATH, 'node_modules', 'app-shared', path))
+
 const THIS_SCRIPT = fileURLToPath(import.meta.url)
 const THIS_PACKAGE = Path.resolve(THIS_SCRIPT, '../..')
 
@@ -138,7 +144,8 @@ async function devStartClient(){
     [
       'nodemon',
       '-w', `${THIS_SCRIPT}`,
-      '-w', `${process.env.APP_PATH}/node_modules/app-shared/client/*`,
+      // '-w', `${process.env.APP_PATH}/node_modules/app-shared/client`,
+      '-w', await modPath('client'),
       '--exec',
       'npx',
       'parcel',
@@ -161,8 +168,10 @@ async function devStartServer(){
     [
       'nodemon',
       '-w', `${THIS_SCRIPT}`,
-      '-w', `${process.env.APP_PATH}/node_modules/app-shared/bin/app-shared.js`,
-      '-w', `${process.env.APP_PATH}/node_modules/app-shared/server`,
+      // '-w', `${process.env.APP_PATH}/node_modules/app-shared/bin/app-shared.js`,
+      '-w', await modPath('bin/app-shared.js'),
+      // '-w', `${process.env.APP_PATH}/node_modules/app-shared/server`,
+      '-w', await modPath('server'),
       '-w', `${process.env.APP_PATH}/server`,
       '--exec',
       `${THIS_SCRIPT} start`
