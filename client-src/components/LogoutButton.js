@@ -8,6 +8,13 @@ export default function LogoutButton({
   ...props
 }){
   const logout = useLogout()
-  const onClick = useCallback(() => { logout.call() }, [logout.call])
-  return h(component, {...props, onClick }, children || 'logout')
+  const onClick = useCallback(
+    () => { logout.call() },
+    [logout.call]
+  )
+  return h(
+    component,
+    { ...props, onClick },
+    children || 'logout'
+  )
 }
