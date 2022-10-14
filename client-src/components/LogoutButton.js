@@ -12,6 +12,7 @@ export default function LogoutButton({
     () => { logout.call() },
     [logout.call]
   )
+  console.log('LogoutButton render', { component, children })
   return h(
     component,
     { ...props, onClick },
