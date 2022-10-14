@@ -12,30 +12,18 @@ import { packageDirectory } from 'pkg-dir'
 import * as dotenv from 'dotenv'
 
 
-const program = new Command()
-const bail = error => { program.error(error.message) }
+const spawn = (cmd, args, options) => {
+  options = {
+    stdio: ['ignore', 'inherit', 'inherit'],
+    ...options
+  }
+  console.log('spawn', cmd, args, options)
+  return childProcess.spawn(cmd, args, options)
+}
 
-// const _spawn = promisify(childProcess.spawn)
-const spawn = (cmd, args, options) => (
-  new Promise((resolve, reject) => {
-    options = {
-      // stdio: 'inherit',
-      stdio: ['ignore', 'inherit', 'inherit'],
-      ...options
-    }
-    console.log('spawn', cmd, args, options)
-    const cp childProcess.spawn(cmd, args, options)
-
-    (error, result) => {
-      if (error) reject(error); else resolve(result)
-    }
-  })
-)
-
-const _exec = promisify(childProcess.exec)
 const exec = (cmd, options) => {
   console.log('exec', cmd, options)
-  return _exec(cmd, options).catch(bail)
+  return childProcess.exec(cmd, options)
 }
 
 const THIS_SCRIPT = fileURLToPath(import.meta.url)
@@ -47,6 +35,8 @@ if (!process.env.APP_PATH)
 dotenv.config({
   path: Path.join(process.env.APP_PATH, '.env')
 })
+
+const program = new Command()
 
 program
   .name('app-shared')
@@ -201,21 +191,15 @@ async function start(){
 }
 
 async function devNpmInstallLatest(){
-  console.log('A')
-  try{ await spawn('echo', ['hello2']) }catch(e){ console.log('ERROR ON A'); throw e}
-  console.log('B')
-  try{ await spawn('echo', ['world']) }catch(e){ console.log('ERROR ON B'); throw e}
-  console.log('C')
-  try{ await spawn('echo', ['boom']) }catch(e){ console.log('ERROR ON C'); throw e}
-  // const packageJson = JSON.parse(await readFile(Path.join(THIS_PACKAGE, 'package.json')))
-  // const origin = packageJson.repository.url.split('git+')[1]
-  // const packageName = 'github:' + origin.match(/github\.com\/(.+)\.git/)[1]
-  // const latest = await exec(`git ls-remote -h "${origin}" master`)
-  //   .then(({ stdout }) => stdout.split(/\s+/)[0])
-  // await spawn(
-  //   `npm`,
-  //   ['install', `${packageName}#${latest}`],
-  // )
+  const packageJson = JSON.parse(await readFile(Path.join(THIS_PACKAGE, 'package.json')))
+  const origin = packageJson.repository.url.split('git+')[1]
+  const packageName = 'github:' + origin.match(/github\.com\/(.+)\.git/)[1]
+  const latest = await exec(`git ls-remote -h "${origin}" master`)
+    .then(({ stdout }) => stdout.split(/\s+/)[0])
+  await spawn(
+    `npm`,
+    ['install', `${packageName}#${latest}`],
+  )
 }
 
 async function devNpmLink(appSharedPath){
