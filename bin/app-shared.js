@@ -4,13 +4,10 @@
 import Path from 'path'
 import { readFile, writeFile } from 'node:fs/promises'
 import childProcess from 'child-process-promise'
-// import { promisify } from 'node:util'
-// import childProcess from 'node:child_process'
 import { fileURLToPath } from 'url'
 import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
 import * as dotenv from 'dotenv'
-
 
 const spawn = (cmd, args, options) => {
   options = {
