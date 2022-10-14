@@ -1,4 +1,4 @@
-import {jsx as $1cKDT$jsx, jsxs as $1cKDT$jsxs} from "react/jsx-runtime";
+import {jsxDEV as $1cKDT$jsxDEV} from "react/jsx-dev-runtime";
 import {Component as $1cKDT$Component} from "react";
 import $1cKDT$muimaterialContainer from "@mui/material/Container";
 import $1cKDT$muimaterialPaper from "@mui/material/Paper";
@@ -29,9 +29,9 @@ $parcel$export($398477c469915369$exports, "default", () => $398477c469915369$exp
 
 
 function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBoundary: resetErrorBoundary  }) {
-    return /*#__PURE__*/ (0, $1cKDT$jsx)((0, $1cKDT$muimaterialContainer), {
+    return /*#__PURE__*/ (0, $1cKDT$jsxDEV)((0, $1cKDT$muimaterialContainer), {
         maxWidth: "lg",
-        children: /*#__PURE__*/ (0, $1cKDT$jsxs)((0, $1cKDT$muimaterialPaper), {
+        children: /*#__PURE__*/ (0, $1cKDT$jsxDEV)((0, $1cKDT$muimaterialPaper), {
             elevation: 3,
             role: "alert",
             sx: {
@@ -39,32 +39,60 @@ function $398477c469915369$export$2e2bcd8739ae039({ error: error , resetErrorBou
                 p: 3
             },
             children: [
-                /*#__PURE__*/ (0, $1cKDT$jsx)((0, $1cKDT$muimaterialAlert), {
+                /*#__PURE__*/ (0, $1cKDT$jsxDEV)((0, $1cKDT$muimaterialAlert), {
                     severity: "error",
                     children: "App Error"
-                }),
-                /*#__PURE__*/ (0, $1cKDT$jsxs)((0, $1cKDT$muimaterialBox), {
+                }, void 0, false, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 17,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, $1cKDT$jsxDEV)((0, $1cKDT$muimaterialBox), {
                     component: "pre",
                     sx: {
                         overflow: "scroll"
                     },
                     children: [
-                        /*#__PURE__*/ (0, $1cKDT$jsx)((0, $1cKDT$muimaterialTypography), {
+                        /*#__PURE__*/ (0, $1cKDT$jsxDEV)((0, $1cKDT$muimaterialTypography), {
                             variant: "h4",
                             children: error.message
-                        }),
-                        /*#__PURE__*/ (0, $1cKDT$jsx)("br", {}),
+                        }, void 0, false, {
+                            fileName: "client-src/components/AppError.js",
+                            lineNumber: 19,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, $1cKDT$jsxDEV)("br", {}, void 0, false, {
+                            fileName: "client-src/components/AppError.js",
+                            lineNumber: 20,
+                            columnNumber: 11
+                        }, this),
                         error.stack
                     ]
-                }),
-                /*#__PURE__*/ (0, $1cKDT$jsx)((0, $1cKDT$muimaterialButton), {
+                }, void 0, true, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 18,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, $1cKDT$jsxDEV)((0, $1cKDT$muimaterialButton), {
                     variant: "contained",
                     onClick: resetErrorBoundary,
                     children: "Try again"
-                })
+                }, void 0, false, {
+                    fileName: "client-src/components/AppError.js",
+                    lineNumber: 23,
+                    columnNumber: 9
+                }, this)
             ]
-        })
-    });
+        }, void 0, true, {
+            fileName: "client-src/components/AppError.js",
+            lineNumber: 12,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "client-src/components/AppError.js",
+        lineNumber: 11,
+        columnNumber: 5
+    }, this);
 }
 
 
@@ -89,9 +117,13 @@ class $2db3f843c0804b10$export$2e2bcd8739ae039 extends $1cKDT$Component {
         const { error: error  } = this.state;
         if (error) {
             const Component = this.props.component || (0, $398477c469915369$export$2e2bcd8739ae039);
-            return /*#__PURE__*/ (0, $1cKDT$jsx)(Component, {
+            return /*#__PURE__*/ (0, $1cKDT$jsxDEV)(Component, {
                 error: error
-            });
+            }, void 0, false, {
+                fileName: "client-src/components/ErrorBoundary.js",
+                lineNumber: 23,
+                columnNumber: 14
+            }, this);
         }
         return this.props.children;
     }

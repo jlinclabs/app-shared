@@ -1,5 +1,4 @@
-import {jsx as $9t1NK$jsx} from "react/jsx-runtime";
-import {useCallback as $9t1NK$useCallback, useEffect as $9t1NK$useEffect, useState as $9t1NK$useState} from "react";
+import {useCallback as $9t1NK$useCallback, createElement as $9t1NK$createElement, useEffect as $9t1NK$useEffect, useState as $9t1NK$useState} from "react";
 import $9t1NK$muimaterialButton from "@mui/material/Button";
 import $9t1NK$swr from "swr";
 
@@ -251,18 +250,17 @@ const $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 = (callbacks)=>$64a3a77a2f3e8ee3
 const $64a3a77a2f3e8ee3$export$da8941e4c91255e0 = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.signup", callbacks);
 
 
-function $53b6bf491df20cc5$export$2e2bcd8739ae039({ children: children , ...props }) {
+function $53b6bf491df20cc5$export$2e2bcd8739ae039({ component: component = (0, $9t1NK$muimaterialButton) , children: children , ...props }) {
     const logout = (0, $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585)();
     const onClick = $9t1NK$useCallback(()=>{
         logout.call();
     }, [
         logout.call
     ]);
-    return /*#__PURE__*/ (0, $9t1NK$jsx)((0, $9t1NK$muimaterialButton), {
+    return /*#__PURE__*/ (0, $9t1NK$createElement)(component, {
         ...props,
-        onClick: onClick,
-        children: children || "logout"
-    });
+        onClick: onClick
+    }, children || "logout");
 }
 
 

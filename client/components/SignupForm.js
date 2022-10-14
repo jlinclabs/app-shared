@@ -1,4 +1,4 @@
-import {jsxs as $gBUKT$jsxs, jsx as $gBUKT$jsx} from "react/jsx-runtime";
+import {jsxDEV as $gBUKT$jsxDEV} from "react/jsx-dev-runtime";
 import {useState as $gBUKT$useState, forwardRef as $gBUKT$forwardRef, useCallback as $gBUKT$useCallback, useEffect as $gBUKT$useEffect} from "react";
 import $gBUKT$muimaterialPaper from "@mui/material/Paper";
 import $gBUKT$muimaterialTypography from "@mui/material/Typography";
@@ -49,7 +49,7 @@ var $08b8c86ef070e3a0$exports = {};
 
 $parcel$defineInteropFlag($08b8c86ef070e3a0$exports);
 
-$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039);
+$parcel$export($08b8c86ef070e3a0$exports, "default", () => $08b8c86ef070e3a0$export$2e2bcd8739ae039, (v) => $08b8c86ef070e3a0$export$2e2bcd8739ae039 = v);
 
 
 
@@ -64,10 +64,14 @@ const $08b8c86ef070e3a0$var$Link = /*#__PURE__*/ $gBUKT$forwardRef(({ ...props }
         props.target = props.target || "_blank";
         props.component = "a";
     }
-    return /*#__PURE__*/ (0, $gBUKT$jsx)((0, $gBUKT$muimaterialLink), {
+    return /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialLink), {
         ...props,
         ref: ref
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/Link.js",
+        lineNumber: 17,
+        columnNumber: 10
+    }, undefined);
 });
 $08b8c86ef070e3a0$var$Link.displayName = "Link";
 var $08b8c86ef070e3a0$export$2e2bcd8739ae039 = $08b8c86ef070e3a0$var$Link;
@@ -77,17 +81,21 @@ var $e57fa53a045bcfbf$exports = {};
 
 $parcel$defineInteropFlag($e57fa53a045bcfbf$exports);
 
-$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039);
+$parcel$export($e57fa53a045bcfbf$exports, "default", () => $e57fa53a045bcfbf$export$2e2bcd8739ae039, (v) => $e57fa53a045bcfbf$export$2e2bcd8739ae039 = v);
 
 
 
 const $e57fa53a045bcfbf$var$ErrorMessage = ({ error: error , ...props })=>{
     if (!error) return null;
-    return /*#__PURE__*/ (0, $gBUKT$jsx)((0, $gBUKT$muimaterialAlert), {
+    return /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialAlert), {
         severity: "error",
         ...props,
         children: error.message
-    });
+    }, void 0, false, {
+        fileName: "client-src/components/ErrorMessage.js",
+        lineNumber: 6,
+        columnNumber: 10
+    }, undefined);
 };
 var $e57fa53a045bcfbf$export$2e2bcd8739ae039 = $e57fa53a045bcfbf$var$ErrorMessage;
 
@@ -339,26 +347,34 @@ function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFai
     // const emailIsValid = email.length >= 3 && email.includes('@')
     // const secretKeyIsValid = PassphraseInput.isValid(secretKey)
     const submittable = !!(email ?? password);
-    return /*#__PURE__*/ (0, $gBUKT$jsxs)((0, $gBUKT$muimaterialPaper), {
+    return /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialPaper), {
         ...props,
         sx: {
             ...props.sx,
             minWidth: `min(100vw, 500px)`
         },
         children: [
-            /*#__PURE__*/ (0, $gBUKT$jsx)((0, $gBUKT$muimaterialTypography), {
+            /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialTypography), {
                 variant: "h4",
                 mb: 2,
                 children: "Signup"
-            }),
-            /*#__PURE__*/ (0, $gBUKT$jsxs)((0, $gBUKT$muimaterialBox), {
+            }, void 0, false, {
+                fileName: "client-src/components/SignupForm.js",
+                lineNumber: 51,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialBox), {
                 component: "form",
                 onSubmit: onSubmit,
                 children: [
-                    /*#__PURE__*/ (0, $gBUKT$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {
+                    /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $e57fa53a045bcfbf$exports.default), {
                         error: signup.error
-                    }),
-                    /*#__PURE__*/ (0, $gBUKT$jsx)((0, $gBUKT$muimaterialTextField), {
+                    }, void 0, false, {
+                        fileName: "client-src/components/SignupForm.js",
+                        lineNumber: 56,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialTextField), {
                         label: "email",
                         autoComplete: "email",
                         disabled: disabled,
@@ -370,8 +386,12 @@ function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFai
                         onChange: (e)=>{
                             setEmail(e.target.value);
                         }
-                    }),
-                    /*#__PURE__*/ (0, $gBUKT$jsx)((0, $gBUKT$muimaterialTextField), {
+                    }, void 0, false, {
+                        fileName: "client-src/components/SignupForm.js",
+                        lineNumber: 57,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialTextField), {
                         label: "password",
                         autoComplete: "email",
                         disabled: disabled,
@@ -383,31 +403,55 @@ function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFai
                         onChange: (e)=>{
                             setPassword(e.target.value);
                         }
-                    }),
-                    /*#__PURE__*/ (0, $gBUKT$jsxs)((0, $gBUKT$muimaterialStack), {
+                    }, void 0, false, {
+                        fileName: "client-src/components/SignupForm.js",
+                        lineNumber: 68,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialStack), {
                         spacing: 2,
                         direction: "row-reverse",
                         alignItems: "center",
                         mt: 2,
                         children: [
-                            /*#__PURE__*/ (0, $gBUKT$jsx)((0, $gBUKT$muimaterialButton), {
+                            /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $gBUKT$muimaterialButton), {
                                 disabled: disabled || !submittable,
                                 type: "submit",
                                 variant: "contained",
                                 size: "large",
                                 children: "Signup"
-                            }),
-                            /*#__PURE__*/ (0, $gBUKT$jsx)((0, $08b8c86ef070e3a0$export$2e2bcd8739ae039), {
+                            }, void 0, false, {
+                                fileName: "client-src/components/SignupForm.js",
+                                lineNumber: 80,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ (0, $gBUKT$jsxDEV)((0, $08b8c86ef070e3a0$exports.default), {
                                 variant: "text",
                                 to: "/signup",
                                 children: "back"
-                            })
+                            }, void 0, false, {
+                                fileName: "client-src/components/SignupForm.js",
+                                lineNumber: 86,
+                                columnNumber: 9
+                            }, this)
                         ]
-                    })
+                    }, void 0, true, {
+                        fileName: "client-src/components/SignupForm.js",
+                        lineNumber: 79,
+                        columnNumber: 7
+                    }, this)
                 ]
-            })
+            }, void 0, true, {
+                fileName: "client-src/components/SignupForm.js",
+                lineNumber: 52,
+                columnNumber: 5
+            }, this)
         ]
-    });
+    }, void 0, true, {
+        fileName: "client-src/components/SignupForm.js",
+        lineNumber: 44,
+        columnNumber: 10
+    }, this);
 }
 
 

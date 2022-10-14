@@ -3,4 +3,4 @@
 set -e
 set -x
 
-parcel watch $@ $(./scripts/ls-client-build-files)
+parcel watch $@ $(./scripts/ls-client-build-files) --dist-dir ./client
