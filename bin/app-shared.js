@@ -23,8 +23,10 @@ const exec = (cmd, options) => {
   return childProcess.exec(cmd, options)
 }
 
-const realpath = async path =>
-  (await exec('npx', ['realpath', path])).trim()
+const realpath = async path => {
+  const { stdout } = await exec(`npx realpath "${path}"`)
+  return stdout.trim()
+}
 
 const modPath = path =>
   realpath(Path.join(process.env.APP_PATH, 'node_modules', 'app-shared', path))
