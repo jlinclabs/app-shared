@@ -189,22 +189,15 @@ async function start(){
 }
 
 async function devNpmInstallLatest(){
-  // const packageJson = JSON.parse(await readFile(Path.join(THIS_PACKAGE, 'package.json')))
-  // const packageName = packageJson.name
-  const packageName = 'github:jlinclabs/app-shared'
-  await spawn(
-    `git`,
-    ['fetch'],
-    { cwd: THIS_PACKAGE }
-  )
-  let { stdout: sha } = await exec(
-    'git fetch && git rev-parse origin/master',
-    { cwd: THIS_PACKAGE }
-  )
-  sha = sha.trim()
+  const packageJson = JSON.parse(await readFile(Path.join(THIS_PACKAGE, 'package.json')))
+  const origin = packageJson.repository.url.split('git+')[1]
+  const packageName = 'github:' + origin.match(/github\.com\/(.+)\.git/)[1]
+  console.log({origin, packageName})
+  const latest = await exec(`git ls-remote -h "${origin}" master`)
+    .then(({ stdout }) => stdout.split(/\s+/)[0])
   await spawn(
     `npm`,
-    ['install', `${packageName}#${sha}`]
+    ['install', `${packageName}#${latest}`]
   )
 }
 
