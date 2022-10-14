@@ -192,7 +192,11 @@ async function devNpmInstallLatest(){
   // const packageJson = JSON.parse(await readFile(Path.join(THIS_PACKAGE, 'package.json')))
   // const packageName = packageJson.name
   const packageName = 'github:jlinclabs/app-shared'
-
+  await spawn(
+    `git`,
+    ['fetch'],
+    { cwd: THIS_PACKAGE }
+  )
   let { stdout: sha } = await exec(
     'git fetch && git rev-parse origin/master',
     { cwd: THIS_PACKAGE }
