@@ -15,7 +15,13 @@ const spawn = (cmd, args, options) => {
   return promisify(childProcess.spawn)(cmd, args, options)
 }
 
+const exec = (cmd, options) => {
+  console.log('exec', cmd, options)
+  return promisify(childProcess.exec)(cmd, options)
+}
+
 const THIS_SCRIPT = fileURLToPath(import.meta.url)
+const THIS_PACKAGE = Path.resolve(THIS_SCRIPT, '../..')
 
 if (!process.env.APP_PATH)
   process.env.APP_PATH = await packageDirectory()
@@ -34,6 +40,11 @@ program
   .command('dev-db-migrate')
   .description('migrate db in development')
   .action(devDbMigrate)
+
+program
+  .command('dev-npm-install-latest')
+  .description('npm install app-shared @ latest sha on github')
+  .action(devNpmInstallLatest)
 
 program
   .command('dev-npm-link')
@@ -175,6 +186,21 @@ async function start(){
   const { createServer } = await import('../server/index.js')
   const server = await createServer()
   await server.start()
+}
+
+async function devNpmInstallLatest(){
+  const packageJson = JSON.parse(await readFile(Path.join(THIS_PACKAGE, 'package.json')))
+  const packageName = packageJson.name
+
+  let { stdout: sha } = await exec(
+    'git fetch && git rev-parse origin/master',
+    { cwd: THIS_PACKAGE }
+  )
+  sha = sha.trim()
+  await spawn(
+    `npm`,
+    ['install', `${packageName}@${sha}`]
+  )
 }
 
 async function devNpmLink(appSharedPath){
