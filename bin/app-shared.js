@@ -10,9 +10,9 @@ import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
 import * as dotenv from 'dotenv'
 
-const spawn = (...args) => {
-  console.log('spawn', ...args)
-  return promisify(childProcess.spawn)(...args)
+const spawn = (cmd, args, options) => {
+  console.log('spawn', cmd, args, options)
+  return promisify(childProcess.spawn)(cmd, args, options)
 }
 
 const THIS_SCRIPT = fileURLToPath(import.meta.url)
@@ -182,11 +182,10 @@ async function devNpmLink(appSharedPath){
   const packageName = packageJson.name
   if (packageName !== 'app-shared') throw new Error(`"${appSharedPath}" doesnt look like an app-shared`)
   const peerDependencies = Object.keys(packageJson.peerDependencies)
-  console.log({ appSharedPath, peerDependencies })
   for (const dep of peerDependencies){
-    console.log(`rm -rf "${process.env.APP_PATH}/node_modules/${dep}"`)
-    console.log(`ln -s "${appSharedPath}/node_modules/${dep}" "${process.env.APP_PATH}/node_modules/${dep}"`)
+    await spawn('rm', ['-rf', `${process.env.APP_PATH}/node_modules/${dep}`])
+    await spawn('ln', ['-s', `${appSharedPath}/node_modules/${dep}`, `${process.env.APP_PATH}/node_modules/${dep}`])
   }
-  console.log(`rm -rf "${process.env.APP_PATH}/node_modules/${packageName}"`)
-  console.log(`ln -s "${appSharedPath}" "${process.env.APP_PATH}/node_modules/${packageName}"`)
+  await spawn('rm', ['-rf', `${process.env.APP_PATH}/node_modules/${packageName}`])
+  await spawn('ln', ['-s', `${appSharedPath}`, `${process.env.APP_PATH}/node_modules/${packageName}`])
 }

@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -x
+
+[[ -d ./client ]] && rm -rf ./client
 parcel build $(./scripts/ls-client-build-files) --dist-dir ./client
 
