@@ -63,6 +63,7 @@ export async function createServer(){
     app.use(router)
   }
 
+  // CQRPC Command. Query. Remote. Procedure. Call
   app.use('/api/:name', async function(req, res, next) {
     const { name } = req.params
     let options, action
@@ -77,7 +78,7 @@ export async function createServer(){
     }
     console.log(action, { name, options })
     try{
-      const result = await req.context[action](name, options)
+      const result = await req.context.publicCall(action, name, options)
       console.error(`${action} SUCCESS`, { name, options, result })
       res.status(200).json({ result })
     }catch(error){

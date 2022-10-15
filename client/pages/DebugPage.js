@@ -433,7 +433,7 @@ function $bd5e7b1f34144514$export$2e2bcd8739ae039({ appName: appName  }) {
         name,
         optionsJson
     ]);
-    const { result: spec , error: error  } = (0, $80d64c4521a01cab$export$dd0a697e1782aedd)("__spec");
+    const { result: spec , error: error  } = (0, $80d64c4521a01cab$export$dd0a697e1782aedd)("debug.getQueriesAndCommands");
     const props = {
         spec: spec,
         name: name,

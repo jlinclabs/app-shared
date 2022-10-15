@@ -42,7 +42,7 @@ export default function DebugPage({ appName }) {
     () => { document.title = `Debug ${appName}: ${name}(${optionsJson || ''})` },
     [name, optionsJson]
   )
-  const { result: spec, error } = useQuery('__spec')
+  const { result: spec, error } = useQuery('debug.getQueriesAndCommands')
   const props = { spec, name, optionsJson }
   return <Container maxWidth={false} disableGutters>
     <Box sx={{

@@ -12,9 +12,9 @@ export class Context {
     this.queries = cloneAndBind(this.constructor.queries, this)
     if (!this.readOnly)
       this._commands = cloneAndBind(this.constructor.commands, this)
-    if (process.env.NODE_ENV === 'development'){
-      this.queries.__spec = getSpec.bind(null, {}, this)
-    }
+    // if (process.env.NODE_ENV === 'development'){
+    //   this.queries.dev = devQueries(this)
+    // }
     // // TODO context.queries.auth.currentUser({}) // auto sets context as 2nd arg
   }
 
@@ -34,34 +34,38 @@ export class Context {
     delete this.userId
   }
 
-  static getCurrentUserSelect = {
-    id: true,
-    createdAt: true,
-    email: true,
-  }
-  async getCurrentUser(){
-    return await this.prisma.user.findUnique({
-      where: { id: this.userId },
-      select: this.constructor.getCurrentUserSelect,
-    })
-  }
-
   requireLoggedIn(action){
     if (this.userId) return true
     throw new UnauthorizedError(action)
   }
 
-  async query(name, options){
-    const handler = findProcedure(name, this.queries)
+  async publicCall(action, name, options){
+    const procedures = (
+      action === 'query' ? this.queries :
+      action === 'command' ? this.commands :
+      null
+    )
+    console.log({ name })
+    const handler = !isPrivateProcedure(name) &&
+      findProcedure(name, procedures)
     if (!handler) throw new InvalidArgumentError('queryName', name)
     return await handler(options)
   }
 
-  async command(name, options){
-    const handler = findProcedure(name, this.commands)
-    if (!handler) throw new InvalidArgumentError('commandName', name)
-    return await handler(options)
-  }
+  // async query(name, options){
+  //   const handler = findProcedure(name, this.queries)
+  //   if (!handler) throw new InvalidArgumentError('queryName', name)
+  //   return await handler(options)
+  // }
+  //
+  // async command(name, options){
+  //   const handler = findProcedure(name, this.commands)
+  //   if (!handler) throw new InvalidArgumentError('commandName', name)
+  //   return await handler(options)
+  // }
+}
+export function isPrivateProcedure(name){
+  return name.match(/(^|\.)_/)
 }
 
 function findProcedure(name, procedures){
@@ -71,7 +75,7 @@ function findProcedure(name, procedures){
   return handler
 }
 
-function cloneNestedFunctions(object, handler, keys = []){
+export function cloneNestedFunctions(object, handler, keys = []){
   const clone = {}
   for (const key in object){
     const value = object[key]
@@ -95,20 +99,28 @@ function cloneAndBind(procedures, context){
   })
 }
 
-async function getSpec({}, context){
-  const getArgs = func => func.toString().match(/\(([^)]*)/)[1]
-  const spec = {}
-  const inspectFunc = procedures => (func, name, keys) => {
-    const fullName = keys.join('.')
-    procedures[fullName] = {
-      name: fullName,
-      source: func.toString(),
-      args: func.toString().match(/\(([^)]*)/)[1],
-    }
-  }
-  spec.queries = {}
-  cloneNestedFunctions(Context.queries, inspectFunc(spec.queries))
-  spec.commands = {}
-  cloneNestedFunctions(Context.commands, inspectFunc(spec.commands))
-  return spec
-}
+// function devQueries(context) {
+//   return cloneAndBind({
+//     async cantCommandFromQueryTest({}, context){
+//       context.commands // should throw
+//     },
+//
+//     async getQueriesAndCommands ({}, context) {
+//       // const getArgs = func => func.toString().match(/\(([^)]*)/)[1]
+//       const spec = {}
+//       const inspectFunc = procedures => (func, name, keys) => {
+//         const fullName = keys.join('.')
+//         procedures[fullName] = {
+//           name: fullName,
+//           source: func.toString(),
+//           args: func.toString().match(/\(([^)]*)/)[1],
+//         }
+//       }
+//       spec.queries = {}
+//       cloneNestedFunctions(Context.queries, inspectFunc(spec.queries))
+//       spec.commands = {}
+//       cloneNestedFunctions(Context.commands, inspectFunc(spec.commands))
+//       return spec
+//     },
+//   }, context)
+// }
