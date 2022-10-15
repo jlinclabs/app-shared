@@ -6,10 +6,15 @@ export default {
   get root () { return process.env.APP_PATH },
 
   get routesPath () { return `${this.root}/server/routes.js` },
+  get contextPath () { return `${this.root}/server/Context.js` },
 
   async serverRoutesExists(){
     // todo look for .js .csj and .mjs
     return await fileExists(this.routesPath)
+  },
+    async serverContextExists(){
+    // todo look for .js .csj and .mjs
+    return await fileExists(this.contextPath)
   },
 
   async importServerRoutesHandler(){

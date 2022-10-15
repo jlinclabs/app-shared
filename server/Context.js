@@ -34,14 +34,15 @@ export class Context {
     delete this.userId
   }
 
+  static getCurrentUserSelect = {
+    id: true,
+    createdAt: true,
+    email: true,
+  }
   async getCurrentUser(){
-    return await prisma.user.findUnique({
+    return await this.prisma.user.findUnique({
       where: { id: this.userId },
-      select: {
-        id: true,
-        createdAt: true,
-        email: true,
-      },
+      select: this.constructor.getCurrentUserSelect,
     })
   }
 

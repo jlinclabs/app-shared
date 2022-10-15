@@ -6,14 +6,14 @@ import Router from 'express-promise-router'
 import { ExpectedError } from './errors.js'
 import { loadSession } from './session.js'
 import discovery from './discovery.js'
-import { Context } from './Context.js'
-
-// import { loadSession } from './controller.js'
-// import { loadQueries, loadCommands } from './cqrs.js'
 
 export async function createServer(){
 
   const app = express()
+
+  const { Context } = discovery.serverContextExists()
+    ? await import(discovery.contextPath)
+    : await import('./Context.js')
 
   Context.queries = await discovery.importQueries()
   Context.commands = await discovery.importCommands()
@@ -60,7 +60,7 @@ export async function createServer(){
     const handler = await discovery.importServerRoutesHandler()
     let router = new Router()
     router = await handler(router) || router
-    app.use('/api', router)
+    app.use(router)
   }
 
   app.use('/api/:name', async function(req, res, next) {
