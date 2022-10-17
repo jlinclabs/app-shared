@@ -3,8 +3,13 @@ import prisma from '../prisma.js'
 import { isEmail, isPassword } from '../../validators.js'
 import { InvalidArgumentError } from '../errors.js'
 
-export async function signup({ email, password }, context){
-  console.log('SIGNUP', { email, password, context })
+export async function signup({ email, password }, context) {
+  await validateSignup({ email, password }, context)
+  return await _createUser({ email, password }, context)
+}
+
+export async function validateSignup({ email, password }, context) {
+  console.log('SIGNUP', { email, password })
   if (context.userId)
     throw new Error(`please logout first`)
 

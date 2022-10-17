@@ -92,10 +92,14 @@ program.parse(process.argv)
 
 
 async function devDbMigrate(){
+  process.env.PRISMA_BUILD = Path.join(process.env.APP_PATH, 'server', '.prisma')
   const SCHEMA_PATH = Path.join(process.env.APP_PATH, 'server', 'schema.prisma')
   await spawn(
     'npx',
     ['prisma', 'migrate', 'dev', `--schema=${SCHEMA_PATH}`],
+    {
+      stdio: 'inherit',
+    },
   )
 }
 
