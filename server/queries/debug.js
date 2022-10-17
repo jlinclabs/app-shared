@@ -1,4 +1,4 @@
-import { Context, cloneNestedFunctions, isPrivateProcedure } from '../Context.js'
+import { cloneNestedFunctions, isPrivateProcedure } from '../Context.js'
 
 export async function cantCommandFromQueryTest({}, context){
   context.commands // should throw
@@ -17,9 +17,9 @@ export async function getQueriesAndCommands ({}, context) {
     }
   }
   spec.queries = {}
-  cloneNestedFunctions(Context.queries, inspectFunc(spec.queries))
+  cloneNestedFunctions(context.constructor.queries, inspectFunc(spec.queries))
   spec.commands = {}
-  cloneNestedFunctions(Context.commands, inspectFunc(spec.commands))
+  cloneNestedFunctions(context.constructor.commands, inspectFunc(spec.commands))
   return spec
 }
 

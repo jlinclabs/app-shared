@@ -12,9 +12,6 @@ export class Context {
     this.queries = cloneAndBind(this.constructor.queries, this)
     if (!this.readOnly)
       this._commands = cloneAndBind(this.constructor.commands, this)
-    // if (process.env.NODE_ENV === 'development'){
-    //   this.queries.dev = devQueries(this)
-    // }
     // // TODO context.queries.auth.currentUser({}) // auto sets context as 2nd arg
   }
 
@@ -51,19 +48,8 @@ export class Context {
     if (!handler) throw new InvalidArgumentError('queryName', name)
     return await handler(options)
   }
-
-  // async query(name, options){
-  //   const handler = findProcedure(name, this.queries)
-  //   if (!handler) throw new InvalidArgumentError('queryName', name)
-  //   return await handler(options)
-  // }
-  //
-  // async command(name, options){
-  //   const handler = findProcedure(name, this.commands)
-  //   if (!handler) throw new InvalidArgumentError('commandName', name)
-  //   return await handler(options)
-  // }
 }
+
 export function isPrivateProcedure(name){
   return name.match(/(^|\.)_/)
 }

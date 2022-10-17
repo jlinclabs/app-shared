@@ -14,10 +14,13 @@ export async function createServer(){
   const { Context } = await discovery.serverContextExists()
     ? await import(discovery.contextPath)
     : await import('./Context.js')
-
+  console.log({ Context })
   Context.queries = await discovery.importQueries()
   Context.commands = await discovery.importCommands()
+
+
   console.log({
+    Context ,
     queries: Context.queries,
     commands: Context.commands,
   })
