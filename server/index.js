@@ -11,7 +11,7 @@ export async function createServer(){
 
   const app = express()
 
-  const { Context } = discovery.serverContextExists()
+  const { Context } = await discovery.serverContextExists()
     ? await import(discovery.contextPath)
     : await import('./Context.js')
 

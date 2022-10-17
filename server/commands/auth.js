@@ -18,9 +18,12 @@ export async function validateSignup({ email, password }, context) {
 
   if (email && !isEmail(email))
     throw new InvalidArgumentError('email', email)
+}
 
+export async function _createUser({ email, password, ...fields }, context){
   const { id } = await prisma.user.create({
     data: {
+      ...fields,
       email,
       passwordHash: password && await hashPassword(password),
     },
