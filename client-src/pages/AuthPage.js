@@ -27,6 +27,7 @@ const useDestination = create(set => ({
 
 export default function AuthPage({ component }) {
   const Component = component
+  console.log({ Component })
   // return currentUser ? <LoggedIn/> : <LoggedOut/>
   return <Container
     sx={{

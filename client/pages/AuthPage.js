@@ -583,6 +583,9 @@ const $b0e3fa2d987314e2$var$useDestination = (0, $8Hdk9$zustand)((set)=>({
     }));
 function $b0e3fa2d987314e2$export$2e2bcd8739ae039({ component: component  }) {
     const Component = component;
+    console.log({
+        Component: Component
+    });
     // return currentUser ? <LoggedIn/> : <LoggedOut/>
     return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialContainer), {
         sx: {
