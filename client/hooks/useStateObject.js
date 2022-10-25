@@ -1,7 +1,7 @@
 import {useState as $8KE8O$useState, useCallback as $8KE8O$useCallback} from "react";
 
 
-function $21304eb1652507d0$export$ef66d7f57dc403c2(init) {
+function $21304eb1652507d0$export$2e2bcd8739ae039(init) {
     let [value, setValue] = (0, $8KE8O$useState)({
         ...init
     });
@@ -35,5 +35,5 @@ function $21304eb1652507d0$export$ef66d7f57dc403c2(init) {
 }
 
 
-export {$21304eb1652507d0$export$ef66d7f57dc403c2 as useStateObject};
+export {$21304eb1652507d0$export$2e2bcd8739ae039 as default};
 //# sourceMappingURL=useStateObject.js.map
