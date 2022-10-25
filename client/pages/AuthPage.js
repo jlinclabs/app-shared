@@ -13,10 +13,6 @@ import $8Hdk9$swr from "swr";
 import $8Hdk9$muimaterialAlert from "@mui/material/Alert";
 import $8Hdk9$muimaterialLink from "@mui/material/Link";
 import $8Hdk9$muimaterialTextField from "@mui/material/TextField";
-import "@mui/material/FormControlLabel";
-import "@mui/material/Checkbox";
-import "@mui/icons-material/Autorenew";
-import "@mui/icons-material/ContentCopy";
 
 function $parcel$defineInteropFlag(a) {
   Object.defineProperty(a, '__esModule', {value: true, configurable: true});
@@ -68,6 +64,7 @@ $parcel$export($64a3a77a2f3e8ee3$exports, "useCurrentUser", () => $64a3a77a2f3e8
 $parcel$export($64a3a77a2f3e8ee3$exports, "useLoggedIn", () => $64a3a77a2f3e8ee3$export$3b062b02b4537682);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useRedirectIfLoggedIn", () => $64a3a77a2f3e8ee3$export$227d34abc4c8317a);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useRedirectIfNotLoggedIn", () => $64a3a77a2f3e8ee3$export$b92513448216e3dc);
+$parcel$export($64a3a77a2f3e8ee3$exports, "useCommandAndReloadCurrentUser", () => $64a3a77a2f3e8ee3$export$11d7bf43a94ebd74);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useLogin", () => $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useLogout", () => $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useSignup", () => $64a3a77a2f3e8ee3$export$da8941e4c91255e0);
@@ -276,7 +273,7 @@ function $64a3a77a2f3e8ee3$export$227d34abc4c8317a() {
 // )
 }
 function $64a3a77a2f3e8ee3$export$b92513448216e3dc() {}
-function $64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser(action, callbacks = {}) {
+function $64a3a77a2f3e8ee3$export$11d7bf43a94ebd74(action, callbacks = {}) {
     const { mutate: mutate  } = $64a3a77a2f3e8ee3$export$3901076af3749fa9();
     return (0, $80d64c4521a01cab$export$194d0c7cb6792e23)(action, {
         ...callbacks,
@@ -286,9 +283,9 @@ function $64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser(action, callbacks 
         }
     });
 }
-const $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.login", callbacks);
-const $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.logout", callbacks);
-const $64a3a77a2f3e8ee3$export$da8941e4c91255e0 = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.signup", callbacks);
+const $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.login", callbacks);
+const $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.logout", callbacks);
+const $64a3a77a2f3e8ee3$export$da8941e4c91255e0 = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.signup", callbacks);
 
 
 var $e57fa53a045bcfbf$exports = {};
@@ -477,11 +474,6 @@ $parcel$export($325d7b40613f983f$exports, "default", () => $325d7b40613f983f$exp
 
 
 
-
-
-
-
-
 function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFailure: onFailure , ...props }) {
     const [email, setEmail] = (0, $8Hdk9$useState)("");
     const [password, setPassword] = (0, $8Hdk9$useState)("");
@@ -572,15 +564,21 @@ function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFai
 }
 
 
-const $b0e3fa2d987314e2$var$useDestination = (0, $8Hdk9$zustand)((set)=>({
+const $b0e3fa2d987314e2$var$useLoginDestination = (0, $8Hdk9$zustand)((set)=>({
         destination: "/",
         setDestination (destination) {
-            console.log("SET DESTINATION", destination);
             set({
                 destination: destination
             });
         }
     }));
+function $b0e3fa2d987314e2$var$useSetLoginDestinationOnMount(args = []) {
+    const { destination: destination , setDestination: setDestination  } = $b0e3fa2d987314e2$var$useLoginDestination();
+    (0, $8Hdk9$useEffect)(()=>{
+        setDestination(location.toString().split(location.origin)[1]);
+    }, args);
+    return destination;
+}
 function $b0e3fa2d987314e2$export$2e2bcd8739ae039({ component: component  }) {
     const Component = component;
     console.log({
@@ -609,27 +607,27 @@ $b0e3fa2d987314e2$export$2e2bcd8739ae039.routes = (props)=>{
         children: [
             /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                 path: "/login",
-                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$50bd399f722114ac, {})
             }),
             /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                 path: "/login/eth",
-                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$50bd399f722114ac, {})
             }),
             /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                 path: "/forgot-password",
-                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$50bd399f722114ac, {})
             }),
             /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                 path: "/signup",
-                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$50bd399f722114ac, {})
             }),
             /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                 path: "/signup/password",
-                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$50bd399f722114ac, {})
             }),
             /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$Route), {
                 path: "/signup/wallet",
-                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$var$RedirectToDestination, {})
+                element: /*#__PURE__*/ (0, $8Hdk9$jsx)($b0e3fa2d987314e2$export$50bd399f722114ac, {})
             })
         ]
     }) : /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$Fragment), {
@@ -679,17 +677,14 @@ $b0e3fa2d987314e2$export$2e2bcd8739ae039.routes = (props)=>{
         ]
     });
 };
-function $b0e3fa2d987314e2$var$RedirectToDestination() {
-    const { destination: destination  } = $b0e3fa2d987314e2$var$useDestination();
+function $b0e3fa2d987314e2$export$50bd399f722114ac() {
+    const { destination: destination  } = $b0e3fa2d987314e2$var$useLoginDestination();
     return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $e4cfecd068afd020$export$2e2bcd8739ae039), {
         to: destination || "/"
     });
 }
 function $b0e3fa2d987314e2$var$Main() {
-    const { destination: destination , setDestination: setDestination  } = $b0e3fa2d987314e2$var$useDestination();
-    (0, $8Hdk9$useEffect)(()=>{
-        setDestination(location.toString().split(location.origin)[1]);
-    }, []);
+    const destination = $b0e3fa2d987314e2$var$useSetLoginDestinationOnMount();
     const query = destination && destination !== "/" ? "?" + new URLSearchParams({
         d: destination
     }) : "";
@@ -790,9 +785,6 @@ function $b0e3fa2d987314e2$var$SignupWithPassword() {
     return /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $325d7b40613f983f$export$2e2bcd8739ae039), {
         sx: {
             p: 2
-        },
-        onSuccess: ()=>{
-            navigate("/");
         }
     });
 }
@@ -824,5 +816,5 @@ function $b0e3fa2d987314e2$var$ForgotPassword() {
 }
 
 
-export {$b0e3fa2d987314e2$export$2e2bcd8739ae039 as default};
+export {$b0e3fa2d987314e2$export$2e2bcd8739ae039 as default, $b0e3fa2d987314e2$export$50bd399f722114ac as RedirectToLoginDestination};
 //# sourceMappingURL=AuthPage.js.map

@@ -222,7 +222,7 @@ function $64a3a77a2f3e8ee3$export$227d34abc4c8317a() {
 // )
 }
 function $64a3a77a2f3e8ee3$export$b92513448216e3dc() {}
-function $64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser(action, callbacks = {}) {
+function $64a3a77a2f3e8ee3$export$11d7bf43a94ebd74(action, callbacks = {}) {
     const { mutate: mutate  } = $64a3a77a2f3e8ee3$export$3901076af3749fa9();
     return (0, $80d64c4521a01cab$export$194d0c7cb6792e23)(action, {
         ...callbacks,
@@ -232,10 +232,10 @@ function $64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser(action, callbacks 
         }
     });
 }
-const $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.login", callbacks);
-const $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.logout", callbacks);
-const $64a3a77a2f3e8ee3$export$da8941e4c91255e0 = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.signup", callbacks);
+const $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.login", callbacks);
+const $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.logout", callbacks);
+const $64a3a77a2f3e8ee3$export$da8941e4c91255e0 = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.signup", callbacks);
 
 
-export {$64a3a77a2f3e8ee3$export$3901076af3749fa9 as useCurrentUser, $64a3a77a2f3e8ee3$export$3b062b02b4537682 as useLoggedIn, $64a3a77a2f3e8ee3$export$227d34abc4c8317a as useRedirectIfLoggedIn, $64a3a77a2f3e8ee3$export$b92513448216e3dc as useRedirectIfNotLoggedIn, $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b as useLogin, $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 as useLogout, $64a3a77a2f3e8ee3$export$da8941e4c91255e0 as useSignup};
+export {$64a3a77a2f3e8ee3$export$3901076af3749fa9 as useCurrentUser, $64a3a77a2f3e8ee3$export$3b062b02b4537682 as useLoggedIn, $64a3a77a2f3e8ee3$export$227d34abc4c8317a as useRedirectIfLoggedIn, $64a3a77a2f3e8ee3$export$b92513448216e3dc as useRedirectIfNotLoggedIn, $64a3a77a2f3e8ee3$export$11d7bf43a94ebd74 as useCommandAndReloadCurrentUser, $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b as useLogin, $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 as useLogout, $64a3a77a2f3e8ee3$export$da8941e4c91255e0 as useSignup};
 //# sourceMappingURL=auth.js.map

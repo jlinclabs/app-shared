@@ -6,11 +6,6 @@ import $gBUKT$muimaterialStack from "@mui/material/Stack";
 import $gBUKT$muimaterialButton from "@mui/material/Button";
 import $gBUKT$muimaterialBox from "@mui/material/Box";
 import $gBUKT$muimaterialTextField from "@mui/material/TextField";
-import "@mui/material/Divider";
-import "@mui/material/FormControlLabel";
-import "@mui/material/Checkbox";
-import "@mui/icons-material/Autorenew";
-import "@mui/icons-material/ContentCopy";
 import {Link as $gBUKT$Link} from "react-router-dom";
 import $gBUKT$muimaterialLink from "@mui/material/Link";
 import $gBUKT$muimaterialAlert from "@mui/material/Alert";
@@ -32,11 +27,6 @@ typeof globalThis !== 'undefined'
   : typeof global !== 'undefined'
   ? global
   : {};
-
-
-
-
-
 
 
 
@@ -98,6 +88,7 @@ $parcel$export($64a3a77a2f3e8ee3$exports, "useCurrentUser", () => $64a3a77a2f3e8
 $parcel$export($64a3a77a2f3e8ee3$exports, "useLoggedIn", () => $64a3a77a2f3e8ee3$export$3b062b02b4537682);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useRedirectIfLoggedIn", () => $64a3a77a2f3e8ee3$export$227d34abc4c8317a);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useRedirectIfNotLoggedIn", () => $64a3a77a2f3e8ee3$export$b92513448216e3dc);
+$parcel$export($64a3a77a2f3e8ee3$exports, "useCommandAndReloadCurrentUser", () => $64a3a77a2f3e8ee3$export$11d7bf43a94ebd74);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useLogin", () => $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useLogout", () => $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585);
 $parcel$export($64a3a77a2f3e8ee3$exports, "useSignup", () => $64a3a77a2f3e8ee3$export$da8941e4c91255e0);
@@ -306,7 +297,7 @@ function $64a3a77a2f3e8ee3$export$227d34abc4c8317a() {
 // )
 }
 function $64a3a77a2f3e8ee3$export$b92513448216e3dc() {}
-function $64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser(action, callbacks = {}) {
+function $64a3a77a2f3e8ee3$export$11d7bf43a94ebd74(action, callbacks = {}) {
     const { mutate: mutate  } = $64a3a77a2f3e8ee3$export$3901076af3749fa9();
     return (0, $80d64c4521a01cab$export$194d0c7cb6792e23)(action, {
         ...callbacks,
@@ -316,9 +307,9 @@ function $64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser(action, callbacks 
         }
     });
 }
-const $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.login", callbacks);
-const $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.logout", callbacks);
-const $64a3a77a2f3e8ee3$export$da8941e4c91255e0 = (callbacks)=>$64a3a77a2f3e8ee3$var$useCommandAndReloadCurrentUser("auth.signup", callbacks);
+const $64a3a77a2f3e8ee3$export$d4e22f05f73ea56b = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.login", callbacks);
+const $64a3a77a2f3e8ee3$export$9a5b97a7aba1a585 = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.logout", callbacks);
+const $64a3a77a2f3e8ee3$export$da8941e4c91255e0 = (callbacks)=>$64a3a77a2f3e8ee3$export$11d7bf43a94ebd74("auth.signup", callbacks);
 
 
 function $325d7b40613f983f$export$2e2bcd8739ae039({ onSuccess: onSuccess , onFailure: onFailure , ...props }) {

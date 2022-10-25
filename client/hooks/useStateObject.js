@@ -1,25 +1,39 @@
 import {useState as $8KE8O$useState, useCallback as $8KE8O$useCallback} from "react";
 
 
-function $21304eb1652507d0$export$2e2bcd8739ae039(init = {}) {
-    const [value, setValue] = (0, $8KE8O$useState)(init);
-    const onChange = (0, $8KE8O$useCallback)((changes)=>{
-        onChange.value = changes === undefined ? init : {
-            ...onChange.value,
-            ...changes
-        };
-        setValue(onChange.value);
+function $21304eb1652507d0$export$ef66d7f57dc403c2(init) {
+    let [value, setValue] = (0, $8KE8O$useState)({
+        ...init
+    });
+    const patchValue = (0, $8KE8O$useCallback)((patch, replace = false)=>{
+        setValue((_value)=>{
+            if (typeof patch === "function") patch = setValue(patch);
+            let newValue;
+            if (typeof patch === "undefined") newValue = {
+                ...init
+            };
+            else if (typeof patch === "function") {
+                newValue = {
+                    ...value
+                };
+                newValue = patch(newValue) || newValue // too magic?
+                ;
+            } else newValue = replace ? patch : {
+                ..._value,
+                ...patch
+            };
+            if (typeof newValue !== "object") newValue = {};
+            return newValue;
+        });
     }, [
-        setValue,
-        init
+        setValue
     ]);
-    onChange.value = value;
     return [
         value,
-        onChange
+        patchValue
     ];
 }
 
 
-export {$21304eb1652507d0$export$2e2bcd8739ae039 as default};
+export {$21304eb1652507d0$export$ef66d7f57dc403c2 as useStateObject};
 //# sourceMappingURL=useStateObject.js.map

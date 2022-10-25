@@ -1,0 +1,1 @@
+{"mappings":"AAAO,SAAS,yCAAQ,CAAC,IAAI,EAAC;IAC5B,SAAS,CAAC,SAAS,CAAC,SAAS,CAAC,IAAI,CAAC;CACpC","sources":["client-src/lib/clipboard.js"],"sourcesContent":["export function copyText(text){\n  navigator.clipboard.writeText(text)\n}\n"],"names":[],"version":3,"file":"clipboard.js.map","sourceRoot":"../../"}
