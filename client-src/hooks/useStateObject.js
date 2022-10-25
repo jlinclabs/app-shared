@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-export function useStateObject(init){
+export default function useStateObject(init){
   let [value, setValue] = useState({...init})
   const patchValue = useCallback(
     (patch, replace = false) => {
