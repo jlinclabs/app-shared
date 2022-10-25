@@ -1,19 +1,25 @@
 import { useState, useCallback } from 'react'
 
-export default function useStateObject(init = {}){
-  const [value, setValue] = useState(init)
-  const onChange = useCallback(
-    changes => {
-      onChange.value = changes === undefined
-        ? init
-        : {
-          ...onChange.value,
-          ...changes
+export function useStateObject(init){
+  let [value, setValue] = useState({...init})
+  const patchValue = useCallback(
+    (patch, replace = false) => {
+      setValue(_value => {
+        if (typeof patch === 'function') patch = setValue(patch)
+        let newValue
+        if (typeof patch === 'undefined') {
+          newValue = { ...init }
+        } else if (typeof patch === 'function') {
+          newValue = { ...value }
+          newValue = patch(newValue) || newValue // too magic?
+        } else {
+          newValue = replace ? patch : { ..._value, ...patch }
         }
-      setValue(onChange.value)
+        if (typeof newValue !== 'object') newValue = {}
+        return newValue
+      })
     },
-    [setValue, init]
+    [setValue]
   )
-  onChange.value = value
-  return [value, onChange]
+  return [value, patchValue]
 }
