@@ -1,10 +1,10 @@
 export async function uploadFile(file){
-  const MAX_FILE_SIZE = (uploadFile.MAX_FILE_SIZE_IN_MB || 200) * 1000000
+  const maxFileSize = uploadFile.MAX_FILE_SIZE_IN_MB || 200
   if (!file) throw new Error(`file is required`)
-  if (file.size > MAX_FILE_SIZE)
+  if (file.size > (maxFileSize  * 1000000))
     throw new Error(
       `"${file.name}" is too big. Please select a file smaller ` +
-      `than ${uploadFile.MAX_FILE_SIZE_IN_MB}mb.`
+      `than ${maxFileSize}mb.`
     )
   const formData = new FormData()
   formData.append('file', file)
