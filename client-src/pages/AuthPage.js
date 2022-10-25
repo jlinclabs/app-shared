@@ -17,13 +17,23 @@ import Link from '../components/Link'
 import LoginForm from '../components/LoginForm'
 import SignupForm from '../components/SignupForm'
 
-const useDestination = create(set => ({
+const useLoginDestination = create(set => ({
   destination: '/',
   setDestination(destination){
-    console.log('SET DESTINATION', destination)
     set({ destination })
   }
 }))
+
+function useSetLoginDestinationOnMount(args = []) {
+  const { destination, setDestination } = useLoginDestination()
+  useEffect(
+    () => {
+      setDestination(location.toString().split(location.origin)[1])
+    },
+    args
+  )
+  return destination
+}
 
 export default function AuthPage({ component }) {
   const Component = component
@@ -52,12 +62,12 @@ export default function AuthPage({ component }) {
 AuthPage.routes = props => {
   return props.currentUser ?
     <>
-      <Route path="/login" element={<RedirectToDestination/>} />
-      <Route path="/login/eth" element={<RedirectToDestination/>} />
-      <Route path="/forgot-password" element={<RedirectToDestination/>} />
-      <Route path="/signup" element={<RedirectToDestination/>} />
-      <Route path="/signup/password" element={<RedirectToDestination/>} />
-      <Route path="/signup/wallet" element={<RedirectToDestination/>} />
+      <Route path="/login" element={<RedirectToLoginDestination/>} />
+      <Route path="/login/eth" element={<RedirectToLoginDestination/>} />
+      <Route path="/forgot-password" element={<RedirectToLoginDestination/>} />
+      <Route path="/signup" element={<RedirectToLoginDestination/>} />
+      <Route path="/signup/password" element={<RedirectToLoginDestination/>} />
+      <Route path="/signup/wallet" element={<RedirectToLoginDestination/>} />
     </> :
     <>
       <Route path="/login" element={<AuthPage component={Login} />} />
@@ -70,19 +80,13 @@ AuthPage.routes = props => {
     </>
 }
 
-function RedirectToDestination() {
-  const {destination} = useDestination()
+export function RedirectToLoginDestination() {
+  const {destination} = useLoginDestination()
   return <RedirectPage to={destination || '/'}/>
 }
 
 function Main(){
-  const {destination, setDestination} = useDestination()
-  useEffect(
-    () => {
-      setDestination(location.toString().split(location.origin)[1])
-    },
-    []
-  )
+  const destination = useSetLoginDestinationOnMount()
   const query = (destination && destination !== '/')
     ? '?' + new URLSearchParams({ d: destination })
     : ''
@@ -162,12 +166,7 @@ function Signup(){
 
 function SignupWithPassword(){
   const navigate = useNavigate()
-  return <SignupForm
-    sx={{p:2}}
-    onSuccess={() => {
-      navigate('/')
-    }}
-  />
+  return <SignupForm sx={{p:2}}/>
 }
 
 function SignupWithWallet(){

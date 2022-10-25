@@ -22,6 +22,8 @@ export class Context {
   get prisma(){ return prisma }
 
   async loginAs(userId){
+    if (this.userId === userId) return
+    await this.logout()
     if (this.session) await this.session.loginAs(userId)
     this.userId = userId
   }

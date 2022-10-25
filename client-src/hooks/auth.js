@@ -36,7 +36,7 @@ export function useRedirectIfNotLoggedIn(){
 
 }
 
-function useCommandAndReloadCurrentUser(action, callbacks = {}){
+export function useCommandAndReloadCurrentUser(action, callbacks = {}){
   const { mutate } = useCurrentUser()
   return useCommand(action, {
     ...callbacks,
