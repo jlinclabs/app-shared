@@ -1,4 +1,4 @@
-import {useCallback as $8OQuB$useCallback} from "react";
+import {useCallback as $8OQuB$useCallback, useState as $8OQuB$useState} from "react";
 
 
 function $4ba52e189a623eb3$export$563cafb095d52d53(isOn, _setValue) {
@@ -32,7 +32,7 @@ function $4ba52e189a623eb3$export$563cafb095d52d53(isOn, _setValue) {
     ];
 }
 function $4ba52e189a623eb3$export$2e2bcd8739ae039(initialValue = false) {
-    return $4ba52e189a623eb3$export$563cafb095d52d53(...useState(initialValue));
+    return $4ba52e189a623eb3$export$563cafb095d52d53(...(0, $8OQuB$useState)(initialValue));
 }
 
 
