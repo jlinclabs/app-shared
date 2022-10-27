@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt'
-import { isEmail, isPassword } from '../../shared/validators.js'
+import { isEmail } from '../../shared/emails.js'
+import { isPassword } from '../../shared/validators.js'
 import { InvalidArgumentError } from '../errors.js'
 
 export async function signup({ email, password }, context) {
