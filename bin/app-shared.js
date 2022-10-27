@@ -219,7 +219,8 @@ async function devNpmInstallLatest(){
   )
   //TODO install all peerDependencies
   const { peerDependencies } = JSON.parse(await readFile(await modPath('package.json')))
-  console.log('I SHOULD INSTALL ALL THESE peerDependencies', peerDependencies)
+  const deps = Object.entries(peerDependencies).map(([name, version]) => `${name}@${version}`)
+  await spawn('npm', ['install', ...deps])
 }
 
 async function devNpmLink(appSharedPath){
