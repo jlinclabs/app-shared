@@ -6,7 +6,7 @@ import {
 
 import {
   decodeKey,
-  generateKeyPairFromSeed,
+  generateSigningKeyPairFromSeed,
 } from '../../server/crypto.js'
 
 import {
@@ -15,7 +15,7 @@ import {
 } from '../../server/agents.js'
 
 test('agent emails', async t => {
-  const kp = generateKeyPairFromSeed(decodeKey('ucdvQeYJeqOzh1p5ouLaxDXzkiiquRErWHSnPGXZBcAI'))
+  const kp = generateSigningKeyPairFromSeed(decodeKey('ucdvQeYJeqOzh1p5ouLaxDXzkiiquRErWHSnPGXZBcAI'))
   const email = publicKeyToAgentEmail(kp.publicKey, 'example.test')
   t.is(email, 'uSVhcLK34hZu6ZjrWml9qdD2IFDUuo2shVJYBJ-a9CRg@example.test')
   t.ok(isAgentEmail(email))

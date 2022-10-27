@@ -2,9 +2,9 @@ import test from 'brittle'
 import {
   decodeKey,
   encodeKey,
-  generateKeyPairFromSeed,
-  generateKeypair,
-  generateKeypairSeed,
+  generateSigningKeyPairFromSeed,
+  generateSigningKeypair,
+  generateSigningKeypairSeed,
   isEncodedPublicKey,
   sign,
   signObject,
@@ -19,7 +19,7 @@ test('generating keys from seed is deterministic', async t => {
     104, 205,  28, 219, 119,  16, 132, 238,
     119, 200,  19,  95, 230, 227, 194, 128
   ])
-  const keys = generateKeyPairFromSeed(seed)
+  const keys = generateSigningKeyPairFromSeed(seed)
   t.alike(
     keys.publicKey,
     decodeKey('uKa2FjA9tC-HqYglkEzDjVzAC_sih3oPOZchI7Rq9HCQ')
@@ -73,4 +73,10 @@ test('isEncodedPublicKey', async t => {
 //   const encodedPublicKey = did.id.split(':')[2]
 //   console.log({ encodedPublicKey })
 //   console.log({ publicKey: decodeKey(encodedPublicKey) })
+// })
+
+
+// test('validateSigningKeypair', async t => {
+//   const kp = generateSigningKeypair()
+//   t.ok(validateSigningKeypair(kp))
 // })
