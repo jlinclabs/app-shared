@@ -218,7 +218,7 @@ async function devNpmInstallLatest(){
     ['install', `${packageName}#${latest}`],
   )
   //TODO install all peerDependencies
-  const { peerDependencies } = JSON.parse(await readFile(modPath('package.json')))
+  const { peerDependencies } = JSON.parse(await readFile(await modPath('package.json')))
   console.log('I SHOULD INSTALL ALL THESE peerDependencies', peerDependencies)
 }
 
