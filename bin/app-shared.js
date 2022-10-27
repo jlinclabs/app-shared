@@ -140,9 +140,12 @@ async function devStartClient(){
   await writeFile(
     Path.join(process.env.APP_PATH, '.proxyrc'),
     JSON.stringify({
+      "/.well-known": {
+        "target": process.env.API_SERVER,
+      },
       "/api": {
         "target": process.env.API_SERVER,
-      }
+      },
     }, null, 2)
   )
   await spawn(
