@@ -2,7 +2,7 @@
 import { useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import useAsync from './useAsync'
-import wait from '../../wait.js'
+import wait from '../../shared/wait.js'
 
 export async function fetchQuery(name, options = {}){
   const json = JSON.stringify(options)
