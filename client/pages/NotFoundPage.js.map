@@ -1,1 +1,0 @@
-{"mappings":";;;AAAA;;AAEe,oDAAuB;IACpC,qBAAO,gBAAC,KAAG;kBAAC,gBAAc;MAAM,CAAA;CACjC","sources":["client-src/pages/NotFoundPage.js"],"sourcesContent":["import * as React from 'react'\n\nexport default function NotFoundPage(){\n  return <div>Page Not Found</div>\n}\n"],"names":[],"version":3,"file":"NotFoundPage.js.map","sourceRoot":"../../"}
