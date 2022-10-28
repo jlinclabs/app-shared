@@ -1,4 +1,3 @@
-export * from '../shared/agents.js'
 import { encodeKey, decodeKey } from './crypto.js'
 
 export function agentEmailToPublicKey(email){

@@ -1,15 +1,15 @@
 import test from 'brittle'
 import {
   decodeKey,
-  encodeKey,
+  // encodeKey,
   generateSigningKeyPairFromSeed,
-  generateSigningKeypair,
-  generateSigningKeypairSeed,
+  // generateSigningKeypair,
+  // generateSigningKeypairSeed,
   isEncodedPublicKey,
-  sign,
-  signObject,
-  validateSigningKeypair,
-} from '../../server/crypto.js'
+  // sign,
+  // signObject,
+  // validateSigningKeypair,
+} from '../../jlinx/crypto.js'
 
 test('generating keys from seed is deterministic', async t => {
   const seed = decodeKey('uazp-KuM6UhNjwJAEcINMQWjNHNt3EITud8gTX-bjwoA')

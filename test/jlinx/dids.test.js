@@ -1,22 +1,11 @@
 import test from 'brittle'
 import * as u8a from 'uint8arrays'
-import {
-  decodeKey,
-  encodeKey,
-  generateSigningKeyPairFromSeed,
-  generateSigningKeypair,
-  generateSigningKeypairSeed,
-  isEncodedPublicKey,
-  sign,
-  signObject,
-  validateSigningKeypair,
-} from '../../server/crypto.js'
 
 import {
   resolveDID,
   generateDidKey,
   openDidKey,
-} from '../../server/dids.js'
+} from '../../jlinx/dids.js'
 
 test('resolving a known good did:web did', async t => {
   t.alike(

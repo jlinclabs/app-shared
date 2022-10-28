@@ -1,8 +1,19 @@
 // import test from 'brittle'
 //
-// import { decodeKey, generateSigningKeyPairFromSeed } from '../../server/crypto.js'
-// import { publicKeyToAgentEmail } from '../../server/agents.js'
-// import { isAgentEmail, agentEmailToPublicKey } from '../../shared/agents.js'
+// import { Agent } from './agent.js'
+// // import {
+// //   isAgentEmail,
+// // } from '../../shared/agents.js'
+// //
+// // import {
+// //   decodeKey,
+// //   generateSigningKeyPairFromSeed,
+// // } from '../../server/crypto.js'
+// //
+// // import {
+// //   publicKeyToAgentEmail,
+// //   agentEmailToPublicKey,
+// // } from '../../server/agents.js'
 //
 // test('agent emails', async t => {
 //   const kp = generateSigningKeyPairFromSeed(decodeKey('ucdvQeYJeqOzh1p5ouLaxDXzkiiquRErWHSnPGXZBcAI'))

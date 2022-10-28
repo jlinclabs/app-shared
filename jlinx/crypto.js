@@ -1,3 +1,4 @@
+import * as u8a from 'uint8arrays'
 import sodium from 'sodium-universal'
 import crypto from 'crypto'
 import b4a from 'b4a'
@@ -40,10 +41,9 @@ export function validateSigningKeypair(keyPair){
   // return b4a.equals(pk, keyPair.publicKey)
 }
 
-export function sign(){
-
-}
-
-export function signObject(){
-
+export async function makeEncryptable(payload) {
+  if (payload instanceof Uint8Array) return payload
+  if (payload instanceof string) return u8a.fromString(payload)
+  // TODO canonicalize json
+  return u8a.fromString(JSON.stringify(payload))
 }

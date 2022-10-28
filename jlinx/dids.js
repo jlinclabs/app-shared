@@ -1,3 +1,4 @@
+
 import { Resolver, parse as parseDID } from 'did-resolver'
 import { getResolver as getWebResolver } from 'web-did-resolver'
 import { DID } from 'dids'
@@ -31,7 +32,6 @@ export async function openDidKey(secretSeed) {
   await did.authenticate()
   return did
 }
-
 
 
 //
