@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 import { customInspect } from './node-inspect.js'
 import { openDidKey } from './dids.js'
 import {
