@@ -27,7 +27,7 @@ export async function generateDidKey(){
 
 export async function openDidKey(secretSeed) {
   const provider = new Ed25519Provider(secretSeed)
-  const did = new DID({ provider, resolver: KeyResolver.getResolver() })
+  const did = new DID({ provider, resolver: didResolver })
   // Authenticate with the provider
   await did.authenticate()
   return did
