@@ -1,6 +1,5 @@
 import { Resolver, parse as parseDID } from 'did-resolver'
-// import { base58btc } from 'multiformats/bases/base58'
-import { getResolver } from 'web-did-resolver'
+import { getResolver as getWebResolver } from 'web-did-resolver'
 import { DID } from 'dids'
 import { Ed25519Provider, encodeDID } from 'key-did-provider-ed25519'
 import KeyResolver from 'key-did-resolver'
@@ -8,18 +7,24 @@ import KeyResolver from 'key-did-resolver'
 import { generateSigningKeypairSeed } from './crypto.js'
 export { parseDID, encodeDID }
 
-// const didResolver = new Resolver({
-//     ...webResolver
-//     //...you can flatten multiple resolver methods into the Resolver
-// })
+const webResolver = getWebResolver()
 
-export async function generateDid(){
+export const didResolver = new Resolver({
+  ...webResolver,
+  ...KeyResolver.getResolver(),
+})
+
+export async function resolveDID(did){
+  return await didResolver.resolve(did)
+}
+
+export async function generateDidKey(){
   const secretSeed = generateSigningKeypairSeed()
-  const did = await openDid(secretSeed)
+  const did = await openDidKey(secretSeed)
   return { secretSeed, did }
 }
 
-export async function openDid(secretSeed) {
+export async function openDidKey(secretSeed) {
   const provider = new Ed25519Provider(secretSeed)
   const did = new DID({ provider, resolver: KeyResolver.getResolver() })
   // Authenticate with the provider
