@@ -1,7 +1,7 @@
 // import express from 'express'
 // import test from 'brittle'
 //
-// import { generateSigningKeypairSeed } from '../../jlinx/crypto.js'
+// import { generateSigningKeyPairSeed } from '../../jlinx/crypto.js'
 // import { App } from '../../jlinx/app.js'
 // import { Agent } from '../../jlinx/agent.js'
 //
@@ -13,7 +13,7 @@
 //     })
 //   })
 //   const app = await App.open({
-//     secretSeed: generateSigningKeypairSeed(),
+//     secretSeed: generateSigningKeyPairSeed(),
 //     host,
 //   })
 //

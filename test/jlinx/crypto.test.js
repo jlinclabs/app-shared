@@ -2,37 +2,40 @@ import * as u8a from 'uint8arrays'
 import test from 'brittle'
 
 import {
-  decodeKey,
+  // decodeKey,
   // encodeKey,
-  generateSigningKeyPairFromSeed,
-  // generateSigningKeypair,
-  // generateSigningKeypairSeed,
+  generateKeyPairFromSeed,
+  // generateKeypair,
+  // generateKeyPairSeed,
   isEncodedPublicKey,
   // sign,
   // signObject,
-  // validateSigningKeypair,
+  // validateKeypair,
   encodePayload,
   decodePayload,
 } from '../../jlinx/crypto.js'
 
 test('generating keys from seed is deterministic', async t => {
-  const seed = decodeKey('uazp-KuM6UhNjwJAEcINMQWjNHNt3EITud8gTX-bjwoA')
+  const seed = Buffer.from('6b608095f4ec9a6649fa3bc7e512b1621393facf1b74398357d9d943ddaa23bb', 'hex')
   t.alike(Array.from(seed), [
-    107,  58, 126,  42, 227,  58,  82,  19,
-     99, 192, 144,   4, 112, 131,  76,  65,
-    104, 205,  28, 219, 119,  16, 132, 238,
-    119, 200,  19,  95, 230, 227, 194, 128
+    107,  96, 128, 149, 244, 236, 154, 102,
+    73, 250,  59, 199, 229,  18, 177,  98,
+    19, 147, 250, 207,  27, 116,  57, 131,
+    87, 217, 217,  67, 221, 170,  35, 187
   ])
-  const keys = generateSigningKeyPairFromSeed(seed)
+  const keys = generateKeyPairFromSeed(seed)
+  console.log(u8a.toString(keys.publicKey, 'hex'))
   t.alike(
     keys.publicKey,
-    decodeKey('uKa2FjA9tC-HqYglkEzDjVzAC_sih3oPOZchI7Rq9HCQ')
+    u8a.fromString('9a351583c0f6e1c22920e068e59396a26e8e50b66649ea5e07fd7098f1bad70a', 'hex')
   )
   t.alike(Array.from(keys.secretKey), [
-     107,  58, 126,  42, 227,  58,  82,  19,
-      99, 192, 144,   4, 112, 131,  76,  65,
-     104, 205,  28, 219, 119,  16, 132, 238,
-     119, 200,  19,  95, 230, 227, 194, 128
+    107,  96, 128, 149, 244, 236, 154, 102,  73, 250,  59,
+    199, 229,  18, 177,  98,  19, 147, 250, 207,  27, 116,
+     57, 131,  87, 217, 217,  67, 221, 170,  35, 187, 154,
+     53,  21, 131, 192, 246, 225, 194,  41,  32, 224, 104,
+    229, 147, 150, 162, 110, 142,  80, 182, 102,  73, 234,
+     94,   7, 253, 112, 152, 241, 186, 215,  10
   ])
 })
 
@@ -80,9 +83,9 @@ test('isEncodedPublicKey', async t => {
 // })
 
 
-// test('validateSigningKeypair', async t => {
-//   const kp = generateSigningKeypair()
-//   t.ok(validateSigningKeypair(kp))
+// test('validateKeypair', async t => {
+//   const kp = generateKeypair()
+//   t.ok(validateKeypair(kp))
 // })
 
 test('encoding signable objects', async t => {

@@ -1,21 +1,22 @@
 import { inspect } from 'node:util'
 import test from 'brittle'
 
-import { decodeKey, generateSigningKeypairSeed } from '../../jlinx/crypto.js'
+import { generateKeyPairSeed } from '../../jlinx/crypto.js'
 import { JlinxActor } from '../../jlinx/actor.js'
 
-const secretSeed = decodeKey('ucdvQeYJeqOzh1p5ouLaxDXzkiiquRErWHSnPGXZBcAI')
+const secretSeed = Buffer.from('57d9d943ddaa23bb6b608095f4ec9a6649fa3bc7e512b1621393facf1b743983', 'hex')
+
 
 const generateActor = async () =>
    await JlinxActor.open({
-    secretSeed: generateSigningKeypairSeed()
+    secretSeed: generateKeyPairSeed()
   })
 
 test('opening an actor', async t => {
   const actor = await JlinxActor.open({ secretSeed })
   t.ok(actor instanceof JlinxActor)
-  t.is(actor.did, 'did:key:z6MkfYHUAqe58vjZp8kXwvmH8H5zCbSPvzLhUfSDym4RE4sN')
-  t.is(actor.publicKey, 'z6MkfYHUAqe58vjZp8kXwvmH8H5zCbSPvzLhUfSDym4RE4sN')
+  t.is(actor.did, 'did:key:z6MkiUVFMeKUyiAvAMYkjvN1CmZ15vjZoMyDqchHekpUoLEK')
+  t.is(actor.publicKey, 'z6MkiUVFMeKUyiAvAMYkjvN1CmZ15vjZoMyDqchHekpUoLEK')
   await t.exception(
     async () => await JlinxActor.open({ secretSeed: 'bad key' }),
     /ed25519: seed must be 32 bytes/
@@ -27,7 +28,7 @@ test('inspecting an actor', async t => {
   t.alike(
     inspect(actor),
     `JlinxActor(\n` +
-    `  did: did:key:z6MkfYHUAqe58vjZp8kXwvmH8H5zCbSPvzLhUfSDym4RE4sN\n` +
+    `  did: did:key:z6MkiUVFMeKUyiAvAMYkjvN1CmZ15vjZoMyDqchHekpUoLEK\n` +
     `)`
   )
 })
@@ -41,8 +42,8 @@ test('signing', async t => {
     payload: 'eyJhbiI6Im9iamVjdCJ9',
     signatures: [
       {
-        protected: 'eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDprZXk6ejZNa2ZZSFVBcWU1OHZqWnA4a1h3dm1IOEg1ekNiU1B2ekxoVWZTRHltNFJFNHNOI3o2TWtmWUhVQXFlNTh2alpwOGtYd3ZtSDhINXpDYlNQdnpMaFVmU0R5bTRSRTRzTiJ9',
-        signature: 'IZmtP3IAM7H7zLnBXEnNhnV2Fg-KrVlCYx_vCqohzT0fux2DDRQKeNQs1ZOdRvaW-OgKTXnd9wtySwLY1Uw2AA'
+        protected: 'eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDprZXk6ejZNa2lVVkZNZUtVeWlBdkFNWWtqdk4xQ21aMTV2alpvTXlEcWNoSGVrcFVvTEVLI3o2TWtpVVZGTWVLVXlpQXZBTVlranZOMUNtWjE1dmpab015RHFjaEhla3BVb0xFSyJ9',
+        signature: 'xHUraWKxm8Ktk7n_WgF0GEV6R2a-2yFTL6HL8Cctb2DdT7zdYgyNlzmo6SnuNSZr4htYXmNQ4q8bTvr0PRk_AA'
       }
     ]
   })

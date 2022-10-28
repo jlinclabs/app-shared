@@ -3,16 +3,15 @@ import test from 'brittle'
 
 import { JlinxActor } from '../../jlinx/actor.js'
 import { JlinxAgent } from '../../jlinx/agent.js'
-import { decodeKey, generateSigningKeypairSeed } from '../../jlinx/crypto.js'
 
-const secretSeed = decodeKey('ucdvQeYJeqOzh1p5ouLaxDXzkiiquRErWHSnPGXZBcAI')
+const secretSeed = Buffer.from('fa3bc7e512b1621393facf1b74398357d9d943ddaa23bb6b608095f4ec9a6649', 'hex')
 
 test('inspecting an agent', async t => {
   const agent = await JlinxAgent.open({ secretSeed })
   t.alike(
     inspect(agent),
     `JlinxAgent(\n` +
-    `  did: did:key:z6MkfYHUAqe58vjZp8kXwvmH8H5zCbSPvzLhUfSDym4RE4sN\n` +
+    `  did: did:key:z6Mkmb6wmuFjMV1ymxdYt9hswQa5CcAGttsmbbGDWvJ7XerH\n` +
     `)`
   )
 })

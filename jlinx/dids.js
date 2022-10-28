@@ -1,12 +1,12 @@
-
+import * as u8a from 'uint8arrays'
 import { Resolver, parse as parseDID } from 'did-resolver'
 import { getResolver as getWebResolver } from 'web-did-resolver'
 import { DID } from 'dids'
-import { Ed25519Provider, encodeDID } from 'key-did-provider-ed25519'
+import { Ed25519Provider, encodeDID as publicKeyToDidKey } from 'key-did-provider-ed25519'
 import KeyResolver from 'key-did-resolver'
 
-import { generateSigningKeypairSeed } from './crypto.js'
-export { parseDID, encodeDID }
+import { generateKeyPairSeed } from './crypto.js'
+export { DID, parseDID, publicKeyToDidKey }
 
 const webResolver = getWebResolver()
 
@@ -20,7 +20,7 @@ export async function resolveDID(did){
 }
 
 export async function generateDidKey(){
-  const secretSeed = generateSigningKeypairSeed()
+  const secretSeed = generateKeyPairSeed()
   const did = await openDidKey(secretSeed)
   return { secretSeed, did }
 }
@@ -33,7 +33,47 @@ export async function openDidKey(secretSeed) {
   return did
 }
 
+// mirrors encodeDID from key-did-provider-ed25519
+export function didToPublicKey(did) {
+  const encodedPublicKey = did.split(':')[2]
+  const bytes = u8a.fromString(encodedPublicKey.slice(1), 'base58btc')
+  return bytes.slice(2) //slice off those mystery bits
+}
 
+export function didKeyDocumentToDidWebDocument(keyDoc, did) {
+  const webit = string => `${string}`.replace(keyDoc.id, did)
+  const webDoc = {
+    id: did,
+  }
+  if (keyDoc.verificationMethod) {
+    webDoc.verificationMethod = keyDoc.verificationMethod
+      .map(vm => {
+        return {
+          ...vm,
+          id: webit(vm.id),
+          controller: webit(vm.controller),
+        }
+      })
+  }
+  // // we have to make this??
+  // const didWeb = {
+  //   ...didKey,
+  //   id: this.did,
+  // }
+  // return didWeb
+  return {
+    '@context': 'https://www.w3.org/ns/did/v1',
+    'id': this.id,
+    // 'verificationMethod': [{
+    //   'id': this.id + '#controller',
+    //   'type': 'Ed25519VerificationKey2018',
+    //   'controller': this.id,
+    // }],
+    // 'authentication': [
+    //   'did:web:example.com#controller'
+    // ]
+  }
+}
 //
 // function example2() {
 //   const webResolver = getResolver()

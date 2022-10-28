@@ -1,11 +1,30 @@
 import test from 'brittle'
 import * as u8a from 'uint8arrays'
+import {
+  generateKeyPairSeed,
+  generateKeyPairFromSeed,
+  // encodeKey,
+  // decodeKey,
+} from '../../jlinx/crypto.js'
 
 import {
+  DID,
   resolveDID,
   generateDidKey,
   openDidKey,
+  didKeyDocumentToDidWebDocument,
+  publicKeyToDidKey,
+  didToPublicKey,
 } from '../../jlinx/dids.js'
+
+test('encoding and decoding keys', async t => {
+  const secretSeed = Buffer.from('6b608095f4fa3bc7e512b74398357d9d943ddaa23bbb1621393facf1ec9a6649', 'hex')
+  const kp = generateKeyPairFromSeed(secretSeed)
+  const did = await openDidKey(secretSeed)
+  t.is(did.id, 'did:key:z6MkpMsbfGa3qkNBGTtxzxrv7tovZjX1RC8FJATS4eCy2SrB')
+  t.is(publicKeyToDidKey(kp.publicKey), 'did:key:z6MkpMsbfGa3qkNBGTtxzxrv7tovZjX1RC8FJATS4eCy2SrB')
+  t.alike(didToPublicKey(did.id), kp.publicKey)
+})
 
 test('resolving a known good did:web did', async t => {
   t.alike(
@@ -129,4 +148,12 @@ test('create a JWE', async t => {
   const jwe1 = await p1.did.createJWE(u8a.fromString('hello p2'), [p2.did.id])
   t.is(u8a.toString(await p2.did.decryptJWE(jwe1)), 'hello p2')
   await t.exception(async () => { await p1.did.decryptJWE(jwe1) }, /Failed to decrypt/)
+})
+
+
+test('converting a did:key into a did:web', async t => {
+  const did = await openDidKey(Buffer.from('2deae4fca4931fcc3502e05e4d4f131765bee0154542fb056583da6b813e3202', 'hex'))
+  console.log(did)
+  const { didDocument } = await did.resolve(did.id)
+  console.log(didDocument)
 })

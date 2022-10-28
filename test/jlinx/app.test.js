@@ -1,10 +1,10 @@
 import { inspect } from 'node:util'
 import test from 'brittle'
 
-import { decodeKey, generateSigningKeypairSeed } from '../../jlinx/crypto.js'
+import { generateKeyPairSeed } from '../../jlinx/crypto.js'
 import { JlinxApp } from '../../jlinx/app.js'
 
-const secretSeed = decodeKey('ucdvQeYJeqOzh1p5ouLaxDXzkiiquRErWHSnPGXZBcAI')
+const secretSeed = Buffer.from('b74398357d9d943ddaa23bb6b608095f4fa3bc7e512b1621393facf1ec9a6649', 'hex')
 
 test('inspecting an agent', async t => {
   const actor = await JlinxApp.open({ secretSeed, host: 'example.com' })
@@ -18,7 +18,7 @@ test('inspecting an agent', async t => {
 
 const generateApp = async host =>
   JlinxApp.open({
-    secretSeed: generateSigningKeypairSeed(),
+    secretSeed: generateKeyPairSeed(),
     host,
   })
 

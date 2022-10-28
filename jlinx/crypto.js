@@ -1,11 +1,12 @@
 import * as u8a from 'uint8arrays'
 import sodium from 'sodium-universal'
 import crypto from 'crypto'
-import b4a from 'b4a'
-import { base64url } from 'multiformats/bases/base64'
-import { generateKeyPairFromSeed as generateSigningKeyPairFromSeed } from '@stablelib/x25519'
+// import b4a from 'b4a'
+// import { base64url } from 'multiformats/bases/base64'
+// import { generateKeyPairFromSeed as generateKeyPairFromSeed } from '@stablelib/x25519'
+import { generateKeyPairFromSeed, convertSecretKeyToX25519 } from '@stablelib/ed25519';
 
-export { generateSigningKeyPairFromSeed }
+export { generateKeyPairFromSeed }
 
 const PCT_ENCODED = '(?:%[0-9a-fA-F]{2})'
 const ID_CHAR = `(?:[a-zA-Z0-9._-]|${PCT_ENCODED})`
@@ -15,26 +16,28 @@ export function isEncodedPublicKey(key) {
   return encodedPublicKeyRegExp.test(key)
 }
 
-export function encodeKey(key){
-  return base64url.encode(key)
-}
+// export function encodeKey(key){
+//   // return base64url.encode(key)
+//   return u8a.toString(key, 'base58btc')
+// }
+//
+// export function decodeKey(key){
+//   // return base64url.decode(key)
+//   return u8a.fromString(key, 'base58btc')
+// }
 
-export function decodeKey(key){
-  return base64url.decode(key)
-}
-
-export function generateSigningKeypairSeed(){
+export function generateKeyPairSeed(){
   const secretSeed = Buffer.alloc(32)
   crypto.randomFillSync(secretSeed)
   return secretSeed
 }
 
-export function generateSigningKeypair() {
-  const seed = generateSigningKeypairSeed()
-  return { ...generateSigningKeyPairFromSeed(seed), seed }
+export function generateKeyPair() {
+  const seed = generateKeyPairSeed()
+  return { ...generateKeyPairFromSeed(seed), seed }
 }
 
-export function validateSigningKeypair(keyPair){
+export function validateKeyPair(keyPair){
   // TODO
   // const pk = b4a.allocUnsafe(sodium.crypto_sign_PUBLICKEYBYTES)
   // sodium.crypto_sign_ed25519_sk_to_pk(pk, keyPair.secretKey)
