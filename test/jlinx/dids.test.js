@@ -114,6 +114,7 @@ test('create a JWS', async t => {
       }
     ],
   })
+  console.log('jws', jws)
   t.alike(
     (await did.verifyJWS(jws)).payload,
     { hello: 'world' },
@@ -128,5 +129,5 @@ test('create a JWE', async t => {
 
   const jwe1 = await p1.did.createJWE(u8a.fromString('hello p2'), [p2.did.id])
   t.is(u8a.toString(await p2.did.decryptJWE(jwe1)), 'hello p2')
-  await t.exception(async () => { await p1.did.decryptJWE(jwe1) }, 'Failed to decrypt')
+  await t.exception(async () => { await p1.did.decryptJWE(jwe1) }, /Failed to decrypt/)
 })

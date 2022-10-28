@@ -43,7 +43,22 @@ export function validateSigningKeypair(keyPair){
 
 export async function makeEncryptable(payload) {
   if (payload instanceof Uint8Array) return payload
-  if (payload instanceof string) return u8a.fromString(payload)
+  if (typeof payload === 'string') return u8a.fromString(payload)
   // TODO canonicalize json
   return u8a.fromString(JSON.stringify(payload))
+}
+
+export function toJSONUint8Array(payload) {
+  return u8a.fromString(JSON.stringify(payload))
+}
+
+export function encodePayload(payload){
+  if (payload instanceof Uint8Array) return payload
+  return toJSONUint8Array(payload)
+}
+
+export function decodePayload(encoded){
+  if (encoded instanceof Uint8Array)
+    return JSON.parse(u8a.toString(encoded))
+  return encoded
 }

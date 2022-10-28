@@ -1,4 +1,6 @@
+import * as u8a from 'uint8arrays'
 import test from 'brittle'
+
 import {
   decodeKey,
   // encodeKey,
@@ -9,6 +11,8 @@ import {
   // sign,
   // signObject,
   // validateSigningKeypair,
+  encodePayload,
+  decodePayload,
 } from '../../jlinx/crypto.js'
 
 test('generating keys from seed is deterministic', async t => {
@@ -80,3 +84,19 @@ test('isEncodedPublicKey', async t => {
 //   const kp = generateSigningKeypair()
 //   t.ok(validateSigningKeypair(kp))
 // })
+
+test('encoding signable objects', async t => {
+
+  const testCase = value => {
+    let encoded = encodePayload(value)
+    t.ok(encoded instanceof Uint8Array)
+    t.alike(
+      decodePayload(encoded),
+      value
+    )
+  }
+
+  testCase('a')
+  testCase(10)
+  testCase({ an: 'object' })
+})
