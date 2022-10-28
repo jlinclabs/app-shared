@@ -114,7 +114,6 @@ test('create a JWS', async t => {
       }
     ],
   })
-  console.log('jws', jws)
   t.alike(
     (await did.verifyJWS(jws)).payload,
     { hello: 'world' },

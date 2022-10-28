@@ -1,18 +1,21 @@
-export function nodeInspect(_this, depth, opts, fields){
+const INSPECT_SYMBOL = Symbol.for('nodejs.util.inspect.custom')
+
+export function customInspect(_class, fields = []){
+  Object.assign(_class.prototype, {
+    [INSPECT_SYMBOL]: inspect,
+    __inspectFields: fields,
+  })
+}
+
+function inspect(depth, opts){
+  let fields = this.__inspectFields
+  if (typeof fields === 'function') fields = fields.call(this)
+  if (!fields) fields = []
   let indent = ''
   if (typeof opts.indentationLvl === 'number') { while (indent.length < opts.indentationLvl) indent += ' ' }
-  let v = _this.constructor.name + '(\n'
-  for (const [field, type, value = _this[field]] of fields)
+  let v = this.constructor.name + '(\n'
+  for (const [field, type, value = this[field]] of fields)
     v += indent + `  ${field}: ` + opts.stylize(value, type) + '\n'
   v += indent + ')'
   return v
-}
-
-nodeInspect.key = Symbol.for('nodejs.util.inspect.custom')
-
-
-export function customInspect(_class, getFields){
-  _class.prototype[nodeInspect.key] = function(depth, opts){
-    return nodeInspect(this, depth, opts, getFields.call(this))
-  }
 }

@@ -6,7 +6,7 @@ import {
   decodePayload,
 } from './crypto.js'
 
-export class Actor {
+export class JlinxActor {
 
   static async open(opts) {
     opts.did = await openDidKey(opts.secretSeed)
@@ -19,6 +19,13 @@ export class Actor {
 
   get did () { return this._did.id }
   get publicKey () { return this.did.split(':')[2] }
+
+
+  __inspectFields () {
+    return [
+      ['did', 'string'],
+    ]
+  }
 
   async createJWS(signable){
     if (typeof signable !== 'object')
@@ -94,8 +101,4 @@ export class Actor {
   }
 }
 
-customInspect(Actor, function(){
-  return [
-    ['did', 'string'],
-  ]
-})
+customInspect(JlinxActor)

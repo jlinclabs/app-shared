@@ -1,6 +1,7 @@
 import { openDidKey } from './dids.js'
+import { JlinxActor } from './actor.js'
 
-export class Agent extends Actor {
+export class JlinxAgent extends JlinxActor {
 
   get email () { }
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { generateKeypair } from '../server/crypto.js'
+import { generateSigningKeypair } from '../jlinx/crypto.js'
 
-const kp = generateKeypair()
+const kp = generateSigningKeypair()
 
 const toHex = key => Buffer.from(key).toString('hex')
 const publicKey = toHex(kp.publicKey)

@@ -2,29 +2,28 @@ import * as u8a from 'uint8arrays'
 import test from 'brittle'
 
 import { decodeKey, generateSigningKeypairSeed } from '../../jlinx/crypto.js'
-import { Actor } from '../../jlinx/actor.js'
+import { JlinxActor } from '../../jlinx/actor.js'
 
 const secretSeed = decodeKey('ucdvQeYJeqOzh1p5ouLaxDXzkiiquRErWHSnPGXZBcAI')
 
 const generateActor = async () =>
-   await Actor.open({
+   await JlinxActor.open({
     secretSeed: generateSigningKeypairSeed()
   })
 
-
 test('opening an actor', async t => {
-  const actor = await Actor.open({ secretSeed })
-  t.ok(actor instanceof Actor)
+  const actor = await JlinxActor.open({ secretSeed })
+  t.ok(actor instanceof JlinxActor)
   t.is(actor.did, 'did:key:z6MkfYHUAqe58vjZp8kXwvmH8H5zCbSPvzLhUfSDym4RE4sN')
   t.is(actor.publicKey, 'z6MkfYHUAqe58vjZp8kXwvmH8H5zCbSPvzLhUfSDym4RE4sN')
   await t.exception(
-    async () => await Actor.open({ secretSeed: 'bad key' }),
+    async () => await JlinxActor.open({ secretSeed: 'bad key' }),
     /ed25519: seed must be 32 bytes/
   )
 })
 
 test('signing', async t => {
-  const actor = await Actor.open({ secretSeed })
+  const actor = await JlinxActor.open({ secretSeed })
 
   const anObject = await actor.sign({  an: 'object' })
   t.alike(anObject, {
