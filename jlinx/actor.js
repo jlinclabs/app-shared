@@ -20,7 +20,6 @@ export class JlinxActor {
   get did () { return this._did.id }
   get publicKey () { return this.did.split(':')[2] }
 
-
   __inspectFields () {
     return [
       ['did', 'string'],
@@ -66,39 +65,64 @@ export class JlinxActor {
     return await this._did.resolve(did)
   }
 
-  async fetch(url, body, options = {}){
-    return await fetch(url, {
+  async fetch(url, options = {}){
+    const res = await fetch(url, {
       ...options,
       headers: {
         ...options.headers,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
         'X-DID': this.did,
       },
     })
+    return res.json()
   }
 
-  async getJSON(url, options = {}) {
-    return this.fetch(url, {
-      ...options,
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        ...options.headers,
-      },
-    })
-  }
-
-  async postJSON(url, payload, options = {}) {
-    return this.fetch(url, {
+  async httpPost(url, payload, options = {}) {
+    return await  this.fetch(url, {
       ...options,
       method: 'POST',
-      body: await this.sign(payload),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
+      body: JSON.stringify(payload),
     })
   }
+
+  async httpGet(url, params = {}, options = {}) {
+    return await this.fetch(url, {
+      ...options,
+      method: 'GET',
+    })
+  }
+
+  // async getJSON(url, options = {}) {
+  //   return this.fetch(url, {
+  //     ...options,
+  //     method: 'GET',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       ...options.headers,
+  //     },
+  //   })
+  // }
+  //
+  // async postJSON(url, payload, options = {}) {
+  //   return this.fetch(url, {
+  //     ...options,
+  //     method: 'POST',
+  //     body: payload,
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json',
+  //       ...options.headers,
+  //     },
+  //   })
+  // }
+  //
+  // async postSignedJSON(url, payload, options = {}) {
+  //   return await this.postJSON(url, options)
+  //
+  // }
+
+
 }
 
 customInspect(JlinxActor)

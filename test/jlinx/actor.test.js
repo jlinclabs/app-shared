@@ -1,4 +1,4 @@
-import * as u8a from 'uint8arrays'
+import { inspect } from 'node:util'
 import test from 'brittle'
 
 import { decodeKey, generateSigningKeypairSeed } from '../../jlinx/crypto.js'
@@ -21,6 +21,17 @@ test('opening an actor', async t => {
     /ed25519: seed must be 32 bytes/
   )
 })
+
+test('inspecting an actor', async t => {
+  const actor = await JlinxActor.open({ secretSeed })
+  t.alike(
+    inspect(actor),
+    `JlinxActor(\n` +
+    `  did: did:key:z6MkfYHUAqe58vjZp8kXwvmH8H5zCbSPvzLhUfSDym4RE4sN\n` +
+    `)`
+  )
+})
+
 
 test('signing', async t => {
   const actor = await JlinxActor.open({ secretSeed })

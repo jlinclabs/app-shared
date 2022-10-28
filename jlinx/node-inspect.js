@@ -1,10 +1,7 @@
 const INSPECT_SYMBOL = Symbol.for('nodejs.util.inspect.custom')
 
-export function customInspect(_class, fields = []){
-  Object.assign(_class.prototype, {
-    [INSPECT_SYMBOL]: inspect,
-    __inspectFields: fields,
-  })
+export function customInspect(_class){
+  _class.prototype[INSPECT_SYMBOL] = inspect
 }
 
 function inspect(depth, opts){
