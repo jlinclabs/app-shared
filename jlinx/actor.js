@@ -1,7 +1,6 @@
 import { customInspect } from './node-inspect.js'
 import { openDidKey } from './dids.js'
 import {
-  makeEncryptable,
   encodePayload,
   decodePayload,
 } from './crypto.js'
@@ -70,6 +69,7 @@ export class JlinxActor {
       ...options,
       headers: {
         ...options.headers,
+        'Referer': process.env.APP_ORIGIN, // move to JlinxApp
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'X-DID': this.did,
@@ -92,36 +92,6 @@ export class JlinxActor {
       method: 'GET',
     })
   }
-
-  // async getJSON(url, options = {}) {
-  //   return this.fetch(url, {
-  //     ...options,
-  //     method: 'GET',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       ...options.headers,
-  //     },
-  //   })
-  // }
-  //
-  // async postJSON(url, payload, options = {}) {
-  //   return this.fetch(url, {
-  //     ...options,
-  //     method: 'POST',
-  //     body: payload,
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json',
-  //       ...options.headers,
-  //     },
-  //   })
-  // }
-  //
-  // async postSignedJSON(url, payload, options = {}) {
-  //   return await this.postJSON(url, options)
-  //
-  // }
-
 
 }
 

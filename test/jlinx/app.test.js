@@ -11,8 +11,7 @@ test('inspecting an agent', async t => {
   t.alike(
     inspect(actor),
     `JlinxApp(\n` +
-    `  did: did:key:z6MkfYHUAqe58vjZp8kXwvmH8H5zCbSPvzLhUfSDym4RE4sN\n` +
-    `  host: example.com\n` +
+    `  did: did:web:example.com\n` +
     `)`
   )
 })

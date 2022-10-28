@@ -6,12 +6,8 @@ export class JlinxApp extends JlinxActor {
     this.host = opts.host
   }
 
-  get __inspectFields () {
-    return [
-      ['did', 'string'],
-      ['host', 'string'],
-    ]
-  }
+  get did () { return `did:web:${this.host}` }
+
 
   async loginUserViaAgent (agentEmail) {
     agentEmail
