@@ -76,11 +76,11 @@ export class JlinxActor {
         'X-DID': this.did,
       },
     })
-    return res.json()
+    return await res.json()
   }
 
   async httpPost(url, payload, options = {}) {
-    return await  this.fetch(url, {
+    return await this.fetch(url, {
       ...options,
       method: 'POST',
       body: JSON.stringify(payload),

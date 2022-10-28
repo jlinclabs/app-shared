@@ -8,10 +8,8 @@ export class JlinxApp extends JlinxActor {
 
   get did () { return `did:web:${this.host}` }
 
-
-  async loginUserViaAgent (agentEmail) {
-    agentEmail
-
+  async getDidDocument() {
+    return this._did.resolve(this._did.id)
   }
 
   async fetch(url, options = {}) {
@@ -23,5 +21,11 @@ export class JlinxApp extends JlinxActor {
       },
     })
   }
+
+
+
+  // async loginUserViaAgent (agentEmail) {
+  //   agentEmail
+  // }
 
 }
