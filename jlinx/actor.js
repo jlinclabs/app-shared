@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import { customInspect } from './node-inspect.js'
-import { openDidKey } from './dids.js'
+import { didToPublicKey, openDidKey } from './dids.js'
 import {
   encodePayload,
   decodePayload,
@@ -19,6 +19,7 @@ export class JlinxActor {
 
   get did () { return this._did.id }
   get publicKey () { return this.did.split(':')[2] }
+  get publicKeyBytes () { return didToPublicKey(this.did) }
 
   __inspectFields () {
     return [
@@ -59,6 +60,11 @@ export class JlinxActor {
 
   async decrypt(jwe){
     return decodePayload(await this.decryptJWE(jwe))
+  }
+
+  async getDIDDocument () {
+    const { didDocument } = await this._did.resolve(this.did)
+    return didDocument
   }
 
   async resolveDID(did){

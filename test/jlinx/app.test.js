@@ -29,3 +29,6 @@ test('opening an actor', async t => {
   t.is(app.host, 'example.com')
 })
 
+test('app.didDocument returns a did:web document', async t => {
+
+})

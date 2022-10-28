@@ -1,11 +1,13 @@
+import * as u8a from 'uint8arrays'
+import { convertPublicKeyToX25519 } from '@stablelib/ed25519'
 import { inspect } from 'node:util'
 import test from 'brittle'
 
 import { generateKeyPairSeed } from '../../jlinx/crypto.js'
+import { publicKeyToDidKey, encodeKey } from '../../jlinx/dids.js'
 import { JlinxActor } from '../../jlinx/actor.js'
 
 const secretSeed = Buffer.from('57d9d943ddaa23bb6b608095f4ec9a6649fa3bc7e512b1621393facf1b743983', 'hex')
-
 
 const generateActor = async () =>
    await JlinxActor.open({
@@ -102,4 +104,35 @@ test('encrypting between actors', async t => {
     async () => { await bob2.decrypt(jwe2) },
     /Failed to decrypt/
   )
+})
+
+test('getDIDDocument', async t => {
+  const actor = await JlinxActor.open({ secretSeed })
+  const didDocument = await actor.getDIDDocument()
+  const did = actor.did
+  t.is(didDocument.id, did)
+  const longId = `${did}#${actor.publicKey}`
+  t.alike(didDocument.verificationMethod, [
+    {
+      id: longId,
+      type: 'Ed25519VerificationKey2018',
+      controller: `${did}`,
+      publicKeyBase58: '52ECmQ53eAgT3ri44MQAMg11GMTiPUis9bnMpUrTt7Sw',
+    }
+  ])
+  t.alike(didDocument.authentication, [ longId ])
+  t.alike(didDocument.assertionMethod, [ longId ])
+  t.alike(didDocument.capabilityDelegation, [ longId ])
+  t.alike(didDocument.capabilityInvocation, [ longId ])
+
+  const x25519PubBytes = convertPublicKeyToX25519(actor.publicKeyBytes)
+  const x25519KeyId = `${did}#${encodeKey(x25519PubBytes)}`
+  t.alike(didDocument.keyAgreement, [
+    {
+      id: x25519KeyId,
+      type: 'X25519KeyAgreementKey2019',
+      controller: actor.did,
+      publicKeyBase58: '7fVD8HVH4F7HSVCMjYdJtWm7aM5DFrX9JCHgw8TzUzs5'
+    }
+  ])
 })

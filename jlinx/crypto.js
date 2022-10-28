@@ -16,16 +16,6 @@ export function isEncodedPublicKey(key) {
   return encodedPublicKeyRegExp.test(key)
 }
 
-// export function encodeKey(key){
-//   // return base64url.encode(key)
-//   return u8a.toString(key, 'base58btc')
-// }
-//
-// export function decodeKey(key){
-//   // return base64url.decode(key)
-//   return u8a.fromString(key, 'base58btc')
-// }
-
 export function generateKeyPairSeed(){
   const secretSeed = Buffer.alloc(32)
   crypto.randomFillSync(secretSeed)
