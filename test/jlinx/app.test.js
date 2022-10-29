@@ -29,6 +29,13 @@ test('opening an actor', async t => {
   t.is(app.host, 'example.com')
 })
 
-test('app.didDocument returns a did:web document', async t => {
+test.solo('app.getDIDDocument returns a did:web document', async t => {
+  const actor = await JlinxActor.open({
+    secretSeed,
+    host: 'web3.example.com',
+  })
+  const didDocument = await actor.getDIDDocument()
+  const did = actor.did
 
+  console.log(didDocument)
 })
