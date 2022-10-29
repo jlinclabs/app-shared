@@ -235,6 +235,11 @@ async function devNpmLink(appSharedPath){
     await spawn('rm', ['-rf', `${process.env.APP_PATH}/node_modules/${dep}`])
     await spawn('ln', ['-s', `${appSharedPath}/node_modules/${dep}`, `${process.env.APP_PATH}/node_modules/${dep}`])
   }
-  await spawn('rm', ['-rf', `${process.env.APP_PATH}/node_modules/${packageName}`])
-  await spawn('ln', ['-s', `${appSharedPath}`, `${process.env.APP_PATH}/node_modules/${packageName}`])
+  for (const subDir of ['bin', 'server', 'jlinx', 'shared']) {
+    const path = `${process.env.APP_PATH}/node_modules/${packageName}/${subDir}`
+    await spawn('rm', ['-rf', path])
+    await spawn('ln', ['-s', `${appSharedPath}/${subDir}`, path])
+  }
+  // await spawn('rm', ['-rf', `${process.env.APP_PATH}/node_modules/${packageName}`])
+  // await spawn('ln', ['-s', `${appSharedPath}`, `${process.env.APP_PATH}/node_modules/${packageName}`])
 }
