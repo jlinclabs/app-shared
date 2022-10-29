@@ -2,6 +2,7 @@ import Path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
 import Router from 'express-promise-router'
+import { Observable } from 'rxjs'
 
 import { ExpectedError } from './errors.js'
 import { loadSession } from './session.js'
@@ -80,8 +81,14 @@ export async function createServer(){
     console.log(action, { name, options })
     try{
       const result = await req.context.publicCall(action, name, options)
-      console.error(`${action} SUCCESS`, { name, options, result })
-      res.status(200).json({ result })
+      console.log('OBSRV???', result instanceof Observable)
+      if (result instanceof Observable){
+        console.log('🚒 STARTING SSE STREAM!')
+        await streamServerSentEvents(req, res, result)
+      }else {
+        console.log(`${action} SUCCESS`, { name, options, result })
+        res.status(200).json({ result })
+      }
     }catch(error){
       console.error(`${action} FAILED`, { name, options, error })
       renderErrorAsJSON(res, error)
@@ -119,4 +126,39 @@ async function renderErrorAsJSON(res, error){
         stack: error.stack,
       }
     })
+}
+
+
+function streamServerSentEvents(req, res, observable){
+  let closed = false
+  let subscription
+  const close = () => {
+    closed = true
+    res.end()
+    if (subscription) subscription.unsubscribe();
+  }
+  req.on('close', close)
+
+  res.set({
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'text/event-stream',
+    Connection: 'keep-alive'
+  })
+  res.flushHeaders()
+
+  subscription = observable.subscribe({
+    next(entry) {
+      entry = JSON.stringify(JSON.parse(entry), null, 2)
+      res.write(entry)
+      res.write('\n')
+    },
+    error(error) {
+      console.error('sse error', error)
+      close()
+    },
+    complete() {
+      console.log('sse done')
+      close()
+    },
+  });
 }
