@@ -12,7 +12,7 @@ import KeyResolver from 'key-did-resolver'
 import { generateKeyPairSeed } from './crypto.js'
 export { DID, parseDID, publicKeyToDidKey }
 
-const webResolver = getWebResolver()
+export const webResolver = getWebResolver()
 
 export const didResolver = new Resolver({
   ...webResolver,
@@ -41,6 +41,8 @@ export async function openDidKey(secretSeed) {
 // stolen from duplicate code in key-did-privider-ed25519 and key-did-resolver
 export function encodeKey(key) {
   const bytes = new Uint8Array(key.length + 2);
+  // TODO can we just use multiformats here instead?
+  // https://github.com/multiformats/multicodec/blob/master/table.csv
   bytes[0] = 0xec;
   bytes[1] = 0x01;
   bytes.set(key, 2);

@@ -8,9 +8,12 @@ export class JlinxApp extends JlinxActor {
 
   get did () { return `did:web:${this.host}` }
 
-  async getDidDocument() {
-    const { didDocument } = this._did.resolve(this._did.id)
-    return didKeyDocumentToDidWebDocument(didDocument, `did:web:${host}`)
+  async getDIDDocument() {
+    const { didDocument } = await this._did.resolve(this._did.id)
+    didDocument.id = this.did
+    return didDocument
+    // const { didDocument } = this._did.resolve(this._did.id)
+    // return didKeyDocumentToDidWebDocument(didDocument, `did:web:${host}`)
   }
 
   async fetch(url, options = {}) {

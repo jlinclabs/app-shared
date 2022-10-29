@@ -2,6 +2,7 @@ import { inspect } from 'node:util'
 import test from 'brittle'
 
 import { generateKeyPairSeed } from '../../jlinx/crypto.js'
+import { webResolver } from '../../jlinx/dids.js'
 import { JlinxApp } from '../../jlinx/app.js'
 
 const secretSeed = Buffer.from('b74398357d9d943ddaa23bb6b608095f4fa3bc7e512b1621393facf1ec9a6649', 'hex')
@@ -29,13 +30,12 @@ test('opening an actor', async t => {
   t.is(app.host, 'example.com')
 })
 
-test.solo('app.getDIDDocument returns a did:web document', async t => {
-  const actor = await JlinxActor.open({
+test('app.getDIDDocument returns a did:web document', async t => {
+  const actor = await JlinxApp.open({
     secretSeed,
     host: 'web3.example.com',
   })
+  t.is(actor.did, `did:web:web3.example.com`)
   const didDocument = await actor.getDIDDocument()
-  const did = actor.did
-
-  console.log(didDocument)
+  t.is(didDocument.id, actor.did)
 })
