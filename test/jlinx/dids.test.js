@@ -149,11 +149,3 @@ test('create a JWE', async t => {
   t.is(u8a.toString(await p2.did.decryptJWE(jwe1)), 'hello p2')
   await t.exception(async () => { await p1.did.decryptJWE(jwe1) }, /Failed to decrypt/)
 })
-
-
-test('converting a did:key into a did:web', async t => {
-  const did = await openDidKey(Buffer.from('2deae4fca4931fcc3502e05e4d4f131765bee0154542fb056583da6b813e3202', 'hex'))
-  console.log(did)
-  const { didDocument } = await did.resolve(did.id)
-  console.log(didDocument)
-})

@@ -72,17 +72,28 @@ export class JlinxActor {
   }
 
   async fetch(url, options = {}){
-    const res = await fetch(url, {
-      ...options,
-      headers: {
-        ...options.headers,
-        'Referer': process.env.APP_ORIGIN, // move to JlinxApp
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-DID': this.did,
-      },
-    })
-    return await res.json()
+    let res
+    try {
+      res = await fetch(url, {
+        ...options,
+        headers: {
+          ...options.headers,
+          'Referer': process.env.APP_ORIGIN, // move to JlinxApp
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-DID': this.did,
+        },
+      })
+      if (!/application\/json/.test(res.headers['content-type']))
+        throw new Error(`expected json`)
+      if (!res.ok) throw new Error(res.error)
+      return await res.json()
+    }catch(err){
+      const error = new Error(`failed to fetch "${url}" ${err}`)
+      error.originialError = err
+      error.res = res
+      throw error
+    }
   }
 
   async httpPost(url, payload, options = {}) {

@@ -24,7 +24,6 @@ test('generating keys from seed is deterministic', async t => {
     87, 217, 217,  67, 221, 170,  35, 187
   ])
   const keys = generateKeyPairFromSeed(seed)
-  console.log(u8a.toString(keys.publicKey, 'hex'))
   t.alike(
     keys.publicKey,
     u8a.fromString('9a351583c0f6e1c22920e068e59396a26e8e50b66649ea5e07fd7098f1bad70a', 'hex')

@@ -136,3 +136,13 @@ test('getDIDDocument', async t => {
     }
   ])
 })
+
+test('fetch', async t => {
+  const actor = await JlinxActor.open({ secretSeed })
+  await t.exception(
+    async () => await actor.fetch('http://example.com')
+  )
+  await t.exception(
+    async () => await actor.fetch('http://localhost:9876')
+  )
+})
