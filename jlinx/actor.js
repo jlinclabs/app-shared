@@ -84,11 +84,13 @@ export class JlinxActor {
           'X-DID': this.did,
         },
       })
-      if (!/application\/json/.test(res.headers['content-type']))
-        throw new Error(`expected json`)
-      if (!res.ok) throw new Error(res.error)
+      const contentType = res.headers.get('content-type')
+      if (!/application\/json/.test(contentType))
+        throw new Error(`expected Content-Type: application/json, got ${contentType}`)
+      if (!res.ok) throw new Error(`${res.statusText}`)
       return await res.json()
     }catch(err){
+      console.error(err)
       const error = new Error(`failed to fetch "${url}" ${err}`)
       error.originialError = err
       error.res = res
