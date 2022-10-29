@@ -38,8 +38,7 @@ test('inspecting an actor', async t => {
 
 test('signing', async t => {
   const actor = await JlinxActor.open({ secretSeed })
-
-  const anObject = await actor.sign({  an: 'object' })
+  const anObject = await actor.sign({ an: 'object' })
   t.alike(anObject, {
     payload: 'eyJhbiI6Im9iamVjdCJ9',
     signatures: [
@@ -53,7 +52,12 @@ test('signing', async t => {
    (await actor.verifySignature(anObject)),
     { an: 'object' }
   )
+  await t.exception(
+    async () => { await actor.sign('cant sign a string') },
+    /first argument must be an object/
+  )
 })
+
 
 test('signing between actors', async t => {
   const alice = await generateActor()
@@ -137,12 +141,14 @@ test('getDIDDocument', async t => {
   ])
 })
 
-test('fetch', async t => {
-  const actor = await JlinxActor.open({ secretSeed })
-  await t.exception(
-    async () => await actor.fetch('http://example.com')
-  )
-  await t.exception(
-    async () => await actor.fetch('http://localhost:9876')
-  )
-})
+// test('fetch', async t => {
+//   const actor = await JlinxActor.open({ secretSeed })
+//   await t.exception.all(
+//     async () => await actor.fetch('http://example.com'),
+//     /assssss/
+//   )
+//   await t.exception.all(
+//     async () => await actor.fetch('http://localhost:9876'),
+//     /assssss/
+//   )
+// })

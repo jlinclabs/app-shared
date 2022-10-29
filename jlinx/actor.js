@@ -27,31 +27,33 @@ export class JlinxActor {
     ]
   }
 
-  async createJWS(signable){
-    if (typeof signable !== 'object')
-      throw new Error(`signable must be an object`)
-    return await this._did.createJWS(signable)
+  async createJWS(object){
+    if (typeof object !== 'object')
+      throw new Error(`first argument must be an object`)
+    return await this._did.createJWS(object)
   }
 
   async verifyJWS(jws){
     return await this._did.verifyJWS(jws)
   }
 
-  async createJWE(payload, dids){
-    return await this._did.createJWE(payload, dids)
-  }
-
-  async decryptJWE(jwe){
-    return await this._did.decryptJWE(jwe)
-  }
-
-  async sign(signable){
-    return await this.createJWS(signable)
+  async sign(object){
+    return await this.createJWS(object)
   }
 
   async verifySignature(jws){
     const decoded = await this.verifyJWS(jws)
     return decoded.payload
+  }
+
+  async createJWE(bytes, dids){
+    if (!(bytes instanceof Uint8Array))
+      throw new Error(`first argument must be a Uint8Array`)
+    return await this._did.createJWE(bytes, dids)
+  }
+
+  async decryptJWE(jwe){
+    return await this._did.decryptJWE(jwe)
   }
 
   async encrypt(payload, dids){
