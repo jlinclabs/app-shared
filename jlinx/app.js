@@ -34,11 +34,14 @@ export class JlinxApp extends JlinxActor {
       `https://${host}/api/jlinx/v1/login`,
       {jws}
     )
-    console.log({jwe})
-    const payload = await this.decrypt(jwe)
-    console.log({payload})
-    const {loginAttemptId, checkStatusAt} = payload
-    return {email, host, publicKey, loginAttemptId, checkStatusAt}
+    const {
+      loginAttemptId,
+      checkStatusAt,
+      profile,
+    } = await this.decrypt(jwe)
+    return {
+      email, host, publicKey, loginAttemptId, checkStatusAt, profile,
+    }
   }
 
   async waitForLoginRequestResult({ host, id }){
