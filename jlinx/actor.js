@@ -92,7 +92,12 @@ export class JlinxActor {
       return await res.json()
     }catch(err){
       console.error(err)
-      const error = new Error(`failed to fetch "${url}" ${err}`)
+      let jsonError
+      try{
+        const { error } = await res.json()
+        jsonError = error
+      }catch(e){}
+      const error = new Error(`failed to fetch "${url}" ${jsonError?.message ?? err}`)
       error.originialError = err
       error.res = res
       throw error

@@ -25,8 +25,33 @@ export class JlinxApp extends JlinxActor {
     })
   }
 
-  // async loginUserViaAgent (agentEmail) {
-  //   agentEmail
-  // }
+  async loginWithAgentEmail(email) {
+    const [publicKey, host] = email.split('@')
+    console.log({email, host, publicKey})
+    const did = `did:key:${publicKey}`
+    const jws = await this.createJWS({did}, [did])
+    const {jwe} = await this.httpPost(
+      `https://${host}/api/jlinx/v1/login`,
+      {jws}
+    )
+    console.log({jwe})
+    const payload = await this.decrypt(jwe)
+    console.log({payload})
+    const {loginAttemptId, checkStatusAt} = payload
+    return {email, host, publicKey, loginAttemptId, checkStatusAt}
+  }
+
+  async waitForLoginRequestResult({ host, id }){
+    // TODO consider signing this request somehow
+    const x = await this.httpGet(
+      `https://${host}/api/jlinx/v1/login/${id}`,
+    )
+    console.log('RES PAYLOAD', x)
+    const { jwe } = x
+    console.log({jwe})
+    const payload = await this.decrypt(jwe)
+    console.log({payload})
+    return payload
+  }
 
 }
