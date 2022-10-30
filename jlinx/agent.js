@@ -3,6 +3,8 @@ import { JlinxActor } from './actor.js'
 
 export class JlinxAgent extends JlinxActor {
 
-  get email () { }
+  // get email () { return `${username}@${host}`
+  //   // did:web:${agents.jlinc.test}:agent:${username}
+  // }
 
 }

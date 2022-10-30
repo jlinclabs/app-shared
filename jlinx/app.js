@@ -45,16 +45,17 @@ export class JlinxApp extends JlinxActor {
   }
 
   async waitForLoginRequestResult({ host, id }){
-    // TODO consider signing this request somehow
-    const x = await this.httpGet(
+    const { jwe } = await this.httpGet(
       `https://${host}/api/jlinx/v1/login/${id}`,
     )
-    console.log('RES PAYLOAD', x)
-    const { jwe } = x
-    console.log({jwe})
-    const payload = await this.decrypt(jwe)
-    console.log({payload})
-    return payload
+    return await this.decrypt(jwe)
+  }
+
+  async getAgentProfile({ host, did }){
+    const { jwe } = await this.httpGet(
+      `https://${host}/api/jlinx/v1/profile/${did}`,
+    )
+    return await this.decrypt(jwe)
   }
 
 }

@@ -25,7 +25,9 @@ function $8e6d25e76dd15597$export$c8531afc97e1e0f8(text) {
 function $4082528ce2e1849f$export$2e2bcd8739ae039({ value: value , inputProps: inputProps , iconProps: iconProps , ...props }) {
     const copy = (0, $eTq4X$useCallback)(()=>{
         (0, $8e6d25e76dd15597$export$c8531afc97e1e0f8)(value);
-    }, []);
+    }, [
+        value
+    ]);
     const selectAll = (0, $eTq4X$useCallback)((e)=>{
         e.target.setSelectionRange(0, 999999);
     }, []);

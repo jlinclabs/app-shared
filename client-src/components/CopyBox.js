@@ -12,7 +12,10 @@ export default function CopyBox({
   iconProps,
   ...props
 }){
-  const copy = useCallback(() => { copyText(value) }, [])
+  const copy = useCallback(
+    () => { copyText(value) },
+    [value]
+  )
   const selectAll = useCallback(e => {
     e.target.setSelectionRange(0, 999999)
   }, [])
