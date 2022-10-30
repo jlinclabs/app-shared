@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
 import useForceUpdate from './useForceUpdate.js'
 
 export default function useCountdown(seconds){
