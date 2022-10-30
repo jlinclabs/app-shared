@@ -80,7 +80,6 @@ export class JlinxActor {
         ...options,
         headers: {
           ...options.headers,
-          'Referer': process.env.APP_ORIGIN, // move to JlinxApp
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'X-DID': this.did,
