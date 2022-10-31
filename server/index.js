@@ -34,8 +34,10 @@ export async function createServer(){
 
   // TODO
   // - look for APP_DIR/server/index.js and expect default func to pass app
-  // - rename Controller to Context
-  // - look for APP_DIR/server/context.js and use it instead of Context base class
+
+  app.use(bodyParser.json({
+    limit: 102400 * 10,
+  }))
 
   app.use(async (req, res, next) => {
     // console.log(`${req.method} ${req.url}`)
@@ -55,9 +57,6 @@ export async function createServer(){
   })
 
   // app.use(uploads)
-  app.use(bodyParser.json({
-    limit: 102400 * 10,
-  }))
 
   if (await discovery.serverRoutesExists()){
     const handler = await discovery.importServerRoutesHandler()
