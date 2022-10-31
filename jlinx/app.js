@@ -27,7 +27,6 @@ export class JlinxApp extends JlinxActor {
 
   async loginWithAgentEmail(email) {
     const [publicKey, host] = email.split('@')
-    console.log({email, host, publicKey})
     const did = `did:key:${publicKey}`
     const jws = await this.createJWS({did}, [did])
     const {jwe} = await this.httpPost(
@@ -45,17 +44,37 @@ export class JlinxApp extends JlinxActor {
   }
 
   async waitForLoginRequestResult({ host, id }){
-    const { jwe } = await this.httpGet(
+    return await this.httpGetJWE(
       `https://${host}/api/jlinx/v1/login/${id}`,
     )
-    return await this.decrypt(jwe)
   }
 
   async getAgentProfile({ host, did }){
-    const { jwe } = await this.httpGet(
+    return await this.httpGetJWE(
       `https://${host}/api/jlinx/v1/profile/${did}`,
+    )
+  }
+
+  async getDocument({ host, id }){
+    return await this.httpGetJWE(
+      `https://${host}/api/jlinx/v1/documents/${id}`,
+    )
+  }
+
+  async createDocument({ host, did, name, value }){
+    const { jwe } = await this.httpPost(
+      `https://${host}/api/jlinx/v1/documents`,
+      { did, name, value },
     )
     return await this.decrypt(jwe)
   }
 
+  async updateDocument({ host, did, id, name, value }){
+    console.log('app.js#updateDocument', { host, did, id, name, value })
+    const { jwe } = await this.httpPost(
+      `https://${host}/api/jlinx/v1/documents/${id}`,
+      { did, id, name, value },
+    )
+    return await this.decrypt(jwe)
+  }
 }

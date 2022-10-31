@@ -48,6 +48,7 @@ export async function createServer(){
     console.log('HTTP REQUEST', {
       method: req.method,
       url: req.url,
+      body: req.body,
       session: req.session,
     })
     next()

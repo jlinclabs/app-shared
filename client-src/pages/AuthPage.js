@@ -37,8 +37,6 @@ function useSetLoginDestinationOnMount(args = []) {
 
 export default function AuthPage({ component }) {
   const Component = component
-  console.log({ Component })
-  // return currentUser ? <LoggedIn/> : <LoggedOut/>
   return <Container
     sx={{
       minHeight: '100vh',

@@ -44,7 +44,6 @@ export class Context {
       action === 'command' ? this.commands :
       null
     )
-    console.log({ name })
     const handler = !isPrivateProcedure(name) &&
       findProcedure(name, procedures)
     if (!handler) throw new InvalidArgumentError('queryName', name)

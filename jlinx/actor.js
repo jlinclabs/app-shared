@@ -119,6 +119,14 @@ export class JlinxActor {
     })
   }
 
+  async httpGetJWE(url, params = {}, options = {}) {
+    const { jwe } = await this.fetch(url, {
+      ...options,
+      method: 'GET',
+    })
+    return await this.decrypt(jwe)
+  }
+
 }
 
 customInspect(JlinxActor)
