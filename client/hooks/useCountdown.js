@@ -1,4 +1,4 @@
-import {useEffect as $arRGr$useEffect, useState as $arRGr$useState, useCallback as $arRGr$useCallback} from "react";
+import {useState as $arRGr$useState, useEffect as $arRGr$useEffect, useCallback as $arRGr$useCallback} from "react";
 
 function $parcel$defineInteropFlag(a) {
   Object.defineProperty(a, '__esModule', {value: true, configurable: true});
@@ -27,7 +27,7 @@ function $b6a953b0721d86c6$export$2e2bcd8739ae039() {
 
 function $0c8d6bf565bc2e40$export$2e2bcd8739ae039(seconds) {
     const forceUpdate = (0, $b6a953b0721d86c6$export$2e2bcd8739ae039)();
-    const [endTime] = useState(Date.now() + seconds);
+    const [endTime] = (0, $arRGr$useState)(Date.now() + seconds);
     const secondsRemaining = Math.ceil((endTime - Date.now()) / 1000);
     console.log({
         seconds: seconds,
