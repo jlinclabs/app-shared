@@ -109,7 +109,7 @@ export async function createServer(){
 }
 
 
-async function renderErrorAsJSON(res, error){
+function renderErrorAsJSON(res, error){
   res
     .status(
       error instanceof ExpectedError ? 400 : 500
