@@ -115,7 +115,25 @@ async function $77f8f4e7680be876$export$b423874dd89ac031({ image: image , dataUr
     return canvas.toDataURL(type, encoderOptions);
 }
 const $77f8f4e7680be876$export$ab60a79d24b56990 = (height, width)=>`${height / width * 100}%`;
+function $77f8f4e7680be876$export$80d19edb7b1ae293(dataURI) {
+    const matches = dataURI.match(/^data:(.+?);base64,(.+)$/);
+    const type = matches[1];
+    const byteString = atob(matches[2]);
+    // write the bytes of the string to an ArrayBuffer
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    // create a view into the buffer
+    const intArray = new Uint8Array(arrayBuffer);
+    // set the bytes of the buffer to the correct values
+    for(let i = 0; i < byteString.length; i++)intArray[i] = byteString.charCodeAt(i);
+    const fileName = `file.${type.split("/")[1]}`;
+    // write the ArrayBuffer to a blob, and you're done
+    return new File([
+        arrayBuffer
+    ], fileName, {
+        type: type
+    });
+}
 
 
-export {$77f8f4e7680be876$export$7a50b206cdbe4a00 as resizeToFill, $77f8f4e7680be876$export$ac3b5a2068e99322 as resizeToFit, $77f8f4e7680be876$export$e23a5860bdbd2a15 as fileToImageDataURL, $77f8f4e7680be876$export$fe58198efe02b173 as loadImage, $77f8f4e7680be876$export$ccb86a7570dd177 as imageToDataURL, $77f8f4e7680be876$export$7beea4af782414c4 as deanimateImage, $77f8f4e7680be876$export$4128de1b6b235a86 as fileToImage, $77f8f4e7680be876$export$b423874dd89ac031 as resizeImage, $77f8f4e7680be876$export$ab60a79d24b56990 as aspectRatioToTopPadding};
+export {$77f8f4e7680be876$export$7a50b206cdbe4a00 as resizeToFill, $77f8f4e7680be876$export$ac3b5a2068e99322 as resizeToFit, $77f8f4e7680be876$export$e23a5860bdbd2a15 as fileToImageDataURL, $77f8f4e7680be876$export$fe58198efe02b173 as loadImage, $77f8f4e7680be876$export$ccb86a7570dd177 as imageToDataURL, $77f8f4e7680be876$export$7beea4af782414c4 as deanimateImage, $77f8f4e7680be876$export$4128de1b6b235a86 as fileToImage, $77f8f4e7680be876$export$b423874dd89ac031 as resizeImage, $77f8f4e7680be876$export$ab60a79d24b56990 as aspectRatioToTopPadding, $77f8f4e7680be876$export$80d19edb7b1ae293 as dataURItoFile};
 //# sourceMappingURL=imageHelpers.js.map

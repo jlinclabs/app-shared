@@ -1,5 +1,4 @@
-
-function resizeToFill({ canvasWidth, canvasHeight, imageHeight, imageWidth }) {
+export function resizeToFill({ canvasWidth, canvasHeight, imageHeight, imageWidth }) {
   let drawnWidth, drawnHeight, x, y
 
   if (imageHeight < canvasHeight && imageWidth < canvasWidth) {
@@ -21,7 +20,7 @@ function resizeToFill({ canvasWidth, canvasHeight, imageHeight, imageWidth }) {
   return { x, y, drawnWidth, drawnHeight }
 }
 
-function resizeToFit({ canvasWidth, canvasHeight, imageHeight, imageWidth }){
+export function resizeToFit({ canvasWidth, canvasHeight, imageHeight, imageWidth }){
   let drawnWidth, drawnHeight
 
   if (imageHeight < canvasHeight && imageWidth < canvasWidth) {
@@ -42,7 +41,7 @@ function resizeToFit({ canvasWidth, canvasHeight, imageHeight, imageWidth }){
 }
 
 
-function fileToImageDataURL(file){
+export function fileToImageDataURL(file){
   return new Promise((resolve, reject) => {
     const reader = new global.FileReader()
     reader.onload = () => {
@@ -55,7 +54,7 @@ function fileToImageDataURL(file){
   })
 }
 
-function loadImage(src){
+export function loadImage(src){
   return new Promise((resolve, reject) => {
     const image = new global.Image()
     image.onload = function(){ resolve(image) }
@@ -71,7 +70,7 @@ function loadImage(src){
   })
 }
 
-function imageToDataURL(image, options = {}){
+export function imageToDataURL(image, options = {}){
   const {
     type = 'image/png',
     encoderOptions,
@@ -84,19 +83,19 @@ function imageToDataURL(image, options = {}){
   return canvas.toDataURL(type, encoderOptions)
 }
 
-async function deanimateImage(image, options = {}){
+export async function deanimateImage(image, options = {}){
   if (!image.src.match(/data:image\/(gif|webp)/)) return image
   const src = imageToDataURL(image, options)
   return await loadImage(src)
 }
 
-async function fileToImage(file){
+export async function fileToImage(file){
   return await loadImage(
     await fileToImageDataURL(file)
   )
 }
 
-async function resizeImage({
+export async function resizeImage({
   image,
   dataUri,
   height,
@@ -123,17 +122,21 @@ async function resizeImage({
   return canvas.toDataURL(type, encoderOptions)
 }
 
-const aspectRatioToTopPadding = (height, width) => `${(height / width) * 100}%`
+export const aspectRatioToTopPadding = (height, width) => `${(height / width) * 100}%`
 
-
-export {
-  resizeToFill,
-  resizeToFit,
-  resizeImage,
-  fileToImageDataURL,
-  imageToDataURL,
-  fileToImage,
-  loadImage,
-  deanimateImage,
-  aspectRatioToTopPadding,
+// https://stackoverflow.com/questions/12168909/blob-from-dataurl
+export function dataURItoFile(dataURI) {
+  const matches = dataURI.match(/^data:(.+?);base64,(.+)$/)
+  const type = matches[1]
+  const byteString = atob(matches[2])
+  // write the bytes of the string to an ArrayBuffer
+  const arrayBuffer = new ArrayBuffer(byteString.length)
+  // create a view into the buffer
+  const intArray = new Uint8Array(arrayBuffer)
+  // set the bytes of the buffer to the correct values
+  for (let i = 0; i < byteString.length; i++)
+    intArray[i] = byteString.charCodeAt(i)
+  const fileName = `file.${type.split('/')[1]}`
+  // write the ArrayBuffer to a blob, and you're done
+  return new File([arrayBuffer], fileName, {type})
 }

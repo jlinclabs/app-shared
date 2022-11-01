@@ -56,8 +56,6 @@ export async function createServer(){
     next()
   })
 
-  // app.use(uploads)
-
   if (await discovery.serverRoutesExists()){
     const handler = await discovery.importServerRoutesHandler()
     let router = new Router()
