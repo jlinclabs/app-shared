@@ -84,6 +84,11 @@ program
   .action(build)
 
 program
+  .command('dev-db-migrate')
+  .description('migrate db in development')
+  .action(dbDeploy)
+
+program
   .command('start')
   .description('start server for production')
   .action(start)
@@ -92,15 +97,7 @@ program.parse(process.argv)
 
 
 async function devDbMigrate(){
-  process.env.PRISMA_BUILD = Path.join(process.env.APP_PATH, 'server', '.prisma')
-  const SCHEMA_PATH = Path.join(process.env.APP_PATH, 'server', 'schema.prisma')
-  await spawn(
-    'npx',
-    ['prisma', 'migrate', 'dev', `--schema=${SCHEMA_PATH}`],
-    {
-      stdio: 'inherit',
-    },
-  )
+  await spawnPrisma('migrate', 'dev')
 }
 
 async function devStart(){
@@ -242,4 +239,21 @@ async function devNpmLink(appSharedPath){
   }
   // await spawn('rm', ['-rf', `${process.env.APP_PATH}/node_modules/${packageName}`])
   // await spawn('ln', ['-s', `${appSharedPath}`, `${process.env.APP_PATH}/node_modules/${packageName}`])
+}
+
+
+async function dbDeploy(){
+  await spawnPrisma('migrate', 'deploy')
+}
+
+async function spawnPrisma(...args){
+  process.env.PRISMA_BUILD = Path.join(process.env.APP_PATH, 'server', '.prisma')
+  const SCHEMA_PATH = Path.join(process.env.APP_PATH, 'server', 'schema.prisma')
+  await spawn(
+    'npx',
+    ['prisma', ...args, `--schema=${SCHEMA_PATH}`],
+    {
+      stdio: 'inherit',
+    },
+  )
 }
