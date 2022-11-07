@@ -84,8 +84,8 @@ program
   .action(build)
 
 program
-  .command('dev-db-migrate')
-  .description('migrate db in development')
+  .command('db-migrate')
+  .description('migrate db in production')
   .action(dbDeploy)
 
 program
@@ -134,16 +134,25 @@ async function devStartClient(){
   if (!process.env.API_SERVER) throw new Error('ERROR: $API_SERVER is not set')
   process.env.NODE_ENV = "development"
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+  const proxyrc = {
+    // "/.well-known": {
+    //   "target": process.env.API_SERVER,
+    // },
+    // "/api": {
+    //   "target": process.env.API_SERVER,
+    // },
+  }
+  const proxyPrefixes = [
+    '/.well-known',
+    '/api',
+    ...(process.env.DEV_PROXY_PREFIXES || '').split(',').filter(s => s)
+  ]
+  for (const prefix of proxyPrefixes)
+    proxyrc[prefix] = { target: process.env.API_SERVER }
+
   await writeFile(
     Path.join(process.env.APP_PATH, '.proxyrc'),
-    JSON.stringify({
-      "/.well-known": {
-        "target": process.env.API_SERVER,
-      },
-      "/api": {
-        "target": process.env.API_SERVER,
-      },
-    }, null, 2)
+    JSON.stringify(proxyrc, null, 2)
   )
   await spawn(
     'npx',
