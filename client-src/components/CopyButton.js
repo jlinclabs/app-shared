@@ -1,25 +1,26 @@
 import * as React from 'react'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
-import CopyAllIcon from '@mui/icons-material/CopyAll'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import { copyText } from '../lib/clipboard.js'
 
 export default function CopyButton({
   children,
   variant = 'button',
   value,
+  icon = <ContentCopyIcon/>,
   ...props
 }){
   const copy = React.useCallback(() => { copyText(value) }, [value])
   if (variant === 'icon'){
     return <IconButton
       color="primary"
-      aria-label="upload picture"
       component="label"
       onClick={copy}
+      {...props}
     >
       {children}
-      <CopyAllIcon />
+      {icon}
     </IconButton>
   }
   return <Button {...{
@@ -27,7 +28,5 @@ export default function CopyButton({
   }}>
     {children}
   </Button>
-  // return <Button
-
 }
 
