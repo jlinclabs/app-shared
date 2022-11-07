@@ -151,7 +151,7 @@ async function devStartClient(){
   try{
     proxyPrefixes = [
       ...proxyPrefixes,
-      ...JSON.parse(await readFile(appPath('.proxyprefixes'))),
+      ...JSON.parse(await readFile(appPath('.proxyprefixes.json'))),
     ]
   }catch(error){
     console.error('failed to load proxy prefixes', error.code, error)
