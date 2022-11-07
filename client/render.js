@@ -3,6 +3,8 @@ import $h2dLv$react, {Component as $h2dLv$Component} from "react";
 import $h2dLv$reactdomclient from "react-dom/client";
 import {BrowserRouter as $h2dLv$BrowserRouter} from "react-router-dom";
 import {ThemeProvider as $h2dLv$ThemeProvider, CssBaseline as $h2dLv$CssBaseline} from "@mui/material";
+import {ToastContainer as $h2dLv$ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {createTheme as $h2dLv$createTheme} from "@mui/material/styles";
 import {red as $h2dLv$red, purple as $h2dLv$purple} from "@mui/material/colors";
 import $h2dLv$muimaterialContainer from "@mui/material/Container";
@@ -18,6 +20,8 @@ function $parcel$defineInteropFlag(a) {
 function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
+
+
 
 
 
@@ -145,6 +149,7 @@ function $3d27138bea64f431$export$b3890eb0ae9dca99(opts = {}) {
                 /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$CssBaseline), {
                     enableColorScheme: true
                 }),
+                /*#__PURE__*/ (0, $h2dLv$jsx)((0, $h2dLv$ToastContainer), {}),
                 /*#__PURE__*/ (0, $h2dLv$jsx)((0, $2db3f843c0804b10$export$2e2bcd8739ae039), {
                     onError: (error)=>/*#__PURE__*/ (0, $h2dLv$jsx)((0, $398477c469915369$export$2e2bcd8739ae039), {
                             error: error
