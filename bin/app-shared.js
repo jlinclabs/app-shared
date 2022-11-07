@@ -146,11 +146,17 @@ async function devStartClient(){
     //   "target": process.env.API_SERVER,
     // },
   }
-  const proxyPrefixes = [
-    '/.well-known',
-    '/api',
-    ...(process.env.DEV_PROXY_PREFIXES || '').split(',').filter(s => s)
-  ]
+
+  let proxyPrefixes = ['/.well-known', '/api']
+  try{
+    proxyPrefixes = [
+      ...proxyPrefixes,
+      ...JSON.parse(await readFile(appPath('.proxyprefixes'))),
+    ]
+  }catch(error){
+    console.error('failed to load proxy prefixes', error.code, error)
+  }
+
   for (const prefix of proxyPrefixes)
     proxyrc[prefix] = { target: process.env.API_SERVER }
 
