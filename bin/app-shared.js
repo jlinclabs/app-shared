@@ -9,6 +9,13 @@ import { Command } from 'commander'
 import { packageDirectory } from 'pkg-dir'
 import * as dotenv from 'dotenv'
 
+if (!process.env.APP_PATH)
+  process.env.APP_PATH = await packageDirectory()
+
+dotenv.config({
+  path: Path.join(process.env.APP_PATH, '.env')
+})
+
 const spawn = (cmd, args, options) => {
   options = {
     stdio: ['ignore', 'inherit', 'inherit'],
@@ -28,18 +35,15 @@ const realpath = async path => {
   return stdout.trim()
 }
 
-const modPath = path =>
-  realpath(Path.join(process.env.APP_PATH, 'node_modules', 'app-shared', path))
+const appPath = (...path) =>
+  Path.join(process.env.APP_PATH, ...path)
+
+const modPath = async (...path) =>
+  await realpath(appPath('node_modules', 'app-shared', ...path))
 
 const THIS_SCRIPT = fileURLToPath(import.meta.url)
 const THIS_PACKAGE = Path.resolve(THIS_SCRIPT, '../..')
 
-if (!process.env.APP_PATH)
-  process.env.APP_PATH = await packageDirectory()
-
-dotenv.config({
-  path: Path.join(process.env.APP_PATH, '.env')
-})
 
 const program = new Command()
 
@@ -151,7 +155,7 @@ async function devStartClient(){
     proxyrc[prefix] = { target: process.env.API_SERVER }
 
   await writeFile(
-    Path.join(process.env.APP_PATH, '.proxyrc'),
+    appPath('.proxyrc'),
     JSON.stringify(proxyrc, null, 2)
   )
   await spawn(
@@ -168,8 +172,8 @@ async function devStartClient(){
       '--port', `${process.env.PORT}`,
       '--no-cache',
       // '--cache-dir', `${process.env.APP_PATH}/tmp/cache`,
-      '--dist-dir', `${process.env.APP_PATH}/client-build`,
-      `${process.env.APP_PATH}/client/index.html`
+      '--dist-dir', appPath('client-build'),
+      appPath('client/index.html')
     ],
   )
 }
@@ -187,7 +191,7 @@ async function devStartServer(){
       '-w', await modPath('bin/app-shared.js'),
       // '-w', `${process.env.APP_PATH}/node_modules/app-shared/server`,
       '-w', await modPath('server'),
-      '-w', `${process.env.APP_PATH}/server`,
+      '-w', appPath('server'),
       '--exec',
       `${THIS_SCRIPT} start`
     ],
@@ -202,8 +206,8 @@ async function build(){
     [
       'parcel',
       'build',
-      '--dist-dir', `${process.env.APP_PATH}/client-build`,
-      `${process.env.APP_PATH}/client/index.html`
+      '--dist-dir', appPath('client-build'),
+      appPath('client/index.html'),
     ],
   )
 }
