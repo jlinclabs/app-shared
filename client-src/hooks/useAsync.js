@@ -1,26 +1,25 @@
 import * as React from 'react'
-import { useState, useCallback, useEffect } from 'react'
+import { useRef, useMemo, useCallback, useEffect } from 'react'
 import useForceUpdate from './useForceUpdate'
 
 const STATES = ['idle', 'pending', 'resolved', 'rejected']
 export default function useAsync(asyncFunction, config = {}){
   const { callOnMount, onSuccess, onFailure, onComplete } = config
+  const callbacks = useRef()
+  Object.assign(callbacks, { onSuccess, onFailure, onComplete })
   const forceUpdate = useForceUpdate()
-  const [ctx] = useState({})
-
-  const setState = state => {
-    ctx.state = STATES[state]
-    STATES.forEach((name, index) => {
-      ctx[name] = index === state
-    })
-    forceUpdate()
-  }
-
-  if (ctx.state === undefined) setState(0)
+  const ctx = useMemo(() => ({}), [asyncFunction, callOnMount])
 
   ctx.call = useCallback(
     (...args) => {
       if (ctx.promise) throw new Error(`already executing`)
+      const setState = state => {
+        ctx.state = STATES[state]
+        STATES.forEach((name, index) => {
+          ctx[name] = index === state
+        })
+        forceUpdate()
+      }
       ctx.promise = new Promise((resolve, reject) => {
         asyncFunction(...args).then(resolve, reject)
       }).then(
@@ -28,28 +27,28 @@ export default function useAsync(asyncFunction, config = {}){
           delete ctx.promise
           ctx.result = result
           setState(2)
-          if (onSuccess) await onSuccess(result)
+          if (callbacks.onSuccess) await callbacks.onSuccess(result)
           return result
         },
         async error => {
           delete ctx.promise
           ctx.error = error
-          if (onFailure) await onFailure(error)
+          if (callbacks.onFailure) await callbacks.onFailure(error)
           setState(3)
           return error
         },
-      ).then(result => {
-        if (onComplete) onComplete(result)
+      ).then(async result => {
+        if (callbacks.onComplete) await callbacks.onComplete(result)
       })
       setState(1)
       return ctx.promise
     },
-    [asyncFunction]
+    [ctx]
   )
 
   useEffect(
-    () => { if (callOnMount && ctx.state === STATES['0']) ctx.call() },
-    [ctx.call, callOnMount, ctx.state]
+    () => { if (callOnMount && ctx.idle) ctx.call() },
+    [ctx]
   )
 
   return ctx

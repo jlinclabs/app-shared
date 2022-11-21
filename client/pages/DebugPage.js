@@ -1,5 +1,5 @@
 import {jsx as $d8gED$jsx, jsxs as $d8gED$jsxs} from "react/jsx-runtime";
-import {useEffect as $d8gED$useEffect, useState as $d8gED$useState, useCallback as $d8gED$useCallback, forwardRef as $d8gED$forwardRef} from "react";
+import {useEffect as $d8gED$useEffect, useState as $d8gED$useState, useCallback as $d8gED$useCallback, forwardRef as $d8gED$forwardRef, useRef as $d8gED$useRef, useMemo as $d8gED$useMemo} from "react";
 import {useLocation as $d8gED$useLocation, Routes as $d8gED$Routes, Route as $d8gED$Route, useNavigate as $d8gED$useNavigate, Link as $d8gED$Link} from "react-router-dom";
 import {ErrorBoundary as $d8gED$ErrorBoundary} from "react-error-boundary";
 import $d8gED$muimaterialContainer from "@mui/material/Container";
@@ -253,46 +253,52 @@ const $27954de794c56674$var$STATES = [
 ];
 function $27954de794c56674$export$2e2bcd8739ae039(asyncFunction, config = {}) {
     const { callOnMount: callOnMount , onSuccess: onSuccess , onFailure: onFailure , onComplete: onComplete  } = config;
+    const callbacks = (0, $d8gED$useRef)();
+    Object.assign(callbacks, {
+        onSuccess: onSuccess,
+        onFailure: onFailure,
+        onComplete: onComplete
+    });
     const forceUpdate = (0, $b6a953b0721d86c6$export$2e2bcd8739ae039)();
-    const [ctx] = (0, $d8gED$useState)({});
-    const setState = (state)=>{
-        ctx.state = $27954de794c56674$var$STATES[state];
-        $27954de794c56674$var$STATES.forEach((name, index)=>{
-            ctx[name] = index === state;
-        });
-        forceUpdate();
-    };
-    if (ctx.state === undefined) setState(0);
+    const ctx = (0, $d8gED$useMemo)(()=>({}), [
+        asyncFunction,
+        callOnMount
+    ]);
     ctx.call = (0, $d8gED$useCallback)((...args)=>{
         if (ctx.promise) throw new Error(`already executing`);
+        const setState = (state)=>{
+            ctx.state = $27954de794c56674$var$STATES[state];
+            $27954de794c56674$var$STATES.forEach((name, index)=>{
+                ctx[name] = index === state;
+            });
+            forceUpdate();
+        };
         ctx.promise = new Promise((resolve, reject)=>{
             asyncFunction(...args).then(resolve, reject);
         }).then(async (result)=>{
             delete ctx.promise;
             ctx.result = result;
             setState(2);
-            if (onSuccess) await onSuccess(result);
+            if (callbacks.onSuccess) await callbacks.onSuccess(result);
             return result;
         }, async (error)=>{
             delete ctx.promise;
             ctx.error = error;
-            if (onFailure) await onFailure(error);
+            if (callbacks.onFailure) await callbacks.onFailure(error);
             setState(3);
             return error;
-        }).then((result)=>{
-            if (onComplete) onComplete(result);
+        }).then(async (result)=>{
+            if (callbacks.onComplete) await callbacks.onComplete(result);
         });
         setState(1);
         return ctx.promise;
     }, [
-        asyncFunction
+        ctx
     ]);
     (0, $d8gED$useEffect)(()=>{
-        if (callOnMount && ctx.state === $27954de794c56674$var$STATES["0"]) ctx.call();
+        if (callOnMount && ctx.idle) ctx.call();
     }, [
-        ctx.call,
-        callOnMount,
-        ctx.state
+        ctx
     ]);
     return ctx;
 }

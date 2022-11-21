@@ -1,5 +1,5 @@
 import {jsxs as $gBUKT$jsxs, jsx as $gBUKT$jsx} from "react/jsx-runtime";
-import {useState as $gBUKT$useState, forwardRef as $gBUKT$forwardRef, useCallback as $gBUKT$useCallback, useEffect as $gBUKT$useEffect} from "react";
+import {useState as $gBUKT$useState, forwardRef as $gBUKT$forwardRef, useCallback as $gBUKT$useCallback, useEffect as $gBUKT$useEffect, useRef as $gBUKT$useRef, useMemo as $gBUKT$useMemo} from "react";
 import $gBUKT$muimaterialPaper from "@mui/material/Paper";
 import $gBUKT$muimaterialTypography from "@mui/material/Typography";
 import $gBUKT$muimaterialStack from "@mui/material/Stack";
@@ -135,46 +135,52 @@ const $27954de794c56674$var$STATES = [
 ];
 function $27954de794c56674$export$2e2bcd8739ae039(asyncFunction, config = {}) {
     const { callOnMount: callOnMount , onSuccess: onSuccess , onFailure: onFailure , onComplete: onComplete  } = config;
+    const callbacks = (0, $gBUKT$useRef)();
+    Object.assign(callbacks, {
+        onSuccess: onSuccess,
+        onFailure: onFailure,
+        onComplete: onComplete
+    });
     const forceUpdate = (0, $b6a953b0721d86c6$export$2e2bcd8739ae039)();
-    const [ctx] = (0, $gBUKT$useState)({});
-    const setState = (state)=>{
-        ctx.state = $27954de794c56674$var$STATES[state];
-        $27954de794c56674$var$STATES.forEach((name, index)=>{
-            ctx[name] = index === state;
-        });
-        forceUpdate();
-    };
-    if (ctx.state === undefined) setState(0);
+    const ctx = (0, $gBUKT$useMemo)(()=>({}), [
+        asyncFunction,
+        callOnMount
+    ]);
     ctx.call = (0, $gBUKT$useCallback)((...args)=>{
         if (ctx.promise) throw new Error(`already executing`);
+        const setState = (state)=>{
+            ctx.state = $27954de794c56674$var$STATES[state];
+            $27954de794c56674$var$STATES.forEach((name, index)=>{
+                ctx[name] = index === state;
+            });
+            forceUpdate();
+        };
         ctx.promise = new Promise((resolve, reject)=>{
             asyncFunction(...args).then(resolve, reject);
         }).then(async (result)=>{
             delete ctx.promise;
             ctx.result = result;
             setState(2);
-            if (onSuccess) await onSuccess(result);
+            if (callbacks.onSuccess) await callbacks.onSuccess(result);
             return result;
         }, async (error)=>{
             delete ctx.promise;
             ctx.error = error;
-            if (onFailure) await onFailure(error);
+            if (callbacks.onFailure) await callbacks.onFailure(error);
             setState(3);
             return error;
-        }).then((result)=>{
-            if (onComplete) onComplete(result);
+        }).then(async (result)=>{
+            if (callbacks.onComplete) await callbacks.onComplete(result);
         });
         setState(1);
         return ctx.promise;
     }, [
-        asyncFunction
+        ctx
     ]);
     (0, $gBUKT$useEffect)(()=>{
-        if (callOnMount && ctx.state === $27954de794c56674$var$STATES["0"]) ctx.call();
+        if (callOnMount && ctx.idle) ctx.call();
     }, [
-        ctx.call,
-        callOnMount,
-        ctx.state
+        ctx
     ]);
     return ctx;
 }
