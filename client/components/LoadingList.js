@@ -78,7 +78,7 @@ function $fc958af85eab674d$export$2e2bcd8739ae039({ loading: loading , error: er
     skeletonLength: skeletonLength,
     skeletonHeight: skeletonHeight,
     skeletonWidth: skeletonWidth
-}) ,  }) {
+})  }) {
     return /*#__PURE__*/ (0, $iZiBo$jsx)((0, $iZiBo$muimaterialList), {
         spacing: 1,
         children: error ? /*#__PURE__*/ (0, $iZiBo$jsx)((0, $e57fa53a045bcfbf$export$2e2bcd8739ae039), {

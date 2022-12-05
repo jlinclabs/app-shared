@@ -17,6 +17,7 @@ function $parcel$defineInteropFlag(a) {
 function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
+// Command. Query. Remote. Procedure. Call
 
 
 var $27954de794c56674$exports = {};

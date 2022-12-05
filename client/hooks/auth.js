@@ -25,6 +25,7 @@ $parcel$export($80d64c4521a01cab$exports, "fetchCommand", () => $80d64c4521a01ca
 $parcel$export($80d64c4521a01cab$exports, "useQuery", () => $80d64c4521a01cab$export$dd0a697e1782aedd);
 $parcel$export($80d64c4521a01cab$exports, "useCommand", () => $80d64c4521a01cab$export$194d0c7cb6792e23);
 $parcel$export($80d64c4521a01cab$exports, "useCommandOnMount", () => $80d64c4521a01cab$export$b87ac4c6452497e4);
+// Command. Query. Remote. Procedure. Call
 
 
 var $27954de794c56674$exports = {};

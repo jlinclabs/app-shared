@@ -82,7 +82,7 @@ function $77f8f4e7680be876$export$fe58198efe02b173(src) {
     });
 }
 function $77f8f4e7680be876$export$ccb86a7570dd177(image, options = {}) {
-    const { type: type = "image/png" , encoderOptions: encoderOptions ,  } = options;
+    const { type: type = "image/png" , encoderOptions: encoderOptions  } = options;
     const canvas = $parcel$global.document.createElement("canvas");
     canvas.width = image.naturalWidth;
     canvas.height = image.naturalHeight;
@@ -98,7 +98,7 @@ async function $77f8f4e7680be876$export$7beea4af782414c4(image, options = {}) {
 async function $77f8f4e7680be876$export$4128de1b6b235a86(file) {
     return await $77f8f4e7680be876$export$fe58198efe02b173(await $77f8f4e7680be876$export$e23a5860bdbd2a15(file));
 }
-async function $77f8f4e7680be876$export$b423874dd89ac031({ image: image , dataUri: dataUri , height: height , width: width , resizeTo: resizeTo , type: type = "image/png" , encoderOptions: encoderOptions ,  }) {
+async function $77f8f4e7680be876$export$b423874dd89ac031({ image: image , dataUri: dataUri , height: height , width: width , resizeTo: resizeTo , type: type = "image/png" , encoderOptions: encoderOptions  }) {
     if (dataUri) image = await $77f8f4e7680be876$export$fe58198efe02b173(dataUri);
     const onResize = resizeTo === "fill" ? $77f8f4e7680be876$export$7a50b206cdbe4a00 : $77f8f4e7680be876$export$ac3b5a2068e99322;
     const canvas = $parcel$global.document.createElement("canvas");
