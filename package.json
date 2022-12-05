@@ -96,7 +96,10 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@parcel/config-default": "^2.8.0",
+    "@parcel/core": "^2.8.0",
     "brittle": "^3.1.0",
+    "parcel": "^2.8.0",
     "standard": "^17.0.0",
     "tmp-promise": "^3.0.3"
   }
