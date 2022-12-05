@@ -9,6 +9,7 @@ import $8Hdk9$muimaterialStack from "@mui/material/Stack";
 import $8Hdk9$muimaterialButton from "@mui/material/Button";
 import $8Hdk9$muimaterialDivider from "@mui/material/Divider";
 import $8Hdk9$muimaterialBox from "@mui/material/Box";
+import $8Hdk9$muiiconsmaterialGitHub from "@mui/icons-material/GitHub";
 import $8Hdk9$swr from "swr";
 import $8Hdk9$muimaterialAlert from "@mui/material/Alert";
 import $8Hdk9$muimaterialLink from "@mui/material/Link";
@@ -30,6 +31,7 @@ typeof globalThis !== 'undefined'
   : typeof global !== 'undefined'
   ? global
   : {};
+
 
 
 
@@ -763,6 +765,18 @@ function $b0e3fa2d987314e2$var$Signup() {
                         to: "/signup/password",
                         component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
                         children: "Email & Password"
+                    }),
+                    /*#__PURE__*/ (0, $8Hdk9$jsxs)((0, $8Hdk9$muimaterialButton), {
+                        variant: "contained",
+                        to: "/signup/wallet",
+                        component: (0, $08b8c86ef070e3a0$export$2e2bcd8739ae039),
+                        children: [
+                            /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muiiconsmaterialGitHub), {}),
+                            "\xa0",
+                            /*#__PURE__*/ (0, $8Hdk9$jsx)("span", {
+                                children: "Oauth Github"
+                            })
+                        ]
                     }),
                     /*#__PURE__*/ (0, $8Hdk9$jsx)((0, $8Hdk9$muimaterialButton), {
                         variant: "contained",

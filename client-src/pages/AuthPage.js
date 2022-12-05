@@ -9,6 +9,7 @@ import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Box from '@mui/material/Box'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 import RedirectPage from './RedirectPage'
 import { useSignup } from '../hooks/auth'
@@ -151,6 +152,14 @@ function Signup(){
         variant="contained"
         to="/signup/wallet"
         component={Link}
+      >
+        <GitHubIcon/>&nbsp;
+        <span>Oauth Github</span>
+      </Button>
+      <Button
+        variant="contained"
+        to="/signup/wallet"
+        component={Link}
       >Crypto Wallet</Button>
       <Button
         variant="text"
@@ -178,4 +187,3 @@ function SignupWithWallet(){
 function ForgotPassword(){
   return <div>forgot password form TBD</div>
 }
-
